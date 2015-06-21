@@ -18,8 +18,7 @@ namespace MainForm
         private GiaoDienHoTroBLL _connect = new GiaoDienHoTroBLL();
 
         public static string TUYENBAY = "TUYENBAY";
-        private string parentForm;
-        private TUYENBAY tuyenbaytemp = new TUYENBAY();
+        private string parentForm;        
         QLCBRules _rules = new QLCBRules();
         public delegate void updateDB();
         public updateDB CapNhatCSDL;
@@ -38,6 +37,18 @@ namespace MainForm
             InitializeComponent();
             UpdateData();
             textBoxMaTuyenBay.Text = AutoMaTuyenBay();
+            DataTable _t = _connect.LayMaSanBay();
+            this.comboBoxSanBayDi.DataSource = _t;
+            this.comboBoxSanBayDi.ValueMember = "MaSanBay";
+            DataTable _t2 = _connect._LayMaSanBay();
+            this.comboBoxSanBayDen.DataSource = _t2;
+            this.comboBoxSanBayDi.ValueMember = "MaSanBay";
+            DataTable _a = _connect.TenSanBay("SB001");
+            DataTable _b = _connect.TenSanBay("SB002");            
+            _ctenden.DataSource =_b;
+            _ctenden.ValueMember = "TenSanBay";
+            _ctendi.DataSource = _a;
+            _ctendi.ValueMember = "TenSanBay";
         }
         private void buttonThoat_Click(object sender, EventArgs e)
         {
@@ -56,16 +67,7 @@ namespace MainForm
             }
             textBoxMaTuyenBay.Text = AutoMaTuyenBay();
             UpdateData();
-        }
-        private void buttonSua_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                _connect.SuaTuyenBay(textBoxMaTuyenBay.Text, comboBoxSanBayDi.Text, comboBoxSanBayDen.Text);
-                UpdateData(); 
-            }
-            catch (Exception ex) { }
-        }
+        }        
         private bool CheckRule()
         {
             if (comboBoxSanBayDi.Text == "" || comboBoxSanBayDen.Text == "")
@@ -80,10 +82,7 @@ namespace MainForm
                 return false;
             }            
             return true;
-        }       
-        private void _keydown(object sender, KeyEventArgs e)
-        {
-        }
+        }               
         private string AutoMaTuyenBay()
         {
             return CreateMaTuyenBay(_connect.LayTuyenBay().Rows.Count + 1);
@@ -107,10 +106,7 @@ namespace MainForm
         }
         public void UpdateData()
         {
-            this.datagrvTuyenBay.DataSource = _connect.LayTuyenBay();            
-            DataTable _t = _connect.LayMaSanBay(""); 
-            this.comboBoxSanBayDi.DataSource = _t;
-            this.comboBoxSanBayDi.ValueMember = "MaSanBay";                                    
+            this.datagrvTuyenBay.DataSource = _connect.LayTuyenBay();                                                            
         }
 
         private void datagrvTuyenBay_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -118,17 +114,29 @@ namespace MainForm
             this.textBoxMaTuyenBay.Text = this.datagrvTuyenBay.CurrentRow.Cells[0].Value.ToString();
             this.comboBoxSanBayDi.Text = this.datagrvTuyenBay.CurrentRow.Cells[1].Value.ToString();
             this.comboBoxSanBayDen.Text = this.datagrvTuyenBay.CurrentRow.Cells[2].Value.ToString();
-        }
-
-        private void comboBoxSanBayDen_SelectedIndexChanged(object sender, EventArgs e)
-        {                                   
-        }
+        }        
         private void comboBoxSanBayDi_SelectedIndexChanged(object sender, EventArgs e)
         {
                      
             DataTable _t2 = _connect.LayMaSanBay(comboBoxSanBayDi.Text);
             this.comboBoxSanBayDen.DataSource = _t2;
             this.comboBoxSanBayDen.ValueMember = "MaSanBay";
+            DataTable _a = _connect.TenSanBay(comboBoxSanBayDi.Text);
+            DataTable _b = _connect.TenSanBay(comboBoxSanBayDen.Text);
+            _ctendi.DataSource = _a;
+            _ctendi.ValueMember = "TenSanBay";
+            _ctenden.DataSource = _b;
+            _ctenden.ValueMember = "TenSanBay";
         }
+
+        private void _ctenden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable _a = _connect.TenSanBay(comboBoxSanBayDi.Text);
+            DataTable _b = _connect.TenSanBay(comboBoxSanBayDen.Text);
+            _ctendi.DataSource = _a;
+            _ctendi.ValueMember = "TenSanBay";
+            _ctenden.DataSource = _b;
+            _ctenden.ValueMember = "TenSanBay";
+        }       
     }
 }

@@ -11,10 +11,7 @@ namespace MainForm
     {
         private GiaoDienHoTroBLL _connect = new GiaoDienHoTroBLL();
         public static string SANBAY = "SANBAY";
-        private string parentForm;
-        private SANBAY SanBayTemp;
-        public delegate void Update();
-        public Update CapNhatCSDL;
+        private string parentForm;                
         private bool isSelectOneRows = false;
 
         public string BeCalledByForm
