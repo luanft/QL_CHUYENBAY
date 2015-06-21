@@ -19,19 +19,19 @@ namespace MainForm
 
         public static string TUYENBAY = "TUYENBAY";
         private string parentForm;
-        //private TUYENBAY tuyenbaytemp = new TUYENBAY();
-        //QLCBRules _rules = new QLCBRules();
-        //public delegate void updateDB();
-        //public updateDB CapNhatCSDL;
-//         public string BeCalledByForm
-//         {
-//             get { return parentForm; }
-//             set { parentForm = value; }
-//         }
-//         public string NAME
-//         {
-//             get { return TUYENBAY; }
-//         }
+        private TUYENBAY tuyenbaytemp = new TUYENBAY();
+        QLCBRules _rules = new QLCBRules();
+        public delegate void updateDB();
+        public updateDB CapNhatCSDL;
+        public string BeCalledByForm
+        {
+            get { return parentForm; }
+            set { parentForm = value; }
+        }
+        public string NAME
+        {
+            get { return TUYENBAY; }
+        }
 
         public TuyenBay()
         {
@@ -45,6 +45,11 @@ namespace MainForm
         }
         private void buttonLuu_Click(object sender, EventArgs e)
         {
+            if (_connect.kiemtratuyenbay(comboBoxSanBayDi.Text, comboBoxSanBayDen.Text) == false)
+            { 
+                MessageBox.Show("Tuyến bay này đã tồn tại");
+                return;
+            }
             if (CheckRule())
             {
                 _connect.ThemTuyenBay(textBoxMaTuyenBay.Text, comboBoxSanBayDi.Text, comboBoxSanBayDen.Text);
@@ -73,7 +78,7 @@ namespace MainForm
 
                 MessageBox.Show("Sân bay đi đến không thể trùng nhau!");
                 return false;
-            }
+            }            
             return true;
         }       
         private void _keydown(object sender, KeyEventArgs e)
@@ -102,13 +107,10 @@ namespace MainForm
         }
         public void UpdateData()
         {
-            this.datagrvTuyenBay.DataSource = _connect.LayTuyenBay();
-            DataTable _t = _connect.LayMaSanBay();
-            DataTable _t2 = _connect.LayMaSanBay();
-            this.comboBoxSanBayDen.DataSource = _t;
-            this.comboBoxSanBayDi.DataSource = _t2;
-            this.comboBoxSanBayDen.ValueMember = "MaSanBay";
-            this.comboBoxSanBayDi.ValueMember = "MaSanBay";
+            this.datagrvTuyenBay.DataSource = _connect.LayTuyenBay();            
+            DataTable _t = _connect.LayMaSanBay(""); 
+            this.comboBoxSanBayDi.DataSource = _t;
+            this.comboBoxSanBayDi.ValueMember = "MaSanBay";                                    
         }
 
         private void datagrvTuyenBay_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -116,6 +118,17 @@ namespace MainForm
             this.textBoxMaTuyenBay.Text = this.datagrvTuyenBay.CurrentRow.Cells[0].Value.ToString();
             this.comboBoxSanBayDi.Text = this.datagrvTuyenBay.CurrentRow.Cells[1].Value.ToString();
             this.comboBoxSanBayDen.Text = this.datagrvTuyenBay.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void comboBoxSanBayDen_SelectedIndexChanged(object sender, EventArgs e)
+        {                                   
+        }
+        private void comboBoxSanBayDi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                     
+            DataTable _t2 = _connect.LayMaSanBay(comboBoxSanBayDi.Text);
+            this.comboBoxSanBayDen.DataSource = _t2;
+            this.comboBoxSanBayDen.ValueMember = "MaSanBay";
         }
     }
 }

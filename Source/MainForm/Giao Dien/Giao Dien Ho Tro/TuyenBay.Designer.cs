@@ -125,6 +125,7 @@
             this.comboBoxSanBayDen.Name = "comboBoxSanBayDen";
             this.comboBoxSanBayDen.Size = new System.Drawing.Size(258, 28);
             this.comboBoxSanBayDen.TabIndex = 1;
+            this.comboBoxSanBayDen.SelectedIndexChanged += new System.EventHandler(this.comboBoxSanBayDen_SelectedIndexChanged);
             // 
             // comboBoxSanBayDi
             // 
@@ -136,6 +137,7 @@
             this.comboBoxSanBayDi.Name = "comboBoxSanBayDi";
             this.comboBoxSanBayDi.Size = new System.Drawing.Size(258, 28);
             this.comboBoxSanBayDi.TabIndex = 0;
+            this.comboBoxSanBayDi.SelectedIndexChanged += new System.EventHandler(this.comboBoxSanBayDi_SelectedIndexChanged);
             // 
             // groupBox2
             // 

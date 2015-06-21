@@ -19,13 +19,13 @@ namespace MainForm.Giao_diện
         GiaoDienHoTroBLL _connect = new GiaoDienHoTroBLL();
 
         private string _parrentForm;        
-//         private Table<HANGVE> hangves;
-//         private HANGVE hangvetemp = new HANGVE();        
-//         public string BeCalledByForm
-//         {
-//             get { return _parrentForm; }
-//             set { _parrentForm = value; }
-//         }
+        private Table<HANGVE> hangves;
+        private HANGVE hangvetemp = new HANGVE();        
+        public string BeCalledByForm
+        {
+            get { return _parrentForm; }
+            set { _parrentForm = value; }
+        }
         public HangVe()
         {
             InitializeComponent();
@@ -56,9 +56,9 @@ namespace MainForm.Giao_diện
         }                 
         private void ResethangVeTemp()
         {
-//             hangvetemp.MaHangVe = "";
-//             hangvetemp.TenHangVe = "";
-//             hangvetemp.TiLeDonGia = 1.0;
+            hangvetemp.MaHangVe = "";
+            hangvetemp.TenHangVe = "";
+            hangvetemp.TiLeDonGia = 1.0;
         }
         private bool CheckRules()
         {
