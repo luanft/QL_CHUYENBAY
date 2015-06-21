@@ -34,7 +34,7 @@ namespace MainForm
         {            
             try
             {
-                if (textBoxHangChotDatVe.Text == "")
+                if (textBoxHangChotDatVeMoi.Text == "")
                 {
                     _connect.ThemThamSo(Int32.Parse(textBoxSoSanBayTGToiDaMoi.Text),
                         Int32.Parse(textBoxThoiGianDungToiThieuMoi.Text),
@@ -64,15 +64,20 @@ namespace MainForm
             if (r.Rows.Count == 0)
                 return;
 
-            textBoxSoSanBayTGToiDa.Text = r.Rows[0]["SoSanBayTrungGianToiDa"].ToString();
-            textBoxThoiGianBayToiThieu.Text = r.Rows[0]["ThoiGianBayToiThieu"].ToString();
-            textBoxThoiGianDungToiDa.Text = r.Rows[0]["ThoiGianDungToiDa"].ToString();
-            textBoxThoiGianDungToiThieu.Text = r.Rows[0]["ThoiGianDungToiThieu"].ToString();
-            textBoxHangChotDatVe.Text = r.Rows[0]["HangChotDatVe"].ToString();
+            textBoxSoSanBayTGToiDaMoi.Text = r.Rows[0]["SoSanBayTrungGianToiDa"].ToString();
+            textBoxThoiGianBayToiThieuMoi.Text = r.Rows[0]["ThoiGianBayToiThieu"].ToString();
+            textBoxThoiGianDungToiDaMoi.Text = r.Rows[0]["ThoiGianDungToiDa"].ToString();
+            textBoxThoiGianDungToiThieuMoi.Text = r.Rows[0]["ThoiGianDungToiThieu"].ToString();
+            textBoxHangChotDatVeMoi.Text = r.Rows[0]["HangChotDatVe"].ToString();
         }
         private void _btthoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBoxSoSanBayTGToiDaMoi_TextChanged(object sender, EventArgs e)
+        {
+
         }
                                
     }
