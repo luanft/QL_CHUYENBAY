@@ -1,6 +1,6 @@
 ﻿namespace MainForm
 {
-    partial class LichChuyenBay
+    partial class ThemLichChuyenBay
     {
         /// <summary>
         /// Required designer variable.

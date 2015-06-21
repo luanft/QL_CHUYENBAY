@@ -37,10 +37,14 @@ namespace MainForm.BusinessLogicLayer
         }
         public string LayTenSanBayDi(string MaChuyenBay)
         {
+            if (dal.LayTenSanBayDi(MaChuyenBay).Rows.Count < 1)
+                return null;
             return dal.LayTenSanBayDi(MaChuyenBay).Rows[0][0].ToString();
         }
         public string LayTenSanBayDen(string MaChuyenBay)
         {
+            if (dal.LayTenSanBayDen(MaChuyenBay).Rows.Count < 1)
+                return null;
             return dal.LayTenSanBayDen(MaChuyenBay).Rows[0][0].ToString();
         }
         public void ThemChuyenBay(string MaChuyenBay, string MaTuyenBay, int 
@@ -58,6 +62,8 @@ namespace MainForm.BusinessLogicLayer
         }
         public int LayThamSo(string TenThamSo)
         {
+            if (dal.LayThamSo(TenThamSo).Rows.Count < 1)
+                return 0;
             return int.Parse(dal.LayThamSo(TenThamSo).Rows[0][0].ToString()); 
         }
 

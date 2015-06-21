@@ -103,7 +103,7 @@ namespace MainForm
             //             FormManager.CurrentLichChuyenBay.Show();
             // 
             //             FormManager.CurrentLichChuyenBay.BeCalledByForm = NAME;
-            LichChuyenBay l = new LichChuyenBay();
+            ThemLichChuyenBay l = new ThemLichChuyenBay();
             l.ShowDialog();
         }
 
@@ -152,7 +152,7 @@ namespace MainForm
             //             FormManager.CurrentLichBay.Show();
             //             FormManager.CurrentLichBay.Focus();
             //             FormManager.CurrentLichBay.BeCalledByForm = NAME;
-            LichChuyenBay l = new LichChuyenBay();
+            TraCuuLichBay l = new TraCuuLichBay();
             l.ShowDialog();
 
         }

@@ -1,6 +1,6 @@
 ﻿namespace MainForm
 {
-    partial class LichBay
+    partial class TraCuuLichBay
     {
         /// <summary>
         /// Required designer variable.

@@ -161,7 +161,7 @@ namespace MainForm
         }
     }
     #endregion
-    public partial class LichChuyenBay : Form
+    public partial class ThemLichChuyenBay : Form
     {
         BusinessLogicLayer.ThemChuyenBayBLL bll =new BusinessLogicLayer.ThemChuyenBayBLL();
         public static string LICHCHUYENBAY = "LICHCHUYENBAY";
@@ -184,7 +184,7 @@ namespace MainForm
             InitTuyenBay();
             // cập nhật cbbMaTuyenBay
         }
-        public LichChuyenBay()
+        public ThemLichChuyenBay()
         {
             KeyPreview = true;
             InitializeComponent();
@@ -718,19 +718,21 @@ namespace MainForm
             //THAMSO k = thamsos.Single(p => p.STT == 1);
 
 
-            string str = @"^\d{2,3}$";
+            //string str = @"^\d{2,3}$";
+            string str = @"^[-+]?[0-9]*\.?[0-9]+$";
             Regex rg = new Regex(str);
+            
             if (!rg.IsMatch(textBoxThoiGianBay.Text))
             {
 
-                MessageBox.Show(this, "Thời gian bay không được là kí tự, lớn hơn 10 và bé hơn 999", "Cảnh Báo!");
+                MessageBox.Show(this, "Thời gian bay không được là kí tự", "Cảnh Báo!");
                 labelThoiGianBay.ForeColor = Color.Red;
                 isThoiGianValid = false;
             }
             else
             {
                 int ThoiGianBayToiThieu = bll.LayThamSo("ThoiGianBayToiThieu");
-                if (Int16.Parse(textBoxThoiGianBay.Text) < ThoiGianBayToiThieu)
+                if (Int32.Parse(textBoxThoiGianBay.Text) < ThoiGianBayToiThieu  && ThoiGianBayToiThieu>0)
                 {
                     MessageBox.Show(this, "Thời gian bay phải lớn hơn " + ThoiGianBayToiThieu, "Cảnh Báo!");
                     labelThoiGianBay.ForeColor = Color.Red;
@@ -1235,7 +1237,7 @@ namespace MainForm
                 return false;
             }
             //Luật số lượng sân bay trung gian
-            if (dataGridViewSanBayTrungGian.Rows.Count - 1 > SoSBTGToiDa)
+            if (dataGridViewSanBayTrungGian.Rows.Count - 1 > SoSBTGToiDa && SoSBTGToiDa>0)
             {
                 MessageBox.Show("Số sân bay trung gian tối đa không thể quá " + SoSBTGToiDa);
                 return false;
@@ -1248,7 +1250,7 @@ namespace MainForm
                     return false;
                 }
                 if (Int16.Parse(dataGridViewSanBayTrungGian.Rows[i].Cells[1].Value.ToString()) < TGDToiThieu ||
-                   Int16.Parse(dataGridViewSanBayTrungGian.Rows[i].Cells[1].Value.ToString()) > TGDToiDa)
+                   Int16.Parse(dataGridViewSanBayTrungGian.Rows[i].Cells[1].Value.ToString()) > TGDToiDa && TGDToiThieu>0 && TGDToiDa>0)
                 {
                     MessageBox.Show(TGDToiThieu + " >= thoi gian dung <= " + TGDToiDa);
                     return false;

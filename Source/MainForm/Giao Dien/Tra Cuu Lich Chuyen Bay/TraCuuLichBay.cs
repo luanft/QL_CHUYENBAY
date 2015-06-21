@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MainForm
 {
-    public partial class LichBay : Form
+    public partial class TraCuuLichBay : Form
     {
         //QLCBDataContext db = new QLCBDataContext();
         //QLCBRules _rule = new QLCBRules();
@@ -32,7 +32,7 @@ namespace MainForm
         }
 
         // constructor
-        public LichBay()
+        public TraCuuLichBay()
         {
             InitializeComponent();
             setDateTimePickerFormat(dateTimePickerCuoi);
