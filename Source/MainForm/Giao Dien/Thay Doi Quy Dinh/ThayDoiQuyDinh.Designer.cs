@@ -265,7 +265,7 @@
             this._btthoat.TabIndex = 13;
             this._btthoat.Text = "Thoát";
             this._btthoat.UseVisualStyleBackColor = true;
-            //this._btthoat.Click += new System.EventHandler(this._btthoat_Click);
+            this._btthoat.Click += new System.EventHandler(this._btthoat_Click);
             // 
             // QuyDinh
             // 

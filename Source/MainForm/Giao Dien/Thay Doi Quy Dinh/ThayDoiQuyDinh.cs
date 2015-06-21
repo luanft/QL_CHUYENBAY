@@ -29,52 +29,51 @@ namespace MainForm
             get { return _parentForm; }
             set { _parentForm = value; }
         }
-        //private ThamSoDAL _connect = new ThamSoDAL();
+        private ThamSoDAL _connect = new ThamSoDAL();
         private void _btcapnhat_Click(object sender, EventArgs e)
         {            
-//             try
-//             {
-//                 if (textBoxHangChotDatVe.Text == "")
-//                 {
-//                     _connect.ThemThamSo(Int32.Parse(textBoxSoSanBayTGToiDaMoi.Text),
-//                         Int32.Parse(textBoxThoiGianDungToiThieuMoi.Text),
-//                         Int32.Parse(textBoxThoiGianDungToiDaMoi.Text),
-//                         Int32.Parse(textBoxThoiGianBayToiThieuMoi.Text),
-//                         Int32.Parse(textBoxHangChotDatVeMoi.Text),
-//                         1);
-//                 }
-//                 else { 
-//                 _connect.SuaThamSo(Int32.Parse(textBoxSoSanBayTGToiDaMoi.Text),
-//                     Int32.Parse(textBoxThoiGianDungToiThieuMoi.Text), 
-//                     Int32.Parse(textBoxThoiGianDungToiDaMoi.Text),
-//                     Int32.Parse(textBoxThoiGianBayToiThieuMoi.Text),
-//                     Int32.Parse(textBoxHangChotDatVeMoi.Text),
-//                     1);
-//                 }
-//             }
-//             catch (Exception ex)
-//             {
-//                 MessageBox.Show("Vui Lòng kiểm tra dữ liệu nhập của bạn");
-//             }
-//             updateData();
+            try
+            {
+                if (textBoxHangChotDatVe.Text == "")
+                {
+                    _connect.ThemThamSo(Int32.Parse(textBoxSoSanBayTGToiDaMoi.Text),
+                        Int32.Parse(textBoxThoiGianDungToiThieuMoi.Text),
+                        Int32.Parse(textBoxThoiGianDungToiDaMoi.Text),
+                        Int32.Parse(textBoxThoiGianBayToiThieuMoi.Text),
+                        Int32.Parse(textBoxHangChotDatVeMoi.Text),
+                        1);
+                }
+                else { 
+                _connect.SuaThamSo(Int32.Parse(textBoxSoSanBayTGToiDaMoi.Text),
+                    Int32.Parse(textBoxThoiGianDungToiThieuMoi.Text), 
+                    Int32.Parse(textBoxThoiGianDungToiDaMoi.Text),
+                    Int32.Parse(textBoxThoiGianBayToiThieuMoi.Text),
+                    Int32.Parse(textBoxHangChotDatVeMoi.Text),
+                    1);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui Lòng kiểm tra dữ liệu nhập của bạn");
+            }
+            updateData();
         }
         public void updateData()
         {
-            //             DataTable r = _connect.LayThamSo();
-            //             if (r.Rows.Count == 0)
-            //                 return;
-            // 
-            //             textBoxSoSanBayTGToiDa.Text = r.Rows[0]["SoSanBayTrungGianToiDa"].ToString();
-            //             textBoxThoiGianBayToiThieu.Text = r.Rows[0]["ThoiGianBayToiThieu"].ToString();
-            //             textBoxThoiGianDungToiDa.Text = r.Rows[0]["ThoiGianDungToiDa"].ToString();
-            //             textBoxThoiGianDungToiThieu.Text = r.Rows[0]["ThoiGianDungToiThieu"].ToString();
-            //             textBoxHangChotDatVe.Text = r.Rows[0]["HangChotDatVe"].ToString();
-            //         }
-            //         private void _btthoat_Click(object sender, EventArgs e)
-            //         {
-            //             this.Close();
-            //         }
-            //   
-        }                             
+            DataTable r = _connect.LayThamSo();
+            if (r.Rows.Count == 0)
+                return;
+
+            textBoxSoSanBayTGToiDa.Text = r.Rows[0]["SoSanBayTrungGianToiDa"].ToString();
+            textBoxThoiGianBayToiThieu.Text = r.Rows[0]["ThoiGianBayToiThieu"].ToString();
+            textBoxThoiGianDungToiDa.Text = r.Rows[0]["ThoiGianDungToiDa"].ToString();
+            textBoxThoiGianDungToiThieu.Text = r.Rows[0]["ThoiGianDungToiThieu"].ToString();
+            textBoxHangChotDatVe.Text = r.Rows[0]["HangChotDatVe"].ToString();
+        }
+        private void _btthoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+                               
     }
 }
