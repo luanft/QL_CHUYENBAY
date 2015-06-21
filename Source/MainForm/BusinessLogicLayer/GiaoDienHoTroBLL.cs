@@ -16,9 +16,21 @@ namespace MainForm.BusinessLogicLayer
         public bool kiemtratuyenbay(String sbdi, String sbden){
             return _connect.kiemtratuyenbay(sbdi,sbden);
         }
-        public DataTable LayMaSanBay(String xxx)
+        public DataTable LayMaSanBay()
         {
-            return _connect.LayMaSanBay(xxx);
+            return _connect.LayMaSanBay();
+        }
+        public DataTable LayMaSanBay(String x)
+        {
+            return _connect.LayMaSanBay(x);
+        }
+        public DataTable TenSanBay(String masb)
+        {
+            return _connect.TenSanBay(masb);
+        }
+        public DataTable _LayMaSanBay()
+        {
+            return _connect._LayMaSanBay();
         }
         public void ThemTuyenBay(String matuyenbay, String masbdi, String masbden) {
             _connect.ThemTuyenBay(matuyenbay,masbdi,masbden);
