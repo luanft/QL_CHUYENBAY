@@ -25,10 +25,18 @@ namespace MainForm.DataAccessLayer
             String _sql = "select MaSanBay[Mã Sân Bay], TenSanBay[Tên Sân Bay], DiaChi[Địa Chỉ] from SANBAY";
             return _connect.Read(_sql);
         }
-        public DataTable LayMaSanBay()
+        public DataTable LayMaSanBay(String xxx)
         {
-            String _sql = "select MaSanBay from SANBAY";
+            String _sql = "select MaSanBay from SANBAY where SANBAY.MaSanBay !=N'" + xxx+"'";
             return _connect.Read(_sql);
+        }
+        public bool  kiemtratuyenbay(String di, String den)
+        {
+            String sql = "select * from TUYENBAY where MaSanBayDi = N'"+di+"' and MaSanBayDen = N'"+den+"'";
+            DataTable _t = _connect.Read(sql);
+            if (_t.Rows.Count != 0)
+                return false;
+            return true;
         }
         public void ThemTuyenBay(String matuyenbay, String masbdi, String masbden)
         {
