@@ -66,13 +66,13 @@ namespace MainForm.DataAccessLayer
         }
         public DataTable LayNamThang()
         {
-            string sql = "select YEAR(NgayKhoiHanh) as Year from CHUYENBAY";
+            string sql = "select distinct YEAR(NgayKhoiHanh) as Year from CHUYENBAY";
             DataTable tmp = conn.Read(sql);
             return tmp;
         }
         public DataTable LayThang(string nam)
         {
-            string sql = "select MONTH(NgayKhoiHanh) as Month from CHUYENBAY where YEAR(NgayKhoiHanh)='" + nam + "'";
+            string sql = "select MONTH(NgayKhoiHanh) as Month from CHUYENBAY where YEAR(NgayKhoiHanh)=" + nam + "";
             DataTable tmp = conn.Read(sql);
             return tmp;
         }

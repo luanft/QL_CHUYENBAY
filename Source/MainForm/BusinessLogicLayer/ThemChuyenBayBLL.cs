@@ -13,6 +13,12 @@ namespace MainForm.BusinessLogicLayer
         {
             return dal.LayDanhSachMaTuyenBay();
         }
+
+        public DataTable LayDanhSachHangVe()
+        {
+            return dal.LayCacHangVe();
+        }
+
         public string LayMaChuyenBayTiepTheo()
         {
             DataTable dt=dal.LayMaChuyenBayCuoiBang();

@@ -10,6 +10,11 @@ namespace MainForm.DataAccessLayer
     {
         DataConnection dataCon = DataConnection.getInstance();
 
+        public DataTable LayCacHangVe()
+        {
+            return dataCon.Read("select MaHangVe, 0 as SoGhe from HANGVE");
+        }
+
         public DataTable LayDanhSachMaTuyenBay()
         {
             return dataCon.Read("Select MaTuyenBay from TUYENBAY");
@@ -36,7 +41,7 @@ namespace MainForm.DataAccessLayer
         }
         public void ThemChuyenBay(string MaChuyenBay, string MaTuyenBay, int ThoiGianBay, double DonGia, string NgayKhoiHanh, string GioKhoiHanh)
         {
-            dataCon.Write(" set dateformat dmy");
+            //dataCon.Write(" set dateformat dmy");
             dataCon.Write("insert  into CHUYENBAY  values('"+MaChuyenBay+"','"+MaTuyenBay+"',"+ThoiGianBay+","+DonGia+",'"+NgayKhoiHanh+"','"+GioKhoiHanh+"')");
         }
         public void ThemLoaiGhe(string MaChuyenBay, string MaHangVe, int SoGhe, int SoGheDat, int SoGheTrong)

@@ -68,13 +68,14 @@ namespace MainForm
 
         private void BaoCaoThang_FormClosing(object sender, FormClosingEventArgs e)
         {
+            #region cmt
             //if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
             //if (e.CloseReason == CloseReason.UserClosing)
             //{
             //    // Assume that X has been clicked and act accordingly.
             //    // Confirm user wants to close
-            //    switch (MessageBox.Show(this, "Bạn có muốn dừng việc lập báo cáo tháng không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            //    switch (MessageBox.Show(this, "B?n có mu?n d?ng vi?c l?p báo cáo tháng không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             //    {
 
             //        case DialogResult.Yes:
@@ -92,6 +93,7 @@ namespace MainForm
             //            break;
             //    }
             //}
+            #endregion
         }
 
         private void buttonBaoCaoThang_Click(object sender, EventArgs e)
@@ -118,7 +120,8 @@ namespace MainForm
                 }
                 
 
-                // Vì viết theo 3 lớp nên LinQ không phù hợp cấu trúc chung   
+                #region cmt
+// Vì vi?t theo 3 l?p nên LinQ không phù h?p c?u trúc chung   
             //    int SoNgay = SoNgayTrongThang(thang, nam);
             //    Table<CHUYENBAY> temp = db.GetTable<CHUYENBAY>();
             //    Table<HANGVE> hangves = db.GetTable<HANGVE>();
@@ -167,6 +170,7 @@ namespace MainForm
             //    {
             //        dataGridViewKQ.Rows[i].Cells[3].Value = Math.Round((Convert.ToInt16(dataGridViewKQ.Rows[i].Cells[2].Value.ToString()) / tongdoanhthu), 3).ToString();
             //    }
+#endregion
             }
             
         }

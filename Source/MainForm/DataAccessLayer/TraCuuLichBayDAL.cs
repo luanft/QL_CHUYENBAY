@@ -9,6 +9,11 @@ namespace MainForm.DataAccessLayer
     class TraCuuLichBayDAL
     {
         DataConnection dataCon = DataConnection.getInstance();
+
+        public DataTable LayTatCaChuyenBay()
+        {
+            return null;
+        }
         public DataTable LayDanhSachMaChuyenBay()
         {
             return dataCon.Read("select MaChuyenBay from CHUYENBAY");  

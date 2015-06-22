@@ -30,7 +30,7 @@
         {
             this.groupBoxThongTinChuyenBay = new System.Windows.Forms.GroupBox();
             this.dataGridViewChiTietGhe = new System.Windows.Forms.DataGridView();
-            this.ColumnMaHangVe = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ColumnMaHangVe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongSoGhe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxSanBayDen = new System.Windows.Forms.TextBox();
             this.textBoxSanBayDi = new System.Windows.Forms.TextBox();
@@ -57,11 +57,9 @@
             this.ColumnGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxChucNang = new System.Windows.Forms.GroupBox();
             this.buttonLuu = new System.Windows.Forms.Button();
-            this.buttonPhucHoi = new System.Windows.Forms.Button();
+            this.buttonThoat = new System.Windows.Forms.Button();
             this.buttonXoa = new System.Windows.Forms.Button();
-            this.buttonSua = new System.Windows.Forms.Button();
             this.buttonThem = new System.Windows.Forms.Button();
-            this.buttonLuaVaThoat = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridViewChuyenBay = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +70,6 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ButtonXuatFile = new System.Windows.Forms.Button();
-            this.buttonThoat = new System.Windows.Forms.Button();
             this.groupBoxThongTinChuyenBay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietGhe)).BeginInit();
             this.groupBoxSanBayTG.SuspendLayout();
@@ -116,6 +113,8 @@
             // 
             // dataGridViewChiTietGhe
             // 
+            this.dataGridViewChiTietGhe.AllowUserToAddRows = false;
+            this.dataGridViewChiTietGhe.AllowUserToDeleteRows = false;
             this.dataGridViewChiTietGhe.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.dataGridViewChiTietGhe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewChiTietGhe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -129,14 +128,16 @@
             // ColumnMaHangVe
             // 
             this.ColumnMaHangVe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnMaHangVe.DataPropertyName = "MaHangVe";
             this.ColumnMaHangVe.HeaderText = "Mã Hạng Vé";
             this.ColumnMaHangVe.Name = "ColumnMaHangVe";
+            this.ColumnMaHangVe.ReadOnly = true;
             this.ColumnMaHangVe.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnMaHangVe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // TongSoGhe
             // 
             this.TongSoGhe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TongSoGhe.DataPropertyName = "SoGhe";
             this.TongSoGhe.HeaderText = "Số Ghế";
             this.TongSoGhe.Name = "TongSoGhe";
             // 
@@ -190,9 +191,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(342, 130);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 20);
+            this.label4.Size = new System.Drawing.Size(43, 20);
             this.label4.TabIndex = 17;
-            this.label4.Text = "1000 VNĐ";
+            this.label4.Text = "VND";
             // 
             // textBoxDonGia
             // 
@@ -202,6 +203,7 @@
             this.textBoxDonGia.Name = "textBoxDonGia";
             this.textBoxDonGia.Size = new System.Drawing.Size(162, 26);
             this.textBoxDonGia.TabIndex = 4;
+            this.textBoxDonGia.Text = "1000000";
             this.textBoxDonGia.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxDonGia_Validating);
             // 
             // labelDonGia
@@ -230,6 +232,7 @@
             this.textBoxThoiGianBay.Name = "textBoxThoiGianBay";
             this.textBoxThoiGianBay.Size = new System.Drawing.Size(126, 26);
             this.textBoxThoiGianBay.TabIndex = 3;
+            this.textBoxThoiGianBay.Text = "120";
             this.textBoxThoiGianBay.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxThoiGianBay_Validating);
             // 
             // dateTimePickerGioKhoiHanh
@@ -278,6 +281,7 @@
             // 
             this.comboBoxMaTuyenBay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxMaTuyenBay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMaTuyenBay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMaTuyenBay.FormattingEnabled = true;
             this.comboBoxMaTuyenBay.Items.AddRange(new object[] {
@@ -389,9 +393,8 @@
             // 
             this.groupBoxChucNang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxChucNang.Controls.Add(this.buttonLuu);
-            this.groupBoxChucNang.Controls.Add(this.buttonPhucHoi);
+            this.groupBoxChucNang.Controls.Add(this.buttonThoat);
             this.groupBoxChucNang.Controls.Add(this.buttonXoa);
-            this.groupBoxChucNang.Controls.Add(this.buttonSua);
             this.groupBoxChucNang.Controls.Add(this.buttonThem);
             this.groupBoxChucNang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxChucNang.Location = new System.Drawing.Point(801, 12);
@@ -405,7 +408,7 @@
             // 
             this.buttonLuu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonLuu.Enabled = false;
-            this.buttonLuu.Location = new System.Drawing.Point(15, 200);
+            this.buttonLuu.Location = new System.Drawing.Point(15, 121);
             this.buttonLuu.Name = "buttonLuu";
             this.buttonLuu.Size = new System.Drawing.Size(123, 38);
             this.buttonLuu.TabIndex = 12;
@@ -413,41 +416,29 @@
             this.buttonLuu.UseVisualStyleBackColor = true;
             this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
-            // buttonPhucHoi
+            // buttonThoat
             // 
-            this.buttonPhucHoi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPhucHoi.Enabled = false;
-            this.buttonPhucHoi.Location = new System.Drawing.Point(15, 156);
-            this.buttonPhucHoi.Name = "buttonPhucHoi";
-            this.buttonPhucHoi.Size = new System.Drawing.Size(123, 38);
-            this.buttonPhucHoi.TabIndex = 11;
-            this.buttonPhucHoi.Text = "Phục Hồi";
-            this.buttonPhucHoi.UseVisualStyleBackColor = true;
-            this.buttonPhucHoi.Click += new System.EventHandler(this.buttonPhucHoi_Click);
+            this.buttonThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonThoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonThoat.Location = new System.Drawing.Point(15, 165);
+            this.buttonThoat.Name = "buttonThoat";
+            this.buttonThoat.Size = new System.Drawing.Size(123, 38);
+            this.buttonThoat.TabIndex = 12;
+            this.buttonThoat.Text = "Thoát";
+            this.buttonThoat.UseVisualStyleBackColor = true;
+            this.buttonThoat.Click += new System.EventHandler(this.buttonThoat_Click);
             // 
             // buttonXoa
             // 
             this.buttonXoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonXoa.Enabled = false;
-            this.buttonXoa.Location = new System.Drawing.Point(15, 112);
+            this.buttonXoa.Location = new System.Drawing.Point(15, 72);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(123, 38);
             this.buttonXoa.TabIndex = 10;
             this.buttonXoa.Text = "Xóa";
             this.buttonXoa.UseVisualStyleBackColor = true;
             this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
-            // 
-            // buttonSua
-            // 
-            this.buttonSua.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSua.Enabled = false;
-            this.buttonSua.Location = new System.Drawing.Point(15, 68);
-            this.buttonSua.Name = "buttonSua";
-            this.buttonSua.Size = new System.Drawing.Size(123, 38);
-            this.buttonSua.TabIndex = 9;
-            this.buttonSua.Text = "Cập Nhật";
-            this.buttonSua.UseVisualStyleBackColor = true;
-            this.buttonSua.Click += new System.EventHandler(this.buttonSua_Click);
             // 
             // buttonThem
             // 
@@ -461,18 +452,6 @@
             this.buttonThem.Text = "Thêm";
             this.buttonThem.UseVisualStyleBackColor = true;
             this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
-            // 
-            // buttonLuaVaThoat
-            // 
-            this.buttonLuaVaThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLuaVaThoat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLuaVaThoat.Location = new System.Drawing.Point(15, 69);
-            this.buttonLuaVaThoat.Name = "buttonLuaVaThoat";
-            this.buttonLuaVaThoat.Size = new System.Drawing.Size(123, 38);
-            this.buttonLuaVaThoat.TabIndex = 11;
-            this.buttonLuaVaThoat.Text = "Lưu và Thoát";
-            this.buttonLuaVaThoat.UseVisualStyleBackColor = true;
-            this.buttonLuaVaThoat.Click += new System.EventHandler(this.buttonLuuVaThoat_Click);
             // 
             // groupBox3
             // 
@@ -505,7 +484,6 @@
             this.dataGridViewChuyenBay.Name = "dataGridViewChuyenBay";
             this.dataGridViewChuyenBay.Size = new System.Drawing.Size(760, 158);
             this.dataGridViewChuyenBay.TabIndex = 0;
-            this.dataGridViewChuyenBay.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChuyenBay_CellClick);
             // 
             // Column1
             // 
@@ -547,12 +525,10 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.ButtonXuatFile);
-            this.groupBox2.Controls.Add(this.buttonThoat);
-            this.groupBox2.Controls.Add(this.buttonLuaVaThoat);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(801, 446);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(150, 161);
+            this.groupBox2.Size = new System.Drawing.Size(150, 94);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
@@ -567,19 +543,7 @@
             this.ButtonXuatFile.UseVisualStyleBackColor = true;
             this.ButtonXuatFile.Click += new System.EventHandler(this.ButtonXuatFile_Click);
             // 
-            // buttonThoat
-            // 
-            this.buttonThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonThoat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonThoat.Location = new System.Drawing.Point(15, 113);
-            this.buttonThoat.Name = "buttonThoat";
-            this.buttonThoat.Size = new System.Drawing.Size(123, 38);
-            this.buttonThoat.TabIndex = 12;
-            this.buttonThoat.Text = "Thoát";
-            this.buttonThoat.UseVisualStyleBackColor = true;
-            this.buttonThoat.Click += new System.EventHandler(this.buttonThoat_Click);
-            // 
-            // LichChuyenBay
+            // ThemLichChuyenBay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -592,11 +556,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimumSize = new System.Drawing.Size(979, 657);
-            this.Name = "LichChuyenBay";
+            this.Name = "ThemLichChuyenBay";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tiếp Nhận Chuyến Bay";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LichChuyenBay_FormClosing);
+            this.Load += new System.EventHandler(this.ThemLichChuyenBay_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this._keydown);
             this.groupBoxThongTinChuyenBay.ResumeLayout(false);
             this.groupBoxThongTinChuyenBay.PerformLayout();
@@ -628,7 +593,6 @@
         private System.Windows.Forms.DataGridView dataGridViewSanBayTrungGian;
         private System.Windows.Forms.TextBox textBoxThoiGianBay;
         private System.Windows.Forms.DateTimePicker dateTimePickerGioKhoiHanh;
-        private System.Windows.Forms.Button buttonLuaVaThoat;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelDonGia;
         private System.Windows.Forms.TextBox textBoxDonGia;
@@ -653,11 +617,9 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn ColumnSanBayTrungGian;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnThoiGianDung;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGhiChu;
-        private System.Windows.Forms.Button buttonPhucHoi;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnMaHangVe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TongSoGhe;
         private System.Windows.Forms.Button buttonThem;
-        private System.Windows.Forms.Button buttonSua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMaHangVe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongSoGhe;
 
     }
 }

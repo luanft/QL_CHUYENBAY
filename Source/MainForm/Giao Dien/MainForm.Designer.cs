@@ -197,7 +197,7 @@
             this.baocao_Thang.ForeColor = System.Drawing.Color.Blue;
             this.baocao_Thang.Name = "baocao_Thang";
             this.baocao_Thang.Size = new System.Drawing.Size(186, 22);
-            this.baocao_Thang.Text = "Doanh Thu Tháng";
+            this.baocao_Thang.Text = "Doanh Thu Năm";
             this.baocao_Thang.Click += new System.EventHandler(this.doanhThuThangToolStripMenuItem_Click);
             // 
             // baocao_Nam
@@ -205,7 +205,7 @@
             this.baocao_Nam.ForeColor = System.Drawing.Color.Blue;
             this.baocao_Nam.Name = "baocao_Nam";
             this.baocao_Nam.Size = new System.Drawing.Size(186, 22);
-            this.baocao_Nam.Text = "Doanh Thu Năm";
+            this.baocao_Nam.Text = "Doanh Thu Tháng";
             this.baocao_Nam.Click += new System.EventHandler(this.doanhThuNamToolStripMenuItem_Click);
             // 
             // menu_Quydinh
