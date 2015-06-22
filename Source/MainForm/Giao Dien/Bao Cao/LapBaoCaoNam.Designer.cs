@@ -30,10 +30,10 @@
         {
             this.buttonQuayVe = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonBaoCao = new System.Windows.Forms.Button();
-            this.textBoxNam = new System.Windows.Forms.TextBox();
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.comboBox_Nam = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -66,10 +66,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi Tiết Doanh Thu";
             // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(4, 24);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(867, 392);
+            this.crystalReportViewer1.TabIndex = 0;
+            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox_Nam);
             this.groupBox2.Controls.Add(this.buttonBaoCao);
-            this.groupBox2.Controls.Add(this.textBoxNam);
             this.groupBox2.Location = new System.Drawing.Point(13, 14);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
@@ -90,26 +102,13 @@
             this.buttonBaoCao.UseVisualStyleBackColor = true;
             this.buttonBaoCao.Click += new System.EventHandler(this.buttonBaoCaoNam_Click);
             // 
-            // textBoxNam
+            // comboBox_Nam
             // 
-            this.textBoxNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNam.Location = new System.Drawing.Point(8, 25);
-            this.textBoxNam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxNam.Name = "textBoxNam";
-            this.textBoxNam.Size = new System.Drawing.Size(100, 31);
-            this.textBoxNam.TabIndex = 0;
-            // 
-            // crystalReportViewer1
-            // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(4, 24);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(867, 392);
-            this.crystalReportViewer1.TabIndex = 0;
-            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            this.comboBox_Nam.FormattingEnabled = true;
+            this.comboBox_Nam.Location = new System.Drawing.Point(7, 28);
+            this.comboBox_Nam.Name = "comboBox_Nam";
+            this.comboBox_Nam.Size = new System.Drawing.Size(84, 28);
+            this.comboBox_Nam.TabIndex = 2;
             // 
             // BaoCaoNam
             // 
@@ -130,7 +129,6 @@
             this.Load += new System.EventHandler(this.BaoCaoNam_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -141,7 +139,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonBaoCao;
-        private System.Windows.Forms.TextBox textBoxNam;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private System.Windows.Forms.ComboBox comboBox_Nam;
     }
 }

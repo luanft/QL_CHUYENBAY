@@ -32,12 +32,24 @@ namespace MainForm
 
         private void BaoCaoNam_Load(object sender, EventArgs e)
         {
-
+            DataTable aa= bll.LayNam();
+            if (aa.Rows.Count > 0)
+            {
+                comboBox_Nam.DataSource = bll.LayNam();
+                comboBox_Nam.DisplayMember = "Nam";
+                comboBox_Nam.ValueMember = "Nam";
+            }
+            else
+            {
+                comboBox_Nam.Enabled = false;
+                buttonBaoCao.Enabled = false;
+            }
+            
         }
 
         private void buttonBaoCaoNam_Click(object sender, EventArgs e)
         {
-            int nam = Convert.ToInt16(textBoxNam.Text);
+            int nam = Convert.ToInt16(comboBox_Nam.SelectedValue.ToString());
             cry.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\Bảo trì phần mềm\QuanLyChuyenBay\trunk\source\MainForm\Giao Dien\Bao Cao\BaoCaoNam.rpt");
             
             DataSet ds = new DataSet();
@@ -108,12 +120,12 @@ namespace MainForm
         private bool CheckRules()
         {
             QLCBRules _rule = new QLCBRules();
-            if (!_rule.IsNNumber(textBoxNam.Text) || textBoxNam.Text.Length > 4 || textBoxNam.Text == "")
+            if (!_rule.IsNNumber(comboBox_Nam.SelectedValue.ToString()) || comboBox_Nam.SelectedValue.ToString().Length > 4 || comboBox_Nam.SelectedValue.ToString() == "")
             {
                 MessageBox.Show("Không phải là 1 năm!");
                     return false;
             }
-            int nam = Convert.ToInt16(textBoxNam.Text);
+            int nam = Convert.ToInt16(comboBox_Nam.SelectedValue.ToString());
             if(nam < 2000 || nam > 2050)
             {
                 MessageBox.Show("Năm phải thuộc 2000 tới 2050!");

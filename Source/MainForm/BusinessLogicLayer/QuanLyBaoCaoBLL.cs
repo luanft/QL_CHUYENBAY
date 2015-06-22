@@ -19,6 +19,11 @@ namespace MainForm.BusinessLogicLayer
         {
             return dal.LayThang(nam);
         }
+        public DataTable LayNam()
+        {
+            return dal.LayNam();
+        }
+        
         private bool LaNamNhuan(int nam)
         {
             if (nam % 4 == 0 && nam % 100 != 0)

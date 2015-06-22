@@ -76,5 +76,12 @@ namespace MainForm.DataAccessLayer
             DataTable tmp = conn.Read(sql);
             return tmp;
         }
+
+        public DataTable LayNam()
+        {
+            string sql = "select Nam from DOANHTHUTHANG";
+            DataTable tmp = conn.Read(sql);
+            return tmp;
+        }
     }
 }

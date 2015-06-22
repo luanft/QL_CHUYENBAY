@@ -17,7 +17,7 @@ namespace MainForm
         
         static void Main()
         {
-            DataAccessLayer.DataConnection.getInstance().SetupConnection("TRANMINHLUAN\\SQLEXPRESS", "QUANLYCHUYENBAY");
+            DataAccessLayer.DataConnection.getInstance().SetupConnection(@"CME\SQLEXPRESS", "QUANLYCHUYENBAY");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

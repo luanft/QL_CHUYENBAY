@@ -251,15 +251,15 @@ namespace MainForm
 
         }
 
-        private void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Login l = new Login();
-            l.ShowDialog();
-            if (l.IsLogged)
-            {
-                PhanQuyenHeThong();
-            }
-        }
+//         private void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
+//         {
+//             Login l = new Login();
+//             l.ShowDialog();
+//             if (l.IsLogged)
+//             {
+//                 PhanQuyenHeThong();
+//             }
+//         }
 
         private void menu_Dangxuat_Click(object sender, EventArgs e)
         {

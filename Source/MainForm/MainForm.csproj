@@ -80,6 +80,7 @@
     <Compile Include="BusinessLogicLayer\HeThongBLL.cs" />
     <Compile Include="BusinessLogicLayer\LayveBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLyQuyenHan.cs" />
+    <Compile Include="BusinessLogicLayer\ThamSoBLL.cs" />
     <Compile Include="BusinessLogicLayer\ThemChuyenBayBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLyBaoCaoBLL.cs" />
     <Compile Include="BusinessLogicLayer\TraCuuLichBayBLL.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="DataAccessLayer\GiaoDienHoTroDAL.cs" />
     <Compile Include="DataAccessLayer\HeThongDAL.cs" />
     <Compile Include="DataAccessLayer\LayveDAL.cs" />
+    <Compile Include="DataAccessLayer\ThamSoDAL.cs" />
     <Compile Include="DataAccessLayer\ThemChuyenBayDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyBaoCaoDAL.cs" />
     <Compile Include="DataAccessLayer\TraCuuLichBayDAL.cs" />
