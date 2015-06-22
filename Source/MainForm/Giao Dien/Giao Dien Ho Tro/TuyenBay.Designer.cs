@@ -45,6 +45,9 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonLuu = new System.Windows.Forms.Button();
             this._btSua = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxTuyenBay.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrvTuyenBay)).BeginInit();
@@ -204,6 +207,10 @@
             // datagrvTuyenBay
             // 
             this.datagrvTuyenBay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagrvTuyenBay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
             this.datagrvTuyenBay.Location = new System.Drawing.Point(8, 28);
             this.datagrvTuyenBay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.datagrvTuyenBay.Name = "datagrvTuyenBay";
@@ -247,6 +254,27 @@
             this._btSua.Text = "Sửa";
             this._btSua.UseVisualStyleBackColor = true;
             this._btSua.Click += new System.EventHandler(this._btSua_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Mã Tuyến Bay";
+            this.Column1.HeaderText = "Mã Tuyến Bay";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 162;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Mã Sân Bay Đi";
+            this.Column2.HeaderText = "Mã Sân Bay Đi";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 163;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Mã Sân Bay Đến";
+            this.Column3.HeaderText = "Mã Sân Bay Đến";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 180;
             // 
             // TuyenBay
             // 
@@ -292,6 +320,9 @@
         private System.Windows.Forms.ComboBox _ctenden;
         private System.Windows.Forms.ComboBox _ctendi;
         private System.Windows.Forms.Button _btSua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
      
     }
 }

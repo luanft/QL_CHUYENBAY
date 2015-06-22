@@ -42,6 +42,9 @@ namespace MainForm.Giao_diện
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.buttonLuu = new System.Windows.Forms.Button();
             this._btThoat = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHangVe)).BeginInit();
@@ -148,10 +151,14 @@ namespace MainForm.Giao_diện
             // 
             this.dataGridViewHangVe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewHangVe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewHangVe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
             this.dataGridViewHangVe.Location = new System.Drawing.Point(21, 26);
             this.dataGridViewHangVe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewHangVe.Name = "dataGridViewHangVe";
-            this.dataGridViewHangVe.Size = new System.Drawing.Size(436, 217);
+            this.dataGridViewHangVe.Size = new System.Drawing.Size(426, 217);
             this.dataGridViewHangVe.TabIndex = 0;
             this.dataGridViewHangVe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewHangVe_CellContentClick);
             // 
@@ -191,6 +198,30 @@ namespace MainForm.Giao_diện
             this._btThoat.Text = "Thoát";
             this._btThoat.UseVisualStyleBackColor = true;
             this._btThoat.Click += new System.EventHandler(this._btThoat_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.DataPropertyName = "Mã Hạng Vé";
+            this.Column1.HeaderText = "Mã Hạng Vé";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.DataPropertyName = "Tên Hạng Vé";
+            this.Column2.HeaderText = "Tên Hạng Vé";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 130;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column3.DataPropertyName = "Tỉ Lệ Đơn Giá";
+            this.Column3.HeaderText = "Tỉ Lệ % Đơn Giá";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 130;
             // 
             // HangVe
             // 
@@ -232,5 +263,8 @@ namespace MainForm.Giao_diện
         private System.Windows.Forms.Button _btThoat;
         private System.Windows.Forms.TextBox textBoxTiLeDonGia;
         private System.Windows.Forms.Button buttonLuu;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
     }
 }

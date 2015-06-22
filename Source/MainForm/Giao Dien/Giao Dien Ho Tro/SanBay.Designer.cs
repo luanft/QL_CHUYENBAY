@@ -47,6 +47,9 @@
             this.toolTipDiaChiSanBay = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipTenSanBay = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.C = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxThongTInSanBay.SuspendLayout();
             this.groupBoxThongTinCacSanBay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSanBayDaThem)).BeginInit();
@@ -154,6 +157,10 @@
             // 
             this.dataGridViewSanBayDaThem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewSanBayDaThem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSanBayDaThem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.C,
+            this.Column1,
+            this.Column2});
             this.dataGridViewSanBayDaThem.Location = new System.Drawing.Point(8, 29);
             this.dataGridViewSanBayDaThem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewSanBayDaThem.Name = "dataGridViewSanBayDaThem";
@@ -239,6 +246,30 @@
             this.toolTipTenSanBay.ReshowDelay = 100;
             this.toolTipTenSanBay.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // C
+            // 
+            this.C.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.C.DataPropertyName = "Mã Sân Bay";
+            this.C.HeaderText = "Mã Sân Bay";
+            this.C.Name = "C";
+            this.C.Width = 172;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.DataPropertyName = "Tên Sân Bay";
+            this.Column1.HeaderText = "Tên Sân Bay";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 174;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.DataPropertyName = "Địa Chỉ Sân Bay";
+            this.Column2.HeaderText = "Địa Chỉ Sân Bay";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 180;
+            // 
             // SanBay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -286,5 +317,8 @@
         private System.Windows.Forms.ToolTip toolTipTenSanBay;
         private System.Windows.Forms.Button buttonLuu;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
