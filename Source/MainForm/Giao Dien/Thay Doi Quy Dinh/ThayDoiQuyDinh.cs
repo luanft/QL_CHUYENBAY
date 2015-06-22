@@ -34,7 +34,7 @@ namespace MainForm
         {            
             try
             {
-                if (textBoxHangChotDatVeMoi.Text == "")
+                if (_connect.LayThamSo().Rows.Count==0)
                 {
                     _connect.ThemThamSo(Int32.Parse(textBoxSoSanBayTGToiDaMoi.Text),
                         Int32.Parse(textBoxThoiGianDungToiThieuMoi.Text),
