@@ -41,10 +41,18 @@ namespace MainForm
             cry.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\Bảo trì phần mềm\QuanLyChuyenBay\trunk\source\MainForm\Giao Dien\Bao Cao\BaoCaoNam.rpt");
             
             DataSet ds = new DataSet();
-            ds.Tables.Add(bll.LapBaoCaoNam(nam));
-            cry.SetDataSource(ds);
-            crystalReportViewer1.ReportSource = cry;
-            //dataGridViewKQ.Rows.Clear();
+            DataTable dt_baocao = bll.LapBaoCaoNam(nam);
+            if (dt_baocao.Rows.Count == null)
+            {
+                MessageBox.Show("Hiện tại chưa có dữ liệu của *NĂM* đã nhập. Vui lòng kiểm tra lại !!!");
+            }
+            else
+            {
+                ds.Tables.Add(dt_baocao);
+                cry.SetDataSource(ds);
+                crystalReportViewer1.ReportSource = cry;
+            }
+                        //dataGridViewKQ.Rows.Clear();
             //if (CheckRules())
             //{
             //    Table<CHUYENBAY> chuyenbays = db.GetTable<CHUYENBAY>();

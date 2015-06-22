@@ -31,23 +31,31 @@ namespace MainForm.BusinessLogicLayer
         public DataTable LapBaoCaoNam(int nam)
         {
             DataTable dt_save = dal.LayDoanhThuThang(nam);
-            double tongDoanhThuNam = 0;
-            int tongChuyenBay = 0;
-            foreach (DataRow dr in dt_save.Rows)
+            if (dt_save.Rows.Count == 0)
             {
-                tongDoanhThuNam += tongDoanhThuNam + Convert.ToDouble(dr["DoanhThu"].ToString());
-                tongChuyenBay += tongChuyenBay + Convert.ToInt32(dr["SoChuyenBay"].ToString());
+                return null;
             }
-            DataColumn newColumn = new DataColumn("TongDoanhThu", typeof(string));
-            newColumn.DefaultValue = tongDoanhThuNam.ToString();
-            dt_save.Columns.Add(newColumn);
+            else
+            {
+                double tongDoanhThuNam = 0;
+                int tongChuyenBay = 0;
+                foreach (DataRow dr in dt_save.Rows)
+                {
+                    tongDoanhThuNam += tongDoanhThuNam + Convert.ToDouble(dr["DoanhThu"].ToString());
+                    tongChuyenBay += tongChuyenBay + Convert.ToInt32(dr["SoChuyenBay"].ToString());
+                }
+                DataColumn newColumn = new DataColumn("TongDoanhThu", typeof(string));
+                newColumn.DefaultValue = tongDoanhThuNam.ToString();
+                dt_save.Columns.Add(newColumn);
 
-            DataColumn newColumn1 = new DataColumn("TongChuyenBay", typeof(string));
-            newColumn.DefaultValue = tongChuyenBay.ToString();
-            dt_save.Columns.Add(newColumn1);
+                DataColumn newColumn1 = new DataColumn("TongChuyenBay", typeof(string));
+                newColumn.DefaultValue = tongChuyenBay.ToString();
+                dt_save.Columns.Add(newColumn1);
 
-            dal.LuuDoanhThuNam(nam.ToString(), tongDoanhThuNam.ToString());
-            return dt_save;
+                dal.LuuDoanhThuNam(nam.ToString(), tongDoanhThuNam.ToString());
+                return dt_save;
+            }
+            
         }
 
         public DataTable LapBaoCaoThang(int thang, int nam)
@@ -63,50 +71,58 @@ namespace MainForm.BusinessLogicLayer
 
             int soNgay = SoNgayTrongThang(thang, nam);
             DataTable dt_chuyenBay = dal.LayChuyenBay(thang, nam);
-            DataTable dt_hangVe = dal.LayHangVe();
-            int tongSoChuyenBay = 0;
-            double tongDoanhThu = 0;
-            for (int i = 1; i <= soNgay; i++)
+            if (dt_chuyenBay.Rows.Count == 0)
             {
-                int soChuyenBay = 0;
-                double doanhThu = 0;
-                foreach (DataRow dr in dt_chuyenBay.Rows)
+                return null;
+            }
+            else
+            {
+                DataTable dt_hangVe = dal.LayHangVe();
+                int tongSoChuyenBay = 0;
+                double tongDoanhThu = 0;
+                for (int i = 1; i <= soNgay; i++)
                 {
-
-                    var date = DateTime.Parse(dr["NgayKhoiHanh"].ToString());
-                    int day = date.Day;
-                    if (day == i)
+                    int soChuyenBay = 0;
+                    double doanhThu = 0;
+                    foreach (DataRow dr in dt_chuyenBay.Rows)
                     {
 
-                        soChuyenBay++;
-                        tongSoChuyenBay = tongSoChuyenBay + soChuyenBay;
-                        DataTable dt_loaiGhe = dal.LayLoaiGhe(dr["MaChuyenBay"].ToString());
-                        int soGheDat = Int32.Parse(dt_loaiGhe.Rows[0]["SoGheDat"].ToString());
-                        int donGia = Int32.Parse(dr["DonGian"].ToString());
-                        foreach (DataRow hv in dt_hangVe.Rows)
+                        var date = DateTime.Parse(dr["NgayKhoiHanh"].ToString());
+                        int day = date.Day;
+                        if (day == i)
                         {
-                            if (dt_loaiGhe.Rows[0]["MaChuyenBay"].ToString() == hv["MaHangVe"].ToString())
+
+                            soChuyenBay++;
+                            tongSoChuyenBay = tongSoChuyenBay + soChuyenBay;
+                            DataTable dt_loaiGhe = dal.LayLoaiGhe(dr["MaChuyenBay"].ToString());
+                            int soGheDat = Int32.Parse(dt_loaiGhe.Rows[0]["SoGheDat"].ToString());
+                            int donGia = Int32.Parse(dr["DonGian"].ToString());
+                            foreach (DataRow hv in dt_hangVe.Rows)
                             {
-                                float tiLeDonGia = float.Parse(hv["TiLeDonGia"].ToString());
-                                doanhThu += Convert.ToDouble(soGheDat * (donGia + donGia * tiLeDonGia));
-                                tongDoanhThu = tongDoanhThu + doanhThu;
+                                if (dt_loaiGhe.Rows[0]["MaChuyenBay"].ToString() == hv["MaHangVe"].ToString())
+                                {
+                                    float tiLeDonGia = float.Parse(hv["TiLeDonGia"].ToString());
+                                    doanhThu += Convert.ToDouble(soGheDat * (donGia + donGia * tiLeDonGia));
+                                    tongDoanhThu = tongDoanhThu + doanhThu;
+                                }
                             }
                         }
                     }
+                    if (soChuyenBay > 0)
+                    {
+                        dt_save.Rows.Add(i.ToString(),
+                                        soChuyenBay.ToString(),
+                                        doanhThu.ToString(),
+                                        thang.ToString(),
+                                        nam.ToString(),
+                                        tongSoChuyenBay.ToString(),
+                                        tongDoanhThu.ToString());
+                    }
                 }
-                if (soChuyenBay > 0)
-                {
-                    dt_save.Rows.Add(i.ToString(),
-                                    soChuyenBay.ToString(),
-                                    doanhThu.ToString(),
-                                    thang.ToString(),
-                                    nam.ToString(),
-                                    tongSoChuyenBay.ToString(),
-                                    tongDoanhThu.ToString());
-                }
+                dal.LuuDoanhThuThang(thang.ToString(), nam.ToString(), tongSoChuyenBay.ToString(), tongDoanhThu.ToString());
+                return dt_save;
             }
-            dal.LuuDoanhThuThang(thang.ToString(), nam.ToString(), tongSoChuyenBay.ToString(), tongDoanhThu.ToString());
-            return dt_save;
+            
         }
     }
 }

@@ -103,9 +103,18 @@ namespace MainForm
               
                 cry.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\Bảo trì phần mềm\QuanLyChuyenBay\trunk\source\MainForm\Giao Dien\Bao Cao\BaoCaoThang.rpt");
                 DataSet ds = new DataSet();
-                ds.Tables.Add(bll.LapBaoCaoThang(thang,nam));
-                cry.SetDataSource(ds);
-                crystalReportViewer1.ReportSource = cry;
+                DataTable dt_baocao = bll.LapBaoCaoThang(thang,nam);
+                if (dt_baocao == null)
+                {
+                    MessageBox.Show("Hiện tại chưa có dữ liệu của *THÁNG* hoặc *NĂM* đã chọn. Vui lòng kiểm tra lại !!!");
+                }
+                else
+                {
+                    ds.Tables.Add(dt_baocao);
+                    cry.SetDataSource(ds);
+                    crystalReportViewer1.ReportSource = cry;
+                }
+                
 
                 // Vì viết theo 3 lớp nên LinQ không phù hợp cấu trúc chung   
             //    int SoNgay = SoNgayTrongThang(thang, nam);
