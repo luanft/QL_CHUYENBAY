@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBoxThongTinTraCuu = new System.Windows.Forms.GroupBox();
-            this.btn_tim = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnTim = new System.Windows.Forms.Button();
+            this.txtMaChuyenBay = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonXuatTapTin = new System.Windows.Forms.Button();
@@ -46,6 +46,7 @@
             this.ColumnThoiGianBay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSoGheTrong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSoGheDat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxThongTinTraCuu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -56,8 +57,9 @@
             // 
             this.groupBoxThongTinTraCuu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxThongTinTraCuu.Controls.Add(this.btn_tim);
-            this.groupBoxThongTinTraCuu.Controls.Add(this.textBox1);
+            this.groupBoxThongTinTraCuu.Controls.Add(this.label1);
+            this.groupBoxThongTinTraCuu.Controls.Add(this.btnTim);
+            this.groupBoxThongTinTraCuu.Controls.Add(this.txtMaChuyenBay);
             this.groupBoxThongTinTraCuu.Controls.Add(this.label9);
             this.groupBoxThongTinTraCuu.Location = new System.Drawing.Point(14, 43);
             this.groupBoxThongTinTraCuu.Margin = new System.Windows.Forms.Padding(5);
@@ -68,21 +70,22 @@
             this.groupBoxThongTinTraCuu.TabStop = false;
             this.groupBoxThongTinTraCuu.Text = "Nhập Thông Tin Cần Tìm";
             // 
-            // btn_tim
+            // btnTim
             // 
-            this.btn_tim.Location = new System.Drawing.Point(422, 34);
-            this.btn_tim.Name = "btn_tim";
-            this.btn_tim.Size = new System.Drawing.Size(75, 24);
-            this.btn_tim.TabIndex = 14;
-            this.btn_tim.Text = "Tìm";
-            this.btn_tim.UseVisualStyleBackColor = true;
+            this.btnTim.Location = new System.Drawing.Point(422, 34);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 24);
+            this.btnTim.TabIndex = 14;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
-            // textBox1
+            // txtMaChuyenBay
             // 
-            this.textBox1.Location = new System.Drawing.Point(203, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 26);
-            this.textBox1.TabIndex = 13;
+            this.txtMaChuyenBay.Location = new System.Drawing.Point(203, 32);
+            this.txtMaChuyenBay.Name = "txtMaChuyenBay";
+            this.txtMaChuyenBay.Size = new System.Drawing.Size(173, 26);
+            this.txtMaChuyenBay.TabIndex = 13;
             // 
             // label9
             // 
@@ -245,6 +248,15 @@
             this.ColumnSoGheDat.ReadOnly = true;
             this.ColumnSoGheDat.Width = 70;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(199, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 20);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "vd: CB001";
+            // 
             // TraCuuLichBay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -287,7 +299,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnThoiGianBay;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSoGheTrong;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSoGheDat;
-        private System.Windows.Forms.Button btn_tim;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.TextBox txtMaChuyenBay;
+        private System.Windows.Forms.Label label1;
     }
 }

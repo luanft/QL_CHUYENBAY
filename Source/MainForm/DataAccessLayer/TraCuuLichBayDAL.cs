@@ -30,6 +30,14 @@ namespace MainForm.DataAccessLayer
         {
             return dataCon.Read("select MaSanBay, TenSanBay from SANBAY");
         }
+        public DataTable LayDanhSachChuyenBay()
+        {
+            return dataCon.Read("select CHUYENBAY.MaChuyenBay, SB2.TenSanBay as TenSanBayDi, SB1.TenSanBay as TenSanBayDen, ThoiGianBay, DonGia, NgayKhoiHanh, GioKhoiHanh," + 
+            "sum(LOAIGHE.SoGheDat) as TongSoGheDat, sum(SoGheTrong) as TongSoGheTrong from CHUYENBAY "+
+            "join LOAIGHE on CHUYENBAY.MaChuyenBay= LOAIGHE.MaChuyenBay join TUYENBAY on TUYENBAY.MaTuyenBay = CHUYENBAY.MaTuyenBay "+ 
+            "join SANBAY SB1 on SB1.MaSanBay= TUYENBAY.MaSanBayDen "+
+            "join SANBAY SB2 on SB2.MaSanBay= TUYENBAY.MaSanBayDi group by CHUYENBAY.MaChuyenBay, SB1.TenSanBay, SB2.TenSanBay, ThoiGianBay, DonGia, NgayKhoiHanh, GioKhoiHanh");
+        }
         public DataTable LayChuyenBay(string MaChuyenBay)
         {
             return dataCon.Read("select CHUYENBAY.MaChuyenBay, SB2.TenSanBay as TenSanBayDi, SB1.TenSanBay as TenSanBayDen, ThoiGianBay, DonGia, NgayKhoiHanh, GioKhoiHanh," + 

@@ -35,7 +35,7 @@ namespace MainForm
         public TraCuuLichBay()
         {
             InitializeComponent();
-            
+           
 
         }
 
@@ -53,6 +53,7 @@ namespace MainForm
 
         private void LichBay_Load(object sender, EventArgs e)
         {
+            dataGridViewKQ.DataSource = bll.LayDanhSachChuyenBay();
 
         }
 
@@ -60,6 +61,17 @@ namespace MainForm
         {
             this.Close();
             //Application.Exit();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            DataTable dt = bll.LayChuyenBay(txtMaChuyenBay.Text);
+            if (dt.Rows.Count < 1)
+            {
+                MessageBox.Show("Không tìm thấy chuyến bay này");
+                return;
+            }
+            dataGridViewKQ.DataSource = dt;
         }
 
        

@@ -37,6 +37,10 @@ namespace MainForm.BusinessLogicLayer
         {
             return int.Parse(dal.LayTongSoGheTrong(MaChuyenBay).Rows[0][0].ToString());
         }
+        public DataTable LayDanhSachChuyenBay()
+        {
+            return dal.LayDanhSachChuyenBay();
+        }
         public DataTable LayChuyenBay_theoSBdi(string TenSanBayDi)
         {
             return dal.LayChuyenBay_theoSBdi(TenSanBayDi);
