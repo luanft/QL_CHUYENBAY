@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.buttonBaoCaoThang = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBoxNam = new System.Windows.Forms.TextBox();
-            this.textBoxThang = new System.Windows.Forms.TextBox();
+            this.combox_Nam = new System.Windows.Forms.ComboBox();
+            this.comboBox_Thang = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonQuayVe = new System.Windows.Forms.Button();
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +56,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi Tiết Doanh Thu";
             // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(4, 24);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1000, 506);
+            this.crystalReportViewer1.TabIndex = 0;
+            this.crystalReportViewer1.TabStop = false;
+            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
             // buttonBaoCaoThang
             // 
             this.buttonBaoCaoThang.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -63,15 +76,15 @@
             this.buttonBaoCaoThang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonBaoCaoThang.Name = "buttonBaoCaoThang";
             this.buttonBaoCaoThang.Size = new System.Drawing.Size(123, 37);
-            this.buttonBaoCaoThang.TabIndex = 2;
+            this.buttonBaoCaoThang.TabIndex = 3;
             this.buttonBaoCaoThang.Text = "Lập báo cáo";
             this.buttonBaoCaoThang.UseVisualStyleBackColor = true;
             this.buttonBaoCaoThang.Click += new System.EventHandler(this.buttonBaoCaoThang_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBoxNam);
-            this.groupBox2.Controls.Add(this.textBoxThang);
+            this.groupBox2.Controls.Add(this.combox_Nam);
+            this.groupBox2.Controls.Add(this.comboBox_Thang);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.buttonBaoCaoThang);
@@ -84,22 +97,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông Tin Tháng, Năm";
             // 
-            // textBoxNam
+            // combox_Nam
             // 
-            this.textBoxNam.Location = new System.Drawing.Point(58, 31);
-            this.textBoxNam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxNam.Name = "textBoxNam";
-            this.textBoxNam.Size = new System.Drawing.Size(62, 26);
-            this.textBoxNam.TabIndex = 3;
-            this.textBoxNam.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxNamBaoCao_Validating);
+            this.combox_Nam.FormattingEnabled = true;
+            this.combox_Nam.Location = new System.Drawing.Point(57, 28);
+            this.combox_Nam.Name = "combox_Nam";
+            this.combox_Nam.Size = new System.Drawing.Size(66, 28);
+            this.combox_Nam.TabIndex = 1;
+            this.combox_Nam.SelectedIndexChanged += new System.EventHandler(this.combox_Nam_SelectedIndexChanged);
             // 
-            // textBoxThang
+            // comboBox_Thang
             // 
-            this.textBoxThang.Location = new System.Drawing.Point(224, 31);
-            this.textBoxThang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxThang.Name = "textBoxThang";
-            this.textBoxThang.Size = new System.Drawing.Size(56, 26);
-            this.textBoxThang.TabIndex = 1;
+            this.comboBox_Thang.FormattingEnabled = true;
+            this.comboBox_Thang.Location = new System.Drawing.Point(223, 28);
+            this.comboBox_Thang.Name = "comboBox_Thang";
+            this.comboBox_Thang.Size = new System.Drawing.Size(66, 28);
+            this.comboBox_Thang.TabIndex = 2;
             // 
             // label2
             // 
@@ -108,7 +121,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 20);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 10;
             this.label2.Text = "Năm";
             // 
             // label1
@@ -118,33 +131,21 @@
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 20);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 10;
             this.label1.Text = "Tháng";
             // 
             // buttonQuayVe
             // 
             this.buttonQuayVe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonQuayVe.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonQuayVe.Location = new System.Drawing.Point(899, 44);
+            this.buttonQuayVe.Location = new System.Drawing.Point(898, 44);
             this.buttonQuayVe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonQuayVe.Name = "buttonQuayVe";
             this.buttonQuayVe.Size = new System.Drawing.Size(123, 37);
-            this.buttonQuayVe.TabIndex = 7;
+            this.buttonQuayVe.TabIndex = 4;
             this.buttonQuayVe.Text = "Đóng";
             this.buttonQuayVe.UseVisualStyleBackColor = true;
             this.buttonQuayVe.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // crystalReportViewer1
-            // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(4, 24);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1000, 506);
-            this.crystalReportViewer1.TabIndex = 0;
-            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // BaoCaoThang
             // 
@@ -175,11 +176,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonBaoCaoThang;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBoxNam;
-        private System.Windows.Forms.TextBox textBoxThang;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonQuayVe;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private System.Windows.Forms.ComboBox comboBox_Thang;
+        private System.Windows.Forms.ComboBox combox_Nam;
     }
 }

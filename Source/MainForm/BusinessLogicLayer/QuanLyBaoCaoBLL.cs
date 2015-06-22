@@ -9,8 +9,16 @@ namespace MainForm.BusinessLogicLayer
     
     class QuanLyBaoCaoBLL
     {
-        QuanLyBaoCaoDAL dal = new QuanLyBaoCaoDAL();
 
+        QuanLyBaoCaoDAL dal = new QuanLyBaoCaoDAL();
+        public DataTable LayNamThang()
+        {
+            return dal.LayNamThang();
+        }
+        public DataTable LayThang(string nam)
+        {
+            return dal.LayThang(nam);
+        }
         private bool LaNamNhuan(int nam)
         {
             if (nam % 4 == 0 && nam % 100 != 0)

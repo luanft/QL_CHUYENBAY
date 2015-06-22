@@ -41,7 +41,9 @@ namespace MainForm
 
         private void BaoCaoThang_Load(object sender, EventArgs e)
         {
-           
+            combox_Nam.DataSource = bll.LayNamThang();
+            combox_Nam.DisplayMember = "Year";
+            combox_Nam.ValueMember = "Year";
         }
 
         //private void button5_Click(object sender, EventArgs e)
@@ -97,8 +99,8 @@ namespace MainForm
             //dataGridViewKQ.Rows.Clear();
             if (CheckRules())
             {
-                int thang = Convert.ToInt16(textBoxThang.Text);
-                int nam = Convert.ToInt16(textBoxNam.Text);
+                int thang = Convert.ToInt16(comboBox_Thang.SelectedValue.ToString());
+                int nam = Convert.ToInt16(combox_Nam.SelectedValue.ToString());
 
               
                 cry.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\Bảo trì phần mềm\QuanLyChuyenBay\trunk\source\MainForm\Giao Dien\Bao Cao\BaoCaoThang.rpt");
@@ -170,7 +172,7 @@ namespace MainForm
         }
         private bool CheckRules()
         {
-            if (textBoxNam.Text == "" || textBoxThang.Text == "")
+            if (combox_Nam.SelectedValue.ToString() == "" || comboBox_Thang.SelectedValue.ToString() == "")
             {
                 MessageBox.Show("không thể bỏ trống năm hoặc tháng!");
                 return false;
@@ -182,8 +184,8 @@ namespace MainForm
 //                 return false;
 //             }
 
-            int thang = Convert.ToInt16(textBoxThang.Text);
-            int nam = Convert.ToInt16(textBoxNam.Text);
+            int thang = Convert.ToInt16(combox_Nam.SelectedValue.ToString());
+            int nam = Convert.ToInt16(comboBox_Thang.SelectedValue.ToString());
             if (thang < 1 || thang > 12)
             {
                 MessageBox.Show("Tháng không hợp lệ!");
@@ -218,6 +220,13 @@ namespace MainForm
         private void textBoxNamBaoCao_Validating(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void combox_Nam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox_Thang.DataSource = bll.LayThang(combox_Nam.SelectedValue.ToString());
+            comboBox_Thang.DisplayMember = "Thang";
+            comboBox_Thang.SelectedValue = "Thang";
         }
 
       

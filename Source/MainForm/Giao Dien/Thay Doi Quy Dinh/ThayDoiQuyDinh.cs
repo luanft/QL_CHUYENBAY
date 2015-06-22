@@ -29,7 +29,7 @@ namespace MainForm
             get { return _parentForm; }
             set { _parentForm = value; }
         }
-        private ThamSoDAL _connect = new ThamSoDAL();
+        //private ThamSoDAL _connect = new ThamSoDAL();
         private void _btcapnhat_Click(object sender, EventArgs e)
         {            
             try
