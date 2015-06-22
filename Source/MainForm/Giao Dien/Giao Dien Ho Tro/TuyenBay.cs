@@ -137,6 +137,18 @@ namespace MainForm
             _ctendi.ValueMember = "TenSanBay";
             _ctenden.DataSource = _b;
             _ctenden.ValueMember = "TenSanBay";
+        }
+
+        private void _btSua_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _connect.SuaTuyenBay(textBoxMaTuyenBay.Text, comboBoxSanBayDi.Text, comboBoxSanBayDen.Text);
+                UpdateData();
+            }
+            catch (Exception ex) { }
+            textBoxMaTuyenBay.Text = AutoMaTuyenBay();
+
         }       
     }
 }

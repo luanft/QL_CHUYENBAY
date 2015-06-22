@@ -30,6 +30,8 @@
         {
             this._btThoat = new System.Windows.Forms.Button();
             this.groupBoxTuyenBay = new System.Windows.Forms.GroupBox();
+            this._ctenden = new System.Windows.Forms.ComboBox();
+            this._ctendi = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxMaTuyenBay = new System.Windows.Forms.TextBox();
@@ -42,8 +44,7 @@
             this.datagrvTuyenBay = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonLuu = new System.Windows.Forms.Button();
-            this._ctendi = new System.Windows.Forms.ComboBox();
-            this._ctenden = new System.Windows.Forms.ComboBox();
+            this._btSua = new System.Windows.Forms.Button();
             this.groupBoxTuyenBay.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrvTuyenBay)).BeginInit();
@@ -82,6 +83,29 @@
             this.groupBoxTuyenBay.TabIndex = 2;
             this.groupBoxTuyenBay.TabStop = false;
             this.groupBoxTuyenBay.Text = "Thông tin Tuyến bay";
+            // 
+            // _ctenden
+            // 
+            this._ctenden.FormattingEnabled = true;
+            this._ctenden.Items.AddRange(new object[] {
+            "Add New..."});
+            this._ctenden.Location = new System.Drawing.Point(347, 116);
+            this._ctenden.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this._ctenden.Name = "_ctenden";
+            this._ctenden.Size = new System.Drawing.Size(209, 28);
+            this._ctenden.TabIndex = 13;
+            this._ctenden.SelectedIndexChanged += new System.EventHandler(this._ctenden_SelectedIndexChanged);
+            // 
+            // _ctendi
+            // 
+            this._ctendi.FormattingEnabled = true;
+            this._ctendi.Items.AddRange(new object[] {
+            "Add New..."});
+            this._ctendi.Location = new System.Drawing.Point(347, 79);
+            this._ctendi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this._ctendi.Name = "_ctendi";
+            this._ctendi.Size = new System.Drawing.Size(209, 28);
+            this._ctendi.TabIndex = 12;
             // 
             // label5
             // 
@@ -189,12 +213,13 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this._btSua);
             this.groupBox3.Controls.Add(this.buttonLuu);
             this.groupBox3.Location = new System.Drawing.Point(601, 22);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox3.Size = new System.Drawing.Size(141, 97);
+            this.groupBox3.Size = new System.Drawing.Size(141, 141);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức Năng";
@@ -202,7 +227,7 @@
             // buttonLuu
             // 
             this.buttonLuu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLuu.Location = new System.Drawing.Point(10, 30);
+            this.buttonLuu.Location = new System.Drawing.Point(10, 94);
             this.buttonLuu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonLuu.Name = "buttonLuu";
             this.buttonLuu.Size = new System.Drawing.Size(123, 37);
@@ -211,28 +236,17 @@
             this.buttonLuu.UseVisualStyleBackColor = true;
             this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
-            // _ctendi
+            // _btSua
             // 
-            this._ctendi.FormattingEnabled = true;
-            this._ctendi.Items.AddRange(new object[] {
-            "Add New..."});
-            this._ctendi.Location = new System.Drawing.Point(347, 79);
-            this._ctendi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this._ctendi.Name = "_ctendi";
-            this._ctendi.Size = new System.Drawing.Size(209, 28);
-            this._ctendi.TabIndex = 12;
-            // 
-            // _ctenden
-            // 
-            this._ctenden.FormattingEnabled = true;
-            this._ctenden.Items.AddRange(new object[] {
-            "Add New..."});
-            this._ctenden.Location = new System.Drawing.Point(347, 116);
-            this._ctenden.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this._ctenden.Name = "_ctenden";
-            this._ctenden.Size = new System.Drawing.Size(209, 28);
-            this._ctenden.TabIndex = 13;
-            this._ctenden.SelectedIndexChanged += new System.EventHandler(this._ctenden_SelectedIndexChanged);
+            this._btSua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btSua.Location = new System.Drawing.Point(10, 29);
+            this._btSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this._btSua.Name = "_btSua";
+            this._btSua.Size = new System.Drawing.Size(123, 37);
+            this._btSua.TabIndex = 6;
+            this._btSua.Text = "Sửa";
+            this._btSua.UseVisualStyleBackColor = true;
+            this._btSua.Click += new System.EventHandler(this._btSua_Click);
             // 
             // TuyenBay
             // 
@@ -277,6 +291,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox _ctenden;
         private System.Windows.Forms.ComboBox _ctendi;
+        private System.Windows.Forms.Button _btSua;
      
     }
 }

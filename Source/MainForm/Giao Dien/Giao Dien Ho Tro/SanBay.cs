@@ -43,6 +43,7 @@ namespace MainForm
                 updateDataGrid();
             }
             catch (Exception ex) { }
+            textBoxMaSanBay.Text = AutoMaSanBay();
         }              
         private void buttonLuu_Click_1(object sender, EventArgs e)
         {

@@ -51,6 +51,9 @@ namespace MainForm.Giao_diện
             catch (Exception ex) {
             
             }
+            this.textBoxMaHangVe.Text = AutoMaHangVe();
+            this.textBoxTenHangVe.Text = "";
+            this.textBoxTiLeDonGia.Text = "1.0";
         }                         
         private bool CheckRules()
         {
