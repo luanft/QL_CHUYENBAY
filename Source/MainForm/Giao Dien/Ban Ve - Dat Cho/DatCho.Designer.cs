@@ -92,6 +92,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox_MaHangVe = new System.Windows.Forms.ComboBox();
             this.comboBox_MaChuyenBay = new System.Windows.Forms.ComboBox();
+            this.label_thongbao = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVe)).BeginInit();
@@ -113,7 +114,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox_CMNDDatCho);
             this.groupBox1.Controls.Add(this.textBox_SDTDatCho);
-            this.groupBox1.Location = new System.Drawing.Point(13, 16);
+            this.groupBox1.Location = new System.Drawing.Point(13, 29);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -121,7 +122,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Người Đặt Chỗ";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // textBox_tenngdat
             // 
@@ -463,7 +463,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.comboBox_MaHangVe);
             this.groupBox2.Controls.Add(this.comboBox_MaChuyenBay);
-            this.groupBox2.Location = new System.Drawing.Point(14, 117);
+            this.groupBox2.Location = new System.Drawing.Point(14, 123);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(588, 302);
             this.groupBox2.TabIndex = 30;
@@ -793,11 +793,21 @@
             this.comboBox_MaChuyenBay.SelectedIndexChanged += new System.EventHandler(this.comboBox_MaChuyenBay_update);
             this.comboBox_MaChuyenBay.TextUpdate += new System.EventHandler(this.comboBox_MaChuyenBay_update);
             // 
+            // label_thongbao
+            // 
+            this.label_thongbao.AutoSize = true;
+            this.label_thongbao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_thongbao.Location = new System.Drawing.Point(56, 4);
+            this.label_thongbao.Name = "label_thongbao";
+            this.label_thongbao.Size = new System.Drawing.Size(0, 20);
+            this.label_thongbao.TabIndex = 31;
+            // 
             // DatCho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(760, 673);
+            this.Controls.Add(this.label_thongbao);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
@@ -818,6 +828,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -887,5 +898,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_socmndhk;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Sodthk;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGiaTien;
+        private System.Windows.Forms.Label label_thongbao;
     }
 }

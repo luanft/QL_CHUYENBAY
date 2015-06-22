@@ -78,12 +78,15 @@
             this.Column_tenhangve = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1_giatien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label_thongbao = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtincb)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtinve)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -105,7 +108,7 @@
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.labelSDT);
             this.groupBox4.Controls.Add(this.labelCMND);
-            this.groupBox4.Location = new System.Drawing.Point(12, 12);
+            this.groupBox4.Location = new System.Drawing.Point(12, 25);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(6, 8, 6, 8);
@@ -288,7 +291,7 @@
             // 
             this.groupBox1.Controls.Add(this.button_thoat);
             this.groupBox1.Controls.Add(this.Button_trave);
-            this.groupBox1.Location = new System.Drawing.Point(614, 12);
+            this.groupBox1.Location = new System.Drawing.Point(614, 28);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(159, 231);
             this.groupBox1.TabIndex = 30;
@@ -327,7 +330,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.textBox_SB_di);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(361, 13);
+            this.groupBox2.Location = new System.Drawing.Point(361, 28);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(238, 230);
             this.groupBox2.TabIndex = 32;
@@ -429,12 +432,12 @@
             this.DiaChi,
             this.ThoiGianDung,
             this.GhiChu});
-            this.dataGridView_thongtincb.Location = new System.Drawing.Point(359, 249);
+            this.dataGridView_thongtincb.Location = new System.Drawing.Point(7, 25);
             this.dataGridView_thongtincb.MultiSelect = false;
             this.dataGridView_thongtincb.Name = "dataGridView_thongtincb";
             this.dataGridView_thongtincb.ReadOnly = true;
             this.dataGridView_thongtincb.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_thongtincb.Size = new System.Drawing.Size(422, 181);
+            this.dataGridView_thongtincb.Size = new System.Drawing.Size(402, 128);
             this.dataGridView_thongtincb.TabIndex = 2;
             // 
             // TenSanBay
@@ -478,7 +481,7 @@
             this.groupBox3.Controls.Add(this.dataGridView_thongtinve);
             this.groupBox3.Location = new System.Drawing.Point(12, 417);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(771, 315);
+            this.groupBox3.Size = new System.Drawing.Size(771, 293);
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông Tin Vé đã bán";
@@ -504,7 +507,7 @@
             this.dataGridView_thongtinve.ReadOnly = true;
             this.dataGridView_thongtinve.RowHeadersVisible = false;
             this.dataGridView_thongtinve.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_thongtinve.Size = new System.Drawing.Size(759, 295);
+            this.dataGridView_thongtinve.Size = new System.Drawing.Size(759, 268);
             this.dataGridView_thongtinve.TabIndex = 0;
             this.dataGridView_thongtinve.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_thongtinve_CellClick);
             // 
@@ -590,13 +593,33 @@
             this.Column1_giatien.ReadOnly = true;
             this.Column1_giatien.Width = 82;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.dataGridView_thongtincb);
+            this.groupBox5.Location = new System.Drawing.Point(363, 261);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(409, 165);
+            this.groupBox5.TabIndex = 34;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Sân bay trung gian";
+            // 
+            // label_thongbao
+            // 
+            this.label_thongbao.AutoSize = true;
+            this.label_thongbao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_thongbao.Location = new System.Drawing.Point(31, 0);
+            this.label_thongbao.Name = "label_thongbao";
+            this.label_thongbao.Size = new System.Drawing.Size(0, 24);
+            this.label_thongbao.TabIndex = 35;
+            // 
             // TraVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 768);
+            this.ClientSize = new System.Drawing.Size(787, 712);
+            this.Controls.Add(this.label_thongbao);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.dataGridView_thongtincb);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
@@ -614,7 +637,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtincb)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtinve)).EndInit();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -670,5 +695,7 @@
         private System.Windows.Forms.ComboBox comboBox_mave;
         private System.Windows.Forms.TextBox textBox_mahv;
         private System.Windows.Forms.TextBox textBox_macb;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label_thongbao;
     }
 }

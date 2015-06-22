@@ -437,15 +437,23 @@ namespace MainForm
     private void DatCho_Load(object sender, EventArgs e)
     {
         not_enable_all_button();
-        //add item combobox macb
+        //add item combobox macb , item la cac ma cb co ngay cat canh sau ngay hom nay 
         comboBox_MaChuyenBay.Items.Clear();
         comboBox_MaChuyenBay.Items.AddRange(_datchobll.lay_danh_sach_ma_CB());
+        // neu khong co chuyen bay nao sau hom nay thi close form
+        if (comboBox_MaChuyenBay.Items.Count ==0)
+        {
+            thong_bao_cho_nguoi_dung("Chỉ có thể sửa hoặc xóa, không thêm PDC được vì không vó CB nào trong thời gian tới",1);
+            button_taomoi.Visible = false;
+
+            
+        }
         // load datagridview
         dataGridViewVe.DataSource = _datchobll.lay_danh_sach_khi_load_form();
         //xoa tu dong dat ve ma khong mua ve, cach ngay bay 1 ngay
         int t=_datchobll.xoa_dat_cho_cach_hom_nay_1_ngay_chua_thanh_toan();
         if(t!=0)
-            MessageBox.Show("Đã xóa"+t+" phiếu đặt không thanh toán và cận ngày bay!");// chut sua datagril view_ click cell
+            thong_bao_cho_nguoi_dung("Đã xóa"+t+" phiếu đặt không thanh toán và cận ngày bay!", 1);// thong bao cho nguoi dung la xóa khong thanh cong
     }
     public void not_enable_all_button()
     {
@@ -484,6 +492,9 @@ namespace MainForm
         label_sodthk.Visible = false;
         label_tenhk.Visible = false;
         label_tenngdat.Visible = false;
+        //
+        label_thongbao.Visible = false;
+        label_thongbao.Text = null;
     }
 
 
@@ -517,12 +528,15 @@ namespace MainForm
                 // cap nhat csdl
                 _datchobll.cap_nhat_(textBox_mave.Text, comboBox_MaChuyenBay.Text, textBox_tenhk.Text, textBox_cmndhk.Text, textBox_dienthoaihk.Text,
                     comboBox_MaHangVe.Text, textBox_giave.Text, textBox_MaPhieuDatCho.Text, textBox_tenngdat.Text, textBox_CMNDDatCho.Text, textBox_SDTDatCho.Text);
+                // thong bao cho nguoi dung la sửa thanh cong
+                thong_bao_cho_nguoi_dung("Sửa thành công!", 2);
                 // load lại datagridview
                 dataGridViewVe.DataSource = _datchobll.lay_danh_sach_khi_load_form();
             }
             else
             {
-                MessageBox.Show("Vé đã bán không thể sửa thông tin trên phiếu đặt");
+                // thong bao cho nguoi dung la sửa khong thanh cong
+                thong_bao_cho_nguoi_dung("Vé đã bán không thể sửa thông tin trên phiếu đặt", 1);
             }
         }
     }
@@ -532,12 +546,24 @@ namespace MainForm
         // ktra data hop le
         if(ktra_du_lieu_truoc_khi_luu_hoac_update()==true)
         {
-            // xoa csdl
-            _datchobll.xoa(textBox_MaPhieuDatCho.Text,textBox_mave.Text,comboBox_MaChuyenBay.Text,comboBox_MaHangVe.Text);
-            // load lại datagridview
-            dataGridViewVe.DataSource = _datchobll.lay_danh_sach_khi_load_form();
-            // clean textbox nhap
-            clear_textbox_all();
+            if (int.Parse(_datchobll.lay_da_lay_ve(textBox_mave.Text)) == 0)
+            {
+                
+
+                // xoa csdl
+                _datchobll.xoa(textBox_MaPhieuDatCho.Text, textBox_mave.Text, comboBox_MaChuyenBay.Text, comboBox_MaHangVe.Text);
+                //thong bao cho nguoi dung la xoa thanh cong
+                thong_bao_cho_nguoi_dung("Xóa thành công!", 2);
+                // load lại datagridview
+                dataGridViewVe.DataSource = _datchobll.lay_danh_sach_khi_load_form();
+                // clean textbox nhap
+                clear_textbox_all();
+            }
+            else
+            {
+                // thong bao cho nguoi dung la xóa khong thanh cong
+                thong_bao_cho_nguoi_dung("Vé đã bán không thể xóa thông tin trên phiếu đặt", 1);
+            }
         }
     }
 
@@ -555,6 +581,8 @@ namespace MainForm
             // luu xuong csdl
             _datchobll.luu(textBox_MaPhieuDatCho.Text, textBox_mave.Text, comboBox_MaChuyenBay.Text, comboBox_MaHangVe.Text,
                 textBox_giave.Text, textBox_tenngdat.Text, textBox_CMNDDatCho.Text, textBox_SDTDatCho.Text, textBox_tenhk.Text, textBox_cmndhk.Text, textBox_dienthoaihk.Text);
+            // thong bao cho nguoi dung la xoa thanh cong
+            thong_bao_cho_nguoi_dung("Lưu thành công!", 2);
             //load lại datagridview
             dataGridViewVe.DataSource = _datchobll.lay_danh_sach_khi_load_form();
             // not_enable 2 combobox
@@ -760,6 +788,30 @@ namespace MainForm
 #endregion
 
 #region ktra_du_lieu_truoc_khi_luu_hoac_update
+    public void thong_bao_cho_nguoi_dung(string loi, int maloi )
+    {
+        label_thongbao.Visible = true;
+        // nội dung
+        label_thongbao.Text = loi;
+        // xét màu
+        switch(maloi)
+        {
+            case 1:// lưu không thành công, label thông báo chữ màu đỏ
+                {
+                    label_thongbao.BackColor = Color.Red;
+                    break;
+                }
+            case 2: // lưu thành công, label thông báo chữ màu xanh
+                {
+                    label_thongbao.BackColor = Color.Green;
+                    break;
+                }
+            default:
+                break;
+                 
+        }
+
+    }
     public bool ktra_du_lieu_truoc_khi_luu_hoac_update()
     {
 
@@ -767,7 +819,7 @@ namespace MainForm
             || label_sdt_datve.Visible == true || label_socmndhk.Visible == true || label_sodthk.Visible == true
             || label_tenhk.Visible==true||label_tenngdat.Visible==true)
         {
-            MessageBox.Show("Lỗi ở những ô có thông báo 'lỗi'!");
+            thong_bao_cho_nguoi_dung("Lỗi ở những ô có thông báo 'lỗi'!", 1);
             return false;
         }
         
@@ -775,7 +827,7 @@ namespace MainForm
             || textBox_tenhk.Text.Trim().Length == 0 || textBox_cmndhk.Text.Trim().Length == 0 || textBox_dienthoaihk.Text.Trim().Length == 0 ||
             comboBox_MaChuyenBay.Text.Trim().Length == 0 || comboBox_MaHangVe.Text.Trim().Length == 0)
         {
-            MessageBox.Show("Các ô nhập không thể chừa trống!");
+            thong_bao_cho_nguoi_dung("Các ô nhập không thể chừa trống!", 1);
             return false;
         }
 
@@ -785,14 +837,14 @@ namespace MainForm
         now=now.AddDays(+_datchobll.lay_quy_dinh_han_chot_dat_ve());
         if (t.Day < now.Day && t.Month < now.Month && t.Year < now.Year)
         {
-            MessageBox.Show("Không thể sửa phiếu đặt hoặc tạo mới, phiếu đặt phải được tạo trước khi cât cánh " + _datchobll.lay_quy_dinh_han_chot_dat_ve() + " ngày");
+            thong_bao_cho_nguoi_dung("Không thể sửa phiếu đặt hoặc tạo mới, phiếu đặt phải được tạo trước khi cât cánh " + _datchobll.lay_quy_dinh_han_chot_dat_ve() + " ngày", 1);
             return false;
         }
 
         //ktra con ve hay khong
         if (_datchobll.lay_so_ghe_trong(comboBox_MaChuyenBay.Text, comboBox_MaHangVe.Text) < 1)
         {
-            MessageBox.Show("Chuyến bay với hạng vé này đã hết chỗ!");
+            thong_bao_cho_nguoi_dung("Chuyến bay với hạng vé này đã hết chỗ!", 1);
             return false;
         }
         return true;
@@ -832,11 +884,7 @@ namespace MainForm
     }
 #endregion
 
-    private void groupBox1_Enter(object sender, EventArgs e)
-    {
 
     }
-
-}
 
 }

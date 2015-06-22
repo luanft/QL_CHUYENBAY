@@ -34,6 +34,30 @@ namespace MainForm.Giao_diện.Bán_Vé___Đặt_Chỗ
             // load data griidview
             dataGridView_thongtinve.DataSource = _travebll.lay_danh_sach_ve();
         }
+        public void thong_bao_cho_nguoi_dung(string loi, int maloi)
+        {
+            label_thongbao.Visible = true;
+            // nội dung
+            label_thongbao.Text = loi;
+            // xét màu
+            switch (maloi)
+            {
+                case 1:// lưu không thành công, label thông báo chữ màu đỏ
+                    {
+                        label_thongbao.BackColor = Color.Red;
+                        break;
+                    }
+                case 2: // lưu thành công, label thông báo chữ màu xanh
+                    {
+                        label_thongbao.BackColor = Color.Green;
+                        break;
+                    }
+                default:
+                    break;
+
+            }
+
+        }
 
         public bool ktra_du_lieu_hop_le()
         {
@@ -59,8 +83,7 @@ namespace MainForm.Giao_diện.Bán_Vé___Đặt_Chỗ
                 //now=now.AddDays(+_datchobll.lay_quy_dinh_han_chot_dat_ve());
                 if (t.Day <= now.Day && t.Month <= now.Month && t.Year <= now.Year)
                 {
-
-                    MessageBox.Show("Không thể trả vé trên chuyến bay đã cất cánh!");
+                   
                     return false;
                 }
                 else
@@ -91,6 +114,7 @@ namespace MainForm.Giao_diện.Bán_Vé___Đặt_Chỗ
                 Button_trave.Enabled = true;
                 xoa_all_du_lieu_texxtbox();
                 set_du_lieu_texxtbox_khi_select_combobox();
+                label_thongbao.Visible = false;
             }
             else
             {
@@ -139,6 +163,8 @@ namespace MainForm.Giao_diện.Bán_Vé___Đặt_Chỗ
                 if (ktra_ngay_tra_ve() == true)
                 {
                     _travebll.xoa(comboBox_mave.Text, textBox_macb.Text, textBox_mahv.Text);
+                    // thong bao cho nguoi dung
+                    thong_bao_cho_nguoi_dung("Đã xóa vé thành công", 2);
                     // load data griidview
                     dataGridView_thongtinve.DataSource = _travebll.lay_danh_sach_ve();
                     xoa_all_du_lieu_texxtbox();
@@ -148,6 +174,14 @@ namespace MainForm.Giao_diện.Bán_Vé___Đặt_Chỗ
                     comboBox_mave.Items.AddRange(_travebll.lay_danh_sach_ma_ve());
                     comboBox_mave.Text = null;
                 }
+                else
+                {
+                    thong_bao_cho_nguoi_dung("Không thể trả vé trên chuyến bay đã cất cánh!", 1);
+                }
+            }
+            else
+            {
+                thong_bao_cho_nguoi_dung("Mã vé không tồn tại !", 1);
             }
         }
 

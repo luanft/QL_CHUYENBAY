@@ -140,14 +140,10 @@ namespace MainForm.BusinessLogicLayer
              _connect.cap_nhat_ve_(mave, mcb, tenhk, cmndhk, sdthk, mahv, "0", giatien, mapd);
              _connect.cap_nhat_phieu_dat( mapd,DateTime.Now.ToString(),  tennd,  cmndnd,  sdtnd,  "0");
          }
+
          public void xoa(string mapd, string mav,string macb, string mahv)
          {
-             if (int.Parse(_connect.lay_da_lay_ve(mav)) == 1)
-             {
-                 MessageBox.Show("Vé đã được lấy , không thể xóa phiếu đặt!");
-             }
-             else
-             {
+             
                  _connect.xoa(mapd, mav);
                  // tang so luong ghe trong
                  int sl = _connect.lay_so_ghe_trong(macb, mahv) + 1;
@@ -155,7 +151,7 @@ namespace MainForm.BusinessLogicLayer
                  // giam so luong ghe da dat
                  sl = _connect.lay_so_ghe_da_dat(macb, mahv) - 1;
                  _connect.cap_nhat_so_ghe_da_dat(macb, mahv, sl);
-             }
+             
          }
          public string lay_da_lay_ve(string mav)
          {

@@ -16,7 +16,7 @@ namespace MainForm.DataAccessLayer
         public DataTable lay_danh_sach_ma_CB()
         {
             string connectstring = @"Select cb.MaChuyenBay
-                                    from CHUYENBAY cb ";
+                                    from CHUYENBAY cb where cb.GioKhoiHanh >'"+DateTime.Now+"'";
 
             return _connect.Read(connectstring);
         }

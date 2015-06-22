@@ -87,12 +87,15 @@
             this.Column_mahangve = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_tenhangve = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1_giatien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label_thongbao = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtincb)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtinve)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -424,14 +427,14 @@
             this.groupBox1.Controls.Add(this.button_taoVeMoi);
             this.groupBox1.Location = new System.Drawing.Point(614, 46);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(159, 231);
+            this.groupBox1.Size = new System.Drawing.Size(159, 223);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
             // 
             // button_thoat
             // 
-            this.button_thoat.Location = new System.Drawing.Point(19, 186);
+            this.button_thoat.Location = new System.Drawing.Point(19, 172);
             this.button_thoat.Name = "button_thoat";
             this.button_thoat.Size = new System.Drawing.Size(125, 36);
             this.button_thoat.TabIndex = 15;
@@ -465,11 +468,10 @@
             // 
             this.radioButton_dadatve.AutoSize = true;
             this.radioButton_dadatve.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_dadatve.Location = new System.Drawing.Point(87, 12);
+            this.radioButton_dadatve.Location = new System.Drawing.Point(93, 20);
             this.radioButton_dadatve.Name = "radioButton_dadatve";
             this.radioButton_dadatve.Size = new System.Drawing.Size(81, 24);
             this.radioButton_dadatve.TabIndex = 1;
-            this.radioButton_dadatve.TabStop = true;
             this.radioButton_dadatve.Text = "Đã đặt";
             this.radioButton_dadatve.UseVisualStyleBackColor = true;
             this.radioButton_dadatve.CheckedChanged += new System.EventHandler(this.radioButton_dadatve_CheckedChanged);
@@ -478,11 +480,10 @@
             // 
             this.radioButton_chuadatve.AutoSize = true;
             this.radioButton_chuadatve.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_chuadatve.Location = new System.Drawing.Point(212, 12);
+            this.radioButton_chuadatve.Location = new System.Drawing.Point(218, 20);
             this.radioButton_chuadatve.Name = "radioButton_chuadatve";
             this.radioButton_chuadatve.Size = new System.Drawing.Size(132, 24);
             this.radioButton_chuadatve.TabIndex = 2;
-            this.radioButton_chuadatve.TabStop = true;
             this.radioButton_chuadatve.Text = "Mua trực tiếp";
             this.radioButton_chuadatve.UseVisualStyleBackColor = true;
             this.radioButton_chuadatve.CheckedChanged += new System.EventHandler(this.radioButton_chuadatve_CheckedChanged);
@@ -501,7 +502,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(361, 47);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(238, 230);
+            this.groupBox2.Size = new System.Drawing.Size(238, 212);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin chuyến bay";
@@ -601,12 +602,12 @@
             this.DiaChi,
             this.ThoiGianDung,
             this.GhiChu});
-            this.dataGridView_thongtincb.Location = new System.Drawing.Point(361, 274);
+            this.dataGridView_thongtincb.Location = new System.Drawing.Point(6, 25);
             this.dataGridView_thongtincb.MultiSelect = false;
             this.dataGridView_thongtincb.Name = "dataGridView_thongtincb";
             this.dataGridView_thongtincb.ReadOnly = true;
             this.dataGridView_thongtincb.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_thongtincb.Size = new System.Drawing.Size(422, 181);
+            this.dataGridView_thongtincb.Size = new System.Drawing.Size(402, 167);
             this.dataGridView_thongtincb.TabIndex = 2;
             // 
             // TenSanBay
@@ -650,7 +651,7 @@
             this.groupBox3.Controls.Add(this.dataGridView_thongtinve);
             this.groupBox3.Location = new System.Drawing.Point(12, 451);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(771, 315);
+            this.groupBox3.Size = new System.Drawing.Size(771, 268);
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông Tin Vé đã bán";
@@ -676,7 +677,7 @@
             this.dataGridView_thongtinve.ReadOnly = true;
             this.dataGridView_thongtinve.RowHeadersVisible = false;
             this.dataGridView_thongtinve.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_thongtinve.Size = new System.Drawing.Size(759, 295);
+            this.dataGridView_thongtinve.Size = new System.Drawing.Size(759, 244);
             this.dataGridView_thongtinve.TabIndex = 0;
             this.dataGridView_thongtinve.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_thongtinve_CellClick);
             // 
@@ -762,13 +763,33 @@
             this.Column1_giatien.ReadOnly = true;
             this.Column1_giatien.Width = 82;
             // 
+            // label_thongbao
+            // 
+            this.label_thongbao.AutoSize = true;
+            this.label_thongbao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_thongbao.Location = new System.Drawing.Point(14, 0);
+            this.label_thongbao.Name = "label_thongbao";
+            this.label_thongbao.Size = new System.Drawing.Size(0, 20);
+            this.label_thongbao.TabIndex = 34;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.dataGridView_thongtincb);
+            this.groupBox5.Location = new System.Drawing.Point(365, 265);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(408, 200);
+            this.groupBox5.TabIndex = 35;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Sân bay trung gian";
+            // 
             // LayVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 768);
+            this.ClientSize = new System.Drawing.Size(795, 743);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.label_thongbao);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.dataGridView_thongtincb);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.radioButton_chuadatve);
             this.Controls.Add(this.radioButton_dadatve);
@@ -788,6 +809,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtincb)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtinve)).EndInit();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -855,5 +877,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_mahangve;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_tenhangve;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1_giatien;
+        private System.Windows.Forms.Label label_thongbao;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }
