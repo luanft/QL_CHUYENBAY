@@ -41,9 +41,19 @@ namespace MainForm
 
         private void BaoCaoThang_Load(object sender, EventArgs e)
         {
-            combox_Nam.DataSource = bll.LayNamThang();
-            combox_Nam.DisplayMember = "Year";
-            combox_Nam.ValueMember = "Year";
+            comboBox_Thang.Enabled = false;
+            DataTable dt_check = bll.LayNamThang();
+            if (dt_check.Rows.Count != 0)
+            {
+                combox_Nam.DataSource = dt_check;
+                combox_Nam.DisplayMember = "Year";
+                combox_Nam.ValueMember = "Year";
+            }
+            else
+            {
+                combox_Nam.Enabled = false;
+                buttonBaoCaoThang.Enabled = false;  
+            }
         }
 
         //private void button5_Click(object sender, EventArgs e)
@@ -64,6 +74,7 @@ namespace MainForm
         private void button4_Click(object sender, EventArgs e)
         {
             //FormManager.CurrentBaoCaoThang.Close();
+            Close();
         }
 
         private void BaoCaoThang_FormClosing(object sender, FormClosingEventArgs e)
@@ -99,27 +110,24 @@ namespace MainForm
         private void buttonBaoCaoThang_Click(object sender, EventArgs e)
         {
             //dataGridViewKQ.Rows.Clear();
-            if (CheckRules())
+
+            int thang = Convert.ToInt16(comboBox_Thang.SelectedValue.ToString());
+            int nam = Convert.ToInt16(combox_Nam.SelectedValue.ToString());
+
+
+            cry.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\Bảo trì phần mềm\QuanLyChuyenBay\trunk\source\MainForm\Giao Dien\Bao Cao\BaoCaoThang.rpt");
+            DataSet ds = new DataSet();
+            DataTable dt_baocao = bll.LapBaoCaoThang(thang, nam);
+            if (dt_baocao == null)
             {
-                int thang = Convert.ToInt16(comboBox_Thang.SelectedValue.ToString());
-                int nam = Convert.ToInt16(combox_Nam.SelectedValue.ToString());
-
-              
-                cry.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\Bảo trì phần mềm\QuanLyChuyenBay\trunk\source\MainForm\Giao Dien\Bao Cao\BaoCaoThang.rpt");
-                DataSet ds = new DataSet();
-                DataTable dt_baocao = bll.LapBaoCaoThang(thang,nam);
-                if (dt_baocao == null)
-                {
-                    MessageBox.Show("Hiện tại chưa có dữ liệu của *THÁNG* hoặc *NĂM* đã chọn. Vui lòng kiểm tra lại !!!");
-                }
-                else
-                {
-                    ds.Tables.Add(dt_baocao);
-                    cry.SetDataSource(ds);
-                    crystalReportViewer1.ReportSource = cry;
-                }
-                
-
+                MessageBox.Show("Hiện tại chưa có dữ liệu của *THÁNG* hoặc *NĂM* đã chọn. Vui lòng kiểm tra lại !!!");
+            }
+            else
+            {
+                ds.Tables.Add(dt_baocao);
+                cry.SetDataSource(ds.Tables[0]);
+                crystalReportViewer1.ReportSource = cry;
+            }    
                 #region cmt
 // Vì vi?t theo 3 l?p nên LinQ không phù h?p c?u trúc chung   
             //    int SoNgay = SoNgayTrongThang(thang, nam);
@@ -171,8 +179,6 @@ namespace MainForm
             //        dataGridViewKQ.Rows[i].Cells[3].Value = Math.Round((Convert.ToInt16(dataGridViewKQ.Rows[i].Cells[2].Value.ToString()) / tongdoanhthu), 3).ToString();
             //    }
 #endregion
-            }
-            
         }
         private bool CheckRules()
         {
@@ -181,15 +187,17 @@ namespace MainForm
                 MessageBox.Show("không thể bỏ trống năm hoặc tháng!");
                 return false;
             }
-            //QLCBRules _rule = new QLCBRules();
+            #region cmt
+     //QLCBRules _rule = new QLCBRules();
 //             if (!_rule.IsNNumber(textBoxNam.Text) || !_rule.IsNNumber(textBoxThang.Text))
 //             {
-//                 MessageBox.Show("Tháng năm phải là một số nguyên!");
+//                 MessageBox.Show("Tháng nam ph?i là m?t s? nguyên!");
 //                 return false;
 //             }
+     #endregion
 
-            int thang = Convert.ToInt16(combox_Nam.SelectedValue.ToString());
-            int nam = Convert.ToInt16(comboBox_Thang.SelectedValue.ToString());
+            int thang = Convert.ToInt16(comboBox_Thang.SelectedValue.ToString());
+            int nam = Convert.ToInt16(combox_Nam.SelectedValue.ToString());
             if (thang < 1 || thang > 12)
             {
                 MessageBox.Show("Tháng không hợp lệ!");
@@ -203,7 +211,8 @@ namespace MainForm
             return true;
 
         }
-        // đã chuyển qua BLL
+        #region cmt
+ // dã chuy?n qua BLL
         //private bool LaNamNhuan(int nam)
         //{
         //    if (nam % 4 == 0 && nam % 100 != 0)
@@ -219,6 +228,7 @@ namespace MainForm
         //        return 29;
         //    return 28;
         //}
+ #endregion
 
 
         private void textBoxNamBaoCao_Validating(object sender, CancelEventArgs e)
@@ -228,6 +238,8 @@ namespace MainForm
 
         private void combox_Nam_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBox_Thang.Enabled = true;
+            buttonBaoCaoThang.Enabled = true;
             comboBox_Thang.DataSource = bll.LayThang(combox_Nam.SelectedValue.ToString());
             comboBox_Thang.DisplayMember = "Thang";
             comboBox_Thang.SelectedValue = "Thang";

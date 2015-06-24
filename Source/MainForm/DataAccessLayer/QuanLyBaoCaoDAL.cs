@@ -59,17 +59,31 @@ namespace MainForm.DataAccessLayer
             conn.Write(sql);
         }
 
+        public void UpdateDTT(string thang,string nam, string sochuyenbay, string doanhthu)
+        {
+            string sql = "update DOANHTHUTHANG set SoChuyenBay='" + sochuyenbay + "',DoanhThu='" + doanhthu + "' where Thang='" + thang + "' and Nam='" + nam + "'";
+            conn.Write(sql);
+        }
+
         public void LuuDoanhThuNam(string nam, string doanhthunam)
         {
             string sql = "insert into DOANHTHUNAM values('" + nam + "','" + doanhthunam + "')";
              conn.Write(sql);
         }
+
+        public void UpdateDTN(string nam, string doanhthunam)
+        {
+            string sql = "update DOANHTHUNAM set DoanhThuNam ='" + doanhthunam + "' where Nam='" + nam + "'";
+            conn.Write(sql);
+        }
+
         public DataTable LayNamThang()
         {
             string sql = "select distinct YEAR(NgayKhoiHanh) as Year from CHUYENBAY";
             DataTable tmp = conn.Read(sql);
             return tmp;
         }
+
         public DataTable LayThang(string nam)
         {
             string sql = "select MONTH(NgayKhoiHanh) as Month from CHUYENBAY where YEAR(NgayKhoiHanh)=" + nam + "";

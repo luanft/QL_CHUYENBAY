@@ -126,7 +126,7 @@
             this.Name = "BaoCaoNam";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo Cáo Doanh Thu Theo Năm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BaoCaoNam_FormClosing);
+            
             this.Load += new System.EventHandler(this.BaoCaoNam_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MainForm.DataAccessLayer;
 using System.Data;
+using System.Data.SqlClient;
 namespace MainForm.BusinessLogicLayer
 {
     
@@ -58,7 +59,7 @@ namespace MainForm.BusinessLogicLayer
                     tongChuyenBay += Convert.ToInt32(dr["SoChuyenBay"].ToString());
                 }
                 DataColumn newColumn = new DataColumn("TongDoanhThu", typeof(string));
-                newColumn.DefaultValue = tongDoanhThuNam.ToString();
+                newColumn.DefaultValue = tongDoanhThuNam;
                 dt_save.Columns.Add(newColumn);
 
                 DataColumn newColumn1 = new DataColumn("TongChuyenBay", typeof(string));
@@ -68,9 +69,9 @@ namespace MainForm.BusinessLogicLayer
                 {
                     dal.LuuDoanhThuNam(nam.ToString(), tongDoanhThuNam.ToString());
                 }
-                catch
+                catch (SqlException e)
                 {
-
+                    dal.UpdateDTN(nam.ToString(), tongDoanhThuNam.ToString());
                 }
                 return dt_save;
             }
@@ -122,7 +123,7 @@ namespace MainForm.BusinessLogicLayer
                                 {
                                     float tiLeDonGia = float.Parse(hv["TiLeDonGia"].ToString());
                                     doanhThu += Convert.ToDouble(soGheDat * (donGia + donGia * tiLeDonGia));
-                                    tongDoanhThu = tongDoanhThu + doanhThu;
+                                    tongDoanhThu += doanhThu;
                                 }
                             }
                         }
@@ -138,8 +139,14 @@ namespace MainForm.BusinessLogicLayer
                                         tongDoanhThu.ToString());
                     }
                 }
-                
-                dal.LuuDoanhThuThang(thang.ToString(), nam.ToString(), tongSoChuyenBay.ToString(), tongDoanhThu.ToString());
+                try
+                {
+                    dal.LuuDoanhThuThang(thang.ToString(), nam.ToString(), tongSoChuyenBay.ToString(), tongDoanhThu.ToString());
+                }
+                catch
+                {
+                    dal.UpdateDTT(thang.ToString(), nam.ToString(), tongSoChuyenBay.ToString(), tongDoanhThu.ToString());
+                }
                 return dt_save;
             }
             

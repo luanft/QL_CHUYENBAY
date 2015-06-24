@@ -99,6 +99,7 @@
             // 
             // combox_Nam
             // 
+            this.combox_Nam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combox_Nam.FormattingEnabled = true;
             this.combox_Nam.Location = new System.Drawing.Point(57, 28);
             this.combox_Nam.Name = "combox_Nam";
@@ -108,6 +109,7 @@
             // 
             // comboBox_Thang
             // 
+            this.comboBox_Thang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Thang.FormattingEnabled = true;
             this.comboBox_Thang.Location = new System.Drawing.Point(223, 28);
             this.comboBox_Thang.Name = "comboBox_Thang";

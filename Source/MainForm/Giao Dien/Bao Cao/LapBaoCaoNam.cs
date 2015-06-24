@@ -54,7 +54,7 @@ namespace MainForm
             
             DataSet ds = new DataSet();
             DataTable dt_baocao = bll.LapBaoCaoNam(nam);
-            if (dt_baocao.Rows.Count == null)
+            if (dt_baocao == null)
             {
                 MessageBox.Show("Hiện tại chưa có dữ liệu của *NĂM* đã nhập. Vui lòng kiểm tra lại !!!");
             }
@@ -64,7 +64,8 @@ namespace MainForm
                 cry.SetDataSource(ds.Tables[0]);
                 crystalReportViewer1.ReportSource = cry;
             }
-                        //dataGridViewKQ.Rows.Clear();
+            #region cmt
+         //dataGridViewKQ.Rows.Clear();
             //if (CheckRules())
             //{
             //    Table<CHUYENBAY> chuyenbays = db.GetTable<CHUYENBAY>();
@@ -116,64 +117,71 @@ namespace MainForm
             //        dataGridViewKQ.Rows[i].Cells[3].Value = Math.Round((Convert.ToInt16(dataGridViewKQ.Rows[i].Cells[2].Value.ToString()) / tongdoanhthu), 3).ToString();
             //    }
             //}
+         #endregion
         }
-        private bool CheckRules()
-        {
-            QLCBRules _rule = new QLCBRules();
-            if (!_rule.IsNNumber(comboBox_Nam.SelectedValue.ToString()) || comboBox_Nam.SelectedValue.ToString().Length > 4 || comboBox_Nam.SelectedValue.ToString() == "")
-            {
-                MessageBox.Show("Không phải là 1 năm!");
-                    return false;
-            }
-            int nam = Convert.ToInt16(comboBox_Nam.SelectedValue.ToString());
-            if(nam < 2000 || nam > 2050)
-            {
-                MessageBox.Show("Năm phải thuộc 2000 tới 2050!");
-                return false;
-            }
-            return true;
-        }
+        #region cmt
+//private bool CheckRules()
+        //{
+        //    QLCBRules _rule = new QLCBRules();
+        //    if (!_rule.IsNNumber(comboBox_Nam.SelectedValue.ToString()) || comboBox_Nam.SelectedValue.ToString().Length > 4 || comboBox_Nam.SelectedValue.ToString() == "")
+        //    {
+        //        MessageBox.Show("Không ph?i là 1 nam!");
+        //            return false;
+        //    }
+        //    int nam = Convert.ToInt16(comboBox_Nam.SelectedValue.ToString());
+        //    if(nam < 2000 || nam > 2050)
+        //    {
+        //        MessageBox.Show("Nam ph?i thu?c 2000 t?i 2050!");
+        //        return false;
+        //    }
+        //    return true;
+        //}
+#endregion
 
         private void buttonQuayVe_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void BaoCaoNam_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+        #region cmt
+//private void BaoCaoNam_FormClosing(object sender, FormClosingEventArgs e)
+        //{
 
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                // Assume that X has been clicked and act accordingly.
-                // Confirm user wants to close
-                switch (MessageBox.Show(this, "Bạn có muốn dừng việc lập báo cáo năm không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                {
+        //    if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
-                    case DialogResult.Yes:
-                        switch (BeCalledByForm)
-                        {
-                            case "MAINFORM":
-                                e.Cancel = false;
-//                                 FormManager.CurrentBaoCaoNam = null;
-//                                 FormManager.CurrentMainForm.Show();
-                                break;
-                        }
-                        break;
-                    case DialogResult.No:
-                        e.Cancel = true;
-                        break;
-                }
-            }
-        }
+        //    if (e.CloseReason == CloseReason.UserClosing)
+        //    {
+        //        // Assume that X has been clicked and act accordingly.
+        //        // Confirm user wants to close
+        //        switch (MessageBox.Show(this, "B?n có mu?n d?ng vi?c l?p báo cáo nam không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+        //        {
 
-        private void buttonLuuTapTin_Click(object sender, EventArgs e)
-        {
-            //if (dataGridViewKQ.Rows.Count - 1 > 0)
-            //{
-            //    ExportFile _file = new ExportFile();
-            //    _file.ExportExcel(dataGridViewKQ);
-            //}
-        }
+        //            case DialogResult.Yes:
+        //                switch (BeCalledByForm)
+        //                {
+        //                    case "MAINFORM":
+        //                        e.Cancel = false;
+        //                        //                                 FormManager.CurrentBaoCaoNam = null;
+        //                        //                                 FormManager.CurrentMainForm.Show();
+        //                        break;
+        //                }
+        //                break;
+        //            case DialogResult.No:
+        //                e.Cancel = true;
+        //                break;
+        //        }
+        //    }
+
+        //}
+
+        //private void buttonLuuTapTin_Click(object sender, EventArgs e)
+        //{
+        //    if (dataGridViewKQ.Rows.Count - 1 > 0)
+        //    {
+        //        ExportFile _file = new ExportFile();
+        //        _file.ExportExcel(dataGridViewKQ);
+        //    }
+        //}
+#endregion
     }
 }
