@@ -35,7 +35,7 @@ namespace MainForm
             DataTable aa= bll.LayNam();
             if (aa.Rows.Count > 0)
             {
-                comboBox_Nam.DataSource = bll.LayNam();
+                comboBox_Nam.DataSource = aa;
                 comboBox_Nam.DisplayMember = "Nam";
                 comboBox_Nam.ValueMember = "Nam";
             }
@@ -50,7 +50,7 @@ namespace MainForm
         private void buttonBaoCaoNam_Click(object sender, EventArgs e)
         {
             int nam = Convert.ToInt16(comboBox_Nam.SelectedValue.ToString());
-            cry.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\Bảo trì phần mềm\QuanLyChuyenBay\trunk\source\MainForm\Giao Dien\Bao Cao\BaoCaoNam.rpt");
+            cry.Load(@"C:\Users\norules\Desktop\Mantenance v2\trunk\Source\MainForm\Giao Dien\Bao Cao\BaoCaoNam.rpt");
             
             DataSet ds = new DataSet();
             DataTable dt_baocao = bll.LapBaoCaoNam(nam);
@@ -61,7 +61,7 @@ namespace MainForm
             else
             {
                 ds.Tables.Add(dt_baocao);
-                cry.SetDataSource(ds);
+                cry.SetDataSource(ds.Tables[0]);
                 crystalReportViewer1.ReportSource = cry;
             }
                         //dataGridViewKQ.Rows.Clear();

@@ -32,8 +32,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.buttonBaoCao = new System.Windows.Forms.Button();
             this.comboBox_Nam = new System.Windows.Forms.ComboBox();
+            this.buttonBaoCao = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -91,6 +91,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Năm";
             // 
+            // comboBox_Nam
+            // 
+            this.comboBox_Nam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Nam.FormattingEnabled = true;
+            this.comboBox_Nam.Location = new System.Drawing.Point(7, 28);
+            this.comboBox_Nam.Name = "comboBox_Nam";
+            this.comboBox_Nam.Size = new System.Drawing.Size(84, 28);
+            this.comboBox_Nam.TabIndex = 2;
+            // 
             // buttonBaoCao
             // 
             this.buttonBaoCao.Location = new System.Drawing.Point(116, 24);
@@ -101,14 +110,6 @@
             this.buttonBaoCao.Text = "Báo Cáo";
             this.buttonBaoCao.UseVisualStyleBackColor = true;
             this.buttonBaoCao.Click += new System.EventHandler(this.buttonBaoCaoNam_Click);
-            // 
-            // comboBox_Nam
-            // 
-            this.comboBox_Nam.FormattingEnabled = true;
-            this.comboBox_Nam.Location = new System.Drawing.Point(7, 28);
-            this.comboBox_Nam.Name = "comboBox_Nam";
-            this.comboBox_Nam.Size = new System.Drawing.Size(84, 28);
-            this.comboBox_Nam.TabIndex = 2;
             // 
             // BaoCaoNam
             // 

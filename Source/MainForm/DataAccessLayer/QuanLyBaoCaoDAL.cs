@@ -61,7 +61,7 @@ namespace MainForm.DataAccessLayer
 
         public void LuuDoanhThuNam(string nam, string doanhthunam)
         {
-             string sql = "insert into DOANHTHUTHANG values('" + nam + "','" + doanhthunam + "')";
+            string sql = "insert into DOANHTHUNAM values('" + nam + "','" + doanhthunam + "')";
              conn.Write(sql);
         }
         public DataTable LayNamThang()
@@ -79,7 +79,7 @@ namespace MainForm.DataAccessLayer
 
         public DataTable LayNam()
         {
-            string sql = "select Nam from DOANHTHUTHANG";
+            string sql = "select distinct Nam from DOANHTHUTHANG";
             DataTable tmp = conn.Read(sql);
             return tmp;
         }

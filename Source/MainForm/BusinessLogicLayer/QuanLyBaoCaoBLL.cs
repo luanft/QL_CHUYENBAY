@@ -54,18 +54,24 @@ namespace MainForm.BusinessLogicLayer
                 int tongChuyenBay = 0;
                 foreach (DataRow dr in dt_save.Rows)
                 {
-                    tongDoanhThuNam += tongDoanhThuNam + Convert.ToDouble(dr["DoanhThu"].ToString());
-                    tongChuyenBay += tongChuyenBay + Convert.ToInt32(dr["SoChuyenBay"].ToString());
+                    tongDoanhThuNam +=   Convert.ToDouble(dr["DoanhThu"].ToString());
+                    tongChuyenBay += Convert.ToInt32(dr["SoChuyenBay"].ToString());
                 }
                 DataColumn newColumn = new DataColumn("TongDoanhThu", typeof(string));
                 newColumn.DefaultValue = tongDoanhThuNam.ToString();
                 dt_save.Columns.Add(newColumn);
 
                 DataColumn newColumn1 = new DataColumn("TongChuyenBay", typeof(string));
-                newColumn.DefaultValue = tongChuyenBay.ToString();
+                newColumn1.DefaultValue = tongChuyenBay.ToString();
                 dt_save.Columns.Add(newColumn1);
+                try
+                {
+                    dal.LuuDoanhThuNam(nam.ToString(), tongDoanhThuNam.ToString());
+                }
+                catch
+                {
 
-                dal.LuuDoanhThuNam(nam.ToString(), tongDoanhThuNam.ToString());
+                }
                 return dt_save;
             }
             
@@ -132,6 +138,7 @@ namespace MainForm.BusinessLogicLayer
                                         tongDoanhThu.ToString());
                     }
                 }
+                
                 dal.LuuDoanhThuThang(thang.ToString(), nam.ToString(), tongSoChuyenBay.ToString(), tongDoanhThu.ToString());
                 return dt_save;
             }
