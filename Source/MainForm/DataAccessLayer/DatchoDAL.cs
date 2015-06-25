@@ -16,7 +16,7 @@ namespace MainForm.DataAccessLayer
         public DataTable lay_danh_sach_ma_CB()
         {
             string connectstring = @"Select cb.MaChuyenBay
-                                    from CHUYENBAY cb where cb.GioKhoiHanh >'"+DateTime.Now+"'";
+                                    from CHUYENBAY cb where cb.NgayKhoiHanh >'"+DateTime.Now+"'";
 
             return _connect.Read(connectstring);
         }
@@ -100,11 +100,11 @@ namespace MainForm.DataAccessLayer
             string connectstring1 = @"Select  cb.DonGia
                                     from  CHUYENBAY cb
                                     where cb.MaChuyenBay ='" + macb + "'";
-            int don_gia = int.Parse(_connect.Read(connectstring1).Rows[0].ItemArray[0].ToString());
+            float don_gia = float.Parse(_connect.Read(connectstring1).Rows[0].ItemArray[0].ToString());
             string connectstring2 = @"Select  hv.TiLeDonGia
                                     from  HANGVE hv
                                     where hv.MaHangVe ='" + mahv + "'";
-            int ti_le_don_gia = int.Parse(_connect.Read(connectstring2).Rows[0].ItemArray[0].ToString());
+            float ti_le_don_gia = float.Parse(_connect.Read(connectstring2).Rows[0].ItemArray[0].ToString());
 
             return (don_gia * ti_le_don_gia).ToString();
         }

@@ -833,9 +833,10 @@ namespace MainForm
 
         //ktra thong tin ngay chuyen bay phai lon hon ngay hien tai 
         DateTime t = DateTime.ParseExact(textBox_ngaybay.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+        
         DateTime now = DateTime.Now;
         now=now.AddDays(+_datchobll.lay_quy_dinh_han_chot_dat_ve());
-        if (t.Day < now.Day && t.Month < now.Month && t.Year < now.Year)
+        if (t.Day < now.Day && t.Month <= now.Month && t.Year <= now.Year )
         {
             thong_bao_cho_nguoi_dung("Không thể sửa phiếu đặt hoặc tạo mới, phiếu đặt phải được tạo trước khi cât cánh " + _datchobll.lay_quy_dinh_han_chot_dat_ve() + " ngày", 1);
             return false;

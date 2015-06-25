@@ -674,8 +674,9 @@ namespace MainForm.Giao_diện.Bán_Vé___Đặt_Chỗ
         }
         //ktra thong tin ngay chuyen bay phai lon hon ngay hien tai 
         DateTime t = DateTime.ParseExact(textBox_ngay_bay.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+        DateTime tt = DateTime.ParseExact(textBox_giobay.Text, "hh:mm:ss", CultureInfo.InvariantCulture);
         DateTime now = DateTime.Now;
-        if (t.Day <= now.Day && t.Month <= now.Month && t.Year <= now.Year)
+        if (t.Day <= now.Day && t.Month <= now.Month && t.Year <= now.Year && tt.Hour<=now.Hour && tt.Minute<= now.Minute && tt.Second<=now.Second)
         {
             thong_bao_cho_nguoi_dung("Thao tác không thành công. Không thể sửa vé hoặc tạo vé với chuyến bay đã cất cánh!", 2);
             return false;
