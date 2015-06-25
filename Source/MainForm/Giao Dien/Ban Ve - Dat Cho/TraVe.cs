@@ -79,7 +79,7 @@ namespace MainForm.Giao_diện.Bán_Vé___Đặt_Chỗ
         public bool ktra_ngay_tra_ve()
         {
                 DateTime t = DateTime.ParseExact(_travebll.lay_ngay_khoi_hanh(textBox_macb.Text), "dd-MM-yyyy", CultureInfo.InvariantCulture);
-                DateTime tt = DateTime.ParseExact(textBox_giobay.Text, "hh:mm:ss", CultureInfo.InvariantCulture);
+                DateTime tt = DateTime.ParseExact(textBox_giobay.Text, "H:m:s", CultureInfo.InvariantCulture);
                 DateTime now = DateTime.Now;
                 //now=now.AddDays(+_datchobll.lay_quy_dinh_han_chot_dat_ve());
                 if (t.Day <= now.Day && t.Month <= now.Month && t.Year <= now.Year && tt.Hour <= now.Hour && tt.Minute <= now.Minute && tt.Second <= now.Second)
