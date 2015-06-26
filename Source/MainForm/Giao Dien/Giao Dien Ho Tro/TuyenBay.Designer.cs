@@ -42,12 +42,12 @@
             this.comboBoxSanBayDi = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.datagrvTuyenBay = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonLuu = new System.Windows.Forms.Button();
-            this._btSua = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this._btSua = new System.Windows.Forms.Button();
+            this.buttonLuu = new System.Windows.Forms.Button();
             this.groupBoxTuyenBay.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrvTuyenBay)).BeginInit();
@@ -89,6 +89,7 @@
             // 
             // _ctenden
             // 
+            this._ctenden.Enabled = false;
             this._ctenden.FormattingEnabled = true;
             this._ctenden.Items.AddRange(new object[] {
             "Add New..."});
@@ -101,6 +102,7 @@
             // 
             // _ctendi
             // 
+            this._ctendi.Enabled = false;
             this._ctendi.FormattingEnabled = true;
             this._ctendi.Items.AddRange(new object[] {
             "Add New..."});
@@ -218,43 +220,6 @@
             this.datagrvTuyenBay.TabIndex = 0;
             this.datagrvTuyenBay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrvTuyenBay_CellContentClick);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this._btSua);
-            this.groupBox3.Controls.Add(this.buttonLuu);
-            this.groupBox3.Location = new System.Drawing.Point(601, 22);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox3.Size = new System.Drawing.Size(141, 141);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Chức Năng";
-            // 
-            // buttonLuu
-            // 
-            this.buttonLuu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLuu.Location = new System.Drawing.Point(10, 94);
-            this.buttonLuu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonLuu.Name = "buttonLuu";
-            this.buttonLuu.Size = new System.Drawing.Size(123, 37);
-            this.buttonLuu.TabIndex = 5;
-            this.buttonLuu.Text = "Lưu";
-            this.buttonLuu.UseVisualStyleBackColor = true;
-            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
-            // 
-            // _btSua
-            // 
-            this._btSua.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btSua.Location = new System.Drawing.Point(10, 29);
-            this._btSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this._btSua.Name = "_btSua";
-            this._btSua.Size = new System.Drawing.Size(123, 37);
-            this._btSua.TabIndex = 6;
-            this._btSua.Text = "Sửa";
-            this._btSua.UseVisualStyleBackColor = true;
-            this._btSua.Click += new System.EventHandler(this._btSua_Click);
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "Mã Tuyến Bay";
@@ -275,6 +240,43 @@
             this.Column3.HeaderText = "Mã Sân Bay Đến";
             this.Column3.Name = "Column3";
             this.Column3.Width = 180;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this._btSua);
+            this.groupBox3.Controls.Add(this.buttonLuu);
+            this.groupBox3.Location = new System.Drawing.Point(601, 22);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox3.Size = new System.Drawing.Size(141, 141);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Chức Năng";
+            // 
+            // _btSua
+            // 
+            this._btSua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btSua.Location = new System.Drawing.Point(10, 29);
+            this._btSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this._btSua.Name = "_btSua";
+            this._btSua.Size = new System.Drawing.Size(123, 37);
+            this._btSua.TabIndex = 6;
+            this._btSua.Text = "Sửa";
+            this._btSua.UseVisualStyleBackColor = true;
+            this._btSua.Click += new System.EventHandler(this._btSua_Click);
+            // 
+            // buttonLuu
+            // 
+            this.buttonLuu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLuu.Location = new System.Drawing.Point(10, 94);
+            this.buttonLuu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonLuu.Name = "buttonLuu";
+            this.buttonLuu.Size = new System.Drawing.Size(123, 37);
+            this.buttonLuu.TabIndex = 5;
+            this.buttonLuu.Text = "Lưu";
+            this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
             // TuyenBay
             // 
