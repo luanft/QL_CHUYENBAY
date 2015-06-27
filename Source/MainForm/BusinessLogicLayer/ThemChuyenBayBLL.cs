@@ -9,6 +9,7 @@ namespace MainForm.BusinessLogicLayer
     class ThemChuyenBayBLL
     {
         DataAccessLayer.ThemChuyenBayDAL dal = new DataAccessLayer.ThemChuyenBayDAL();
+
         public DataTable LayDanhSachMaTuyenBay()
         {
             return dal.LayDanhSachMaTuyenBay();
