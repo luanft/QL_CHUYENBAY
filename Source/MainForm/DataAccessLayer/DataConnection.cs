@@ -15,7 +15,16 @@ namespace MainForm.DataAccessLayer
         SqlConnection _con;
 
         private DataConnection()
-        { }
+        {
+            
+        }
+       public void SetDateFormat()
+        {
+            SqlConnection sql_con = OpenConnnection();
+            SqlCommand sql_cmd = new SqlCommand("set dateformat dmy", sql_con);
+            sql_cmd.ExecuteNonQuery();
+            sql_cmd.Dispose();
+        }
 
         public static DataConnection getInstance()
         {

@@ -332,7 +332,7 @@ namespace MainForm
         {
             if (!CheckRules())
             {
-                MessageBox.Show("Có gì đó sai thì phải :))! ");
+                //MessageBox.Show("Có gì đó sai thì phải :))! ");
                 return;
             }
 
@@ -393,7 +393,7 @@ namespace MainForm
             buttonXoa.Enabled = true;
             //buttonCapNhat.Enabled = false;
             //buttonXoa.Enabled = false;
-            resetState();
+            //resetState();
 
 
         }
@@ -507,15 +507,7 @@ namespace MainForm
                     textBoxDonGia.Text = "";
                     textBoxThoiGianBay.Text = "";
                     textBoxSanBayDen.Text = "";
-                    textBoxSanBayDi.Text = "";
-                    for (int i = 0; i < ThongTinSBTG.Count; i++)
-                    {
-                        if (ThongTinSBTG[i].MaChuyenBay == textBoxMaChuyenBay.Text)
-                        {
-                            ThongTinSBTG.RemoveAt(i);
-                            i--;
-                        }
-                    }
+                    textBoxSanBayDi.Text = "";                   
                     for (int i = 0; i < ThongTinHV.Count; i++)
                     {
                         if (ThongTinHV[i].MaChuyenBay == textBoxMaChuyenBay.Text)
@@ -524,6 +516,7 @@ namespace MainForm
                             i--;
                         }
                     }
+                    dataGridViewChuyenBay.Rows.Remove(dataGridViewChuyenBay.CurrentRow);
                     foreach (DataGridViewRow row in dataGridViewChuyenBay.SelectedRows)
                         if (!row.IsNewRow)
                             dataGridViewChuyenBay.Rows.Remove(row);
@@ -534,46 +527,12 @@ namespace MainForm
                     //dataGridViewChiTietGhe.Rows.Clear();
                     //dataGridViewSanBayTrungGian.Rows.Clear();
                     
-                    buttonXoa.Enabled = false;
+                    //buttonXoa.Enabled = false;
                     textBoxDonGia.Text = "1000000";
                     textBoxThoiGianBay.Text = "120";
                     break;
                 case DialogResult.Cancel:
                     break;
-            }
-        }
-
-        private void _keydown(object sender, KeyEventArgs e)
-        {
-            if (IsSelectOneRow && e.KeyCode == Keys.Delete)
-            {
-                textBoxMaChuyenBay.Text = "";
-                textBoxDonGia.Text = "";
-                comboBoxMaTuyenBay.ResetText();
-                textBoxDonGia.Text = "";
-                textBoxThoiGianBay.Text = "";
-                textBoxSanBayDen.Text = "";
-                textBoxSanBayDi.Text = "";
-                for (int i = 0; i < ThongTinSBTG.Count; i++)
-                {
-                    if (ThongTinSBTG[i].MaChuyenBay == textBoxMaChuyenBay.Text)
-                    {
-                        ThongTinSBTG.RemoveAt(i);
-                        i--;
-                    }
-                }
-                for (int i = 0; i < ThongTinHV.Count; i++)
-                {
-                    if (ThongTinHV[i].MaChuyenBay == textBoxMaChuyenBay.Text)
-                    {
-                        ThongTinHV.RemoveAt(i);
-                        i--;
-                    }
-                }
-                dataGridViewChiTietGhe.Rows.Clear();
-//                 buttonPhucHoi.Enabled = true;
-//                 buttonSua.Enabled = false;
-                buttonXoa.Enabled = false;
             }
         }
 
@@ -620,7 +579,7 @@ namespace MainForm
                 case DialogResult.Cancel:
                     break;
             }
-            resetState();
+           // resetState();
         }
 
         private void buttonLuu_Click(object sender, EventArgs e)
@@ -761,7 +720,7 @@ namespace MainForm
                 buttonXoa.Enabled = false;
                 buttonLuu.Enabled = false;
                 textBoxDonGia.Text = "1000000";
-                textBoxThoiGianBay.Text = "120";
+                textBoxThoiGianBay.Text = "120";          
             }
             catch (SqlException ee)
             {
@@ -858,7 +817,7 @@ namespace MainForm
             buttonThem.Enabled = true;
 //             buttonSua.Text = "Sửa";
 //             buttonSua.Enabled = false;
-            buttonXoa.Enabled = false;
+            //buttonXoa.Enabled = false;
             //buttonPhucHoi.Enabled = false;
             buttonLuu.Enabled = false;
             
@@ -977,17 +936,7 @@ namespace MainForm
         #region Xử lí
         private void comboBoxMaTuyenBay_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxMaTuyenBay.SelectedIndex == 0)
-            {
-//                 FormManager.CurrentTuyenBay.MdiParent = FormManager.CurrentMainForm;
-//                 FormManager.CurrentTuyenBay.Show();
-//                 FormManager.CurrentTuyenBay.Focus();
-//                 FormManager.CurrentTuyenBay.BeCalledByForm = NAME;
-            }
-            else
-            {
-                UpdateTextBoxSanBay();
-            }
+             UpdateTextBoxSanBay();
         }
         #region bỏ dey
         //         private void dataGridViewChuyenBay_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1101,7 +1050,7 @@ namespace MainForm
         {
             try
             {
-                if (comboBoxMaTuyenBay.SelectedIndex != 0 && comboBoxMaTuyenBay.Items.Count > 0)
+                if (comboBoxMaTuyenBay.Items.Count > 0)
                 {
                     /*string MaTuyenBay = comboBoxMaTuyenBay.Text;
                     Table<TUYENBAY> tuyenbays = db.GetTable<TUYENBAY>();
@@ -1141,7 +1090,7 @@ namespace MainForm
         }*/
         private bool CheckRules()
         {
-            if (textBoxDonGia.Text == "" || textBoxThoiGianBay.Text == "")
+            if (textBoxDonGia.Text == "" || textBoxThoiGianBay.Text == "" || textBoxSanBayDi.Text=="" ||textBoxSanBayDen.Text=="")
             {
                 MessageBox.Show("Khong the de trong thoi gian bay hoac don gia!");
                 return false;
@@ -1268,6 +1217,22 @@ namespace MainForm
         {
 
             this.dataGridViewChiTietGhe.DataSource = bll.LayDanhSachHangVe();
+        }
+
+        private void dataGridViewChiTietGhe_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dataGridViewChiTietGhe_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void dataGridViewChiTietGhe_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+           MessageBox.Show("Số lượng ghế không là chữ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
 

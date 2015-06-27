@@ -30,8 +30,6 @@
         {
             this.groupBoxThongTinChuyenBay = new System.Windows.Forms.GroupBox();
             this.dataGridViewChiTietGhe = new System.Windows.Forms.DataGridView();
-            this.ColumnMaHangVe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongSoGhe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxSanBayDen = new System.Windows.Forms.TextBox();
             this.textBoxSanBayDi = new System.Windows.Forms.TextBox();
             this.dateTimePickerNgayKhoiHanh = new System.Windows.Forms.DateTimePicker();
@@ -65,6 +63,8 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ButtonXuatFile = new System.Windows.Forms.Button();
+            this.ColumnMaHangVe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongSoGhe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxThongTinChuyenBay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietGhe)).BeginInit();
             this.groupBoxChucNang.SuspendLayout();
@@ -117,22 +117,7 @@
             this.dataGridViewChiTietGhe.Name = "dataGridViewChiTietGhe";
             this.dataGridViewChiTietGhe.Size = new System.Drawing.Size(310, 94);
             this.dataGridViewChiTietGhe.TabIndex = 100;
-            // 
-            // ColumnMaHangVe
-            // 
-            this.ColumnMaHangVe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnMaHangVe.DataPropertyName = "MaHangVe";
-            this.ColumnMaHangVe.HeaderText = "Mã Hạng Vé";
-            this.ColumnMaHangVe.Name = "ColumnMaHangVe";
-            this.ColumnMaHangVe.ReadOnly = true;
-            this.ColumnMaHangVe.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // TongSoGhe
-            // 
-            this.TongSoGhe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TongSoGhe.DataPropertyName = "SoGhe";
-            this.TongSoGhe.HeaderText = "Số Ghế";
-            this.TongSoGhe.Name = "TongSoGhe";
+            this.dataGridViewChiTietGhe.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewChiTietGhe_DataError);
             // 
             // textBoxSanBayDen
             // 
@@ -485,6 +470,22 @@
             this.ButtonXuatFile.UseVisualStyleBackColor = true;
             this.ButtonXuatFile.Click += new System.EventHandler(this.ButtonXuatFile_Click);
             // 
+            // ColumnMaHangVe
+            // 
+            this.ColumnMaHangVe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnMaHangVe.DataPropertyName = "MaHangVe";
+            this.ColumnMaHangVe.HeaderText = "Mã Hạng Vé";
+            this.ColumnMaHangVe.Name = "ColumnMaHangVe";
+            this.ColumnMaHangVe.ReadOnly = true;
+            this.ColumnMaHangVe.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // TongSoGhe
+            // 
+            this.TongSoGhe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TongSoGhe.DataPropertyName = "SoGhe";
+            this.TongSoGhe.HeaderText = "Số Ghế";
+            this.TongSoGhe.Name = "TongSoGhe";
+            // 
             // ThemLichChuyenBay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -503,7 +504,6 @@
             this.Text = "Tiếp Nhận Chuyến Bay";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LichChuyenBay_FormClosing);
             this.Load += new System.EventHandler(this.ThemLichChuyenBay_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this._keydown);
             this.groupBoxThongTinChuyenBay.ResumeLayout(false);
             this.groupBoxThongTinChuyenBay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietGhe)).EndInit();
