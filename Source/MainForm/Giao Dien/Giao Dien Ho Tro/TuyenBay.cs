@@ -16,22 +16,6 @@ namespace MainForm
     public partial class TuyenBay : Form
     {
         private GiaoDienHoTroBLL _connect = new GiaoDienHoTroBLL();
-
-        public static string TUYENBAY = "TUYENBAY";
-        private string parentForm;        
-        QLCBRules _rules = new QLCBRules();
-        public delegate void updateDB();
-        public updateDB CapNhatCSDL;
-        public string BeCalledByForm
-        {
-            get { return parentForm; }
-            set { parentForm = value; }
-        }
-        public string NAME
-        {
-            get { return TUYENBAY; }
-        }
-
         public TuyenBay()
         {
             InitializeComponent();

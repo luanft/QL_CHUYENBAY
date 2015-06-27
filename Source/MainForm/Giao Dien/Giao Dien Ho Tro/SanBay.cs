@@ -44,6 +44,8 @@ namespace MainForm
             }
             catch (Exception ex) { }
             textBoxMaSanBay.Text = AutoMaSanBay();
+            textBoxDiaChiSanBay.Text = "";
+            textBoxTenSanBay.Text = "";
         }              
         private void buttonLuu_Click_1(object sender, EventArgs e)
         {
@@ -52,6 +54,8 @@ namespace MainForm
                 _connect.ThemSanBay(textBoxMaSanBay.Text, textBoxTenSanBay.Text, textBoxDiaChiSanBay.Text);
             }
             textBoxMaSanBay.Text = AutoMaSanBay();
+            textBoxDiaChiSanBay.Text = "";
+            textBoxTenSanBay.Text = "";
             updateDataGrid();
         }
         private void _KeyDown(object sender, KeyEventArgs e)
@@ -60,15 +64,7 @@ namespace MainForm
             {
                 
             }
-        }
-
-        private void dataGridViewSanBayDaThem_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            this.textBoxMaSanBay.Text = this.dataGridViewSanBayDaThem.CurrentRow.Cells[0].Value.ToString();
-            this.textBoxTenSanBay.Text = this.dataGridViewSanBayDaThem.CurrentRow.Cells[1].Value.ToString();
-            this.textBoxDiaChiSanBay.Text = this.dataGridViewSanBayDaThem.CurrentRow.Cells[2].Value.ToString();
-
-        }
+        }        
         private bool CheckRules()
         {
             if (textBoxDiaChiSanBay.Text == "" || textBoxTenSanBay.Text == "")
@@ -100,6 +96,13 @@ namespace MainForm
         private void updateDataGrid()
         {
             this.dataGridViewSanBayDaThem.DataSource = _connect.LaySanBay();
+        }
+
+        private void dataGridViewSanBayDaThem_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.textBoxMaSanBay.Text = this.dataGridViewSanBayDaThem.CurrentRow.Cells[0].Value.ToString();
+            this.textBoxTenSanBay.Text = this.dataGridViewSanBayDaThem.CurrentRow.Cells[1].Value.ToString();
+            this.textBoxDiaChiSanBay.Text = this.dataGridViewSanBayDaThem.CurrentRow.Cells[2].Value.ToString();
         }       
     }
 }

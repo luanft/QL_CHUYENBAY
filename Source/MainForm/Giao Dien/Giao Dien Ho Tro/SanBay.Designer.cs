@@ -38,6 +38,9 @@
             this.textBoxMaSanBay = new System.Windows.Forms.TextBox();
             this.groupBoxThongTinCacSanBay = new System.Windows.Forms.GroupBox();
             this.dataGridViewSanBayDaThem = new System.Windows.Forms.DataGridView();
+            this.C = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxChucNang = new System.Windows.Forms.GroupBox();
             this.buttonLuu = new System.Windows.Forms.Button();
             this.buttonSua = new System.Windows.Forms.Button();
@@ -47,9 +50,6 @@
             this.toolTipDiaChiSanBay = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipTenSanBay = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.C = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxThongTInSanBay.SuspendLayout();
             this.groupBoxThongTinCacSanBay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSanBayDaThem)).BeginInit();
@@ -165,8 +165,32 @@
             this.dataGridViewSanBayDaThem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewSanBayDaThem.Name = "dataGridViewSanBayDaThem";
             this.dataGridViewSanBayDaThem.Size = new System.Drawing.Size(569, 259);
-            this.dataGridViewSanBayDaThem.TabIndex = 0;
-            this.dataGridViewSanBayDaThem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSanBayDaThem_CellClick);
+            this.dataGridViewSanBayDaThem.TabIndex = 0;            
+            this.dataGridViewSanBayDaThem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSanBayDaThem_CellContentClick);
+            // 
+            // C
+            // 
+            this.C.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.C.DataPropertyName = "Mã Sân Bay";
+            this.C.HeaderText = "Mã Sân Bay";
+            this.C.Name = "C";
+            this.C.Width = 172;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.DataPropertyName = "Tên Sân Bay";
+            this.Column1.HeaderText = "Tên Sân Bay";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 174;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.DataPropertyName = "Địa Chỉ Sân Bay";
+            this.Column2.HeaderText = "Địa Chỉ Sân Bay";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 180;
             // 
             // groupBoxChucNang
             // 
@@ -245,30 +269,6 @@
             this.toolTipTenSanBay.InitialDelay = 500;
             this.toolTipTenSanBay.ReshowDelay = 100;
             this.toolTipTenSanBay.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
-            // C
-            // 
-            this.C.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.C.DataPropertyName = "Mã Sân Bay";
-            this.C.HeaderText = "Mã Sân Bay";
-            this.C.Name = "C";
-            this.C.Width = 172;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.DataPropertyName = "Tên Sân Bay";
-            this.Column1.HeaderText = "Tên Sân Bay";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 174;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.DataPropertyName = "Địa Chỉ Sân Bay";
-            this.Column2.HeaderText = "Địa Chỉ Sân Bay";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 180;
             // 
             // SanBay
             // 
