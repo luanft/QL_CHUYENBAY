@@ -22,7 +22,7 @@ namespace MainForm.DataAccessLayer
         }
         public DataTable LaySanBay()
         {
-            String _sql = "select MaSanBay[Mã Sân Bay], TenSanBay[Tên Sân Bay], DiaChi[Địa Chỉ] from SANBAY";
+            String _sql = "select MaSanBay[Mã Sân Bay], TenSanBay[Tên Sân Bay], DiaChi[Địa Chỉ Sân Bay] from SANBAY";
             return _connect.Read(_sql);
         }
         public DataTable TenSanBay(String masb) {
