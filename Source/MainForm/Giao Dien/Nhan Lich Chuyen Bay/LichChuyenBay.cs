@@ -204,15 +204,6 @@ namespace MainForm
             Column6.ReadOnly = true;
 
         }
-        public string BeCalledByForm
-        {
-            get { return parentForm; }
-            set { parentForm = value; }
-        }
-        public string NAME
-        {
-            get { return LICHCHUYENBAY; }
-        }
         private void LichChuyenBay_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
@@ -341,6 +332,7 @@ namespace MainForm
         {
             if (!CheckRules())
             {
+                MessageBox.Show("Có gì đó sai thì phải :))! ");
                 return;
             }
 
@@ -373,19 +365,6 @@ namespace MainForm
    #endregion
 
             #region Lưu Thông Tin Hạng Vé Và SBTG vào List
-            //lưu thông tin sân bay trung gian của chuyến bay 
-            thongtinCB temp = new thongtinCB(textBoxMaChuyenBay.Text);
-            for (int i = 0; i < dataGridViewSanBayTrungGian.Rows.Count; i++)
-            {
-                if (!dataGridViewSanBayTrungGian.Rows[i].IsNewRow)
-                {
-                    temp.AddSBTG(dataGridViewSanBayTrungGian.Rows[i].Cells[0].Value.ToString(),
-                    Convert.ToInt16(dataGridViewSanBayTrungGian.Rows[i].Cells[1].Value.ToString()),
-                    dataGridViewSanBayTrungGian.Rows[i].Cells[2].Value.ToString());
-                }
-            }
-            ThongTinSBTG.Add(temp);
-
             //lưu thông tin hạng vé
             thongtinHV hangvetemp = new thongtinHV(textBoxMaChuyenBay.Text);
             for (int i = 0; i < dataGridViewChiTietGhe.Rows.Count; i++)
@@ -396,7 +375,6 @@ namespace MainForm
                     dataGridViewChiTietGhe.Rows[i].Cells[1].Value = 0;
             }
             ThongTinHV.Add(hangvetemp);
-            dataGridViewSanBayTrungGian.Rows.Clear();
             
             #endregion
             #region Đưa thông tin chuyến bay lên datagridview
@@ -415,12 +393,12 @@ namespace MainForm
             buttonXoa.Enabled = true;
             //buttonCapNhat.Enabled = false;
             //buttonXoa.Enabled = false;
-            //resetState();
+            resetState();
 
 
         }
-
-// 
+        #region bỏ
+        // 
 //         private void buttonSua_Click(object sender, EventArgs e)
 //         {
 //             if (buttonSua.Text.Equals("Sửa"))
@@ -512,17 +490,18 @@ namespace MainForm
 //             }
 // 
 // 
-//         }
-
+        //         }
+        #endregion
         private void buttonXoa_Click(object sender, EventArgs e)
         {
+            
             switch (MessageBox.Show(this, "Bạn có muốn xóa dữ liệu vừa thêm không?", "Cảnh báo!",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
             {
                 case DialogResult.OK:
                     // xóa dữ liệu vừa thêm trước đó;
                     //xóa trên datagridviewchuyenbay
-                    textBoxMaChuyenBay.Text = "";
+                    //textBoxMaChuyenBay.Text = "";
                     textBoxDonGia.Text = "";
                     comboBoxMaTuyenBay.ResetText();
                     textBoxDonGia.Text = "";
@@ -592,7 +571,6 @@ namespace MainForm
                     }
                 }
                 dataGridViewChiTietGhe.Rows.Clear();
-                dataGridViewSanBayTrungGian.Rows.Clear();
 //                 buttonPhucHoi.Enabled = true;
 //                 buttonSua.Enabled = false;
                 buttonXoa.Enabled = false;
@@ -607,7 +585,6 @@ namespace MainForm
                 case DialogResult.OK:
                     // phục hồi lại dữ liệu vừa thao tác trước đó;
                     // phục hồi datagridviewchuyenbay
-                    dataGridViewSanBayTrungGian.Rows.Clear();
                     dataGridViewChiTietGhe.Rows.Clear();
 
                     textBoxMaChuyenBay.Text = chuyenbaytemp.MaChuyen;
@@ -616,7 +593,6 @@ namespace MainForm
                     dateTimePickerNgayKhoiHanh.Value = ToDateTime(chuyenbaytemp.NgayKhoiHanh);
                     dateTimePickerGioKhoiHanh.Value = ToDateTime(chuyenbaytemp.GioKhoiHanh);
                     textBoxDonGia.Text = chuyenbaytemp.DonGia;
-                    UpdateComboboxSBTG();
                     dataGridViewChuyenBay.Rows.Add
                         (
                         chuyenbaytemp.MaChuyen,
@@ -636,13 +612,6 @@ namespace MainForm
                         dataGridViewChiTietGhe.Rows.Add(
                             hvTemp.ListTTHV[i].MaHangVe,
                             hvTemp.ListTTHV[i].SoGhe);
-                    }
-                    for (int i = 0; i < sbTGtemp.ListSBTG.Count; i++)
-                    {
-                        dataGridViewSanBayTrungGian.Rows.Add(
-                            sbTGtemp.ListSBTG[i].MaSB,
-                            sbTGtemp.ListSBTG[i].TgDung,
-                            sbTGtemp.ListSBTG[i].Ghchu);
                     }
                     //buttonPhucHoi.Enabled = false;
                     buttonThem.Enabled = true;
@@ -762,29 +731,7 @@ namespace MainForm
                     bll.ThemChuyenBay(MaChuyenBay, MaTuyenBay, ThoiGianBay, DonGia, NgayKhoiHanh, GioKhoiHanh);
                     //db.SubmitChanges();                    
                 }
-
-                //Table<SANBAYTRUNGGIAN> sanbaytrunggians = db.GetTable<SANBAYTRUNGGIAN>();
-                for (int i = 0; i < ThongTinSBTG.Count; i++)
-                {
-                    for (int j = 0; j < ThongTinSBTG[i].ListSBTG.Count; j++)
-                    {
-                        #region comment
-                        // Thay dô?i do code cu~ su? du?ng linQ
-                        /*SANBAYTRUNGGIAN k = new SANBAYTRUNGGIAN();
-                        k.MaChuyenBay = ThongTinSBTG[i].MaChuyenBay;
-                        k.MaSanBayTrungGian = ThongTinSBTG[i].ListSBTG[j].MaSB;
-                        k.ThoiGianDung = ThongTinSBTG[i].ListSBTG[j].TgDung;
-                        k.GhiChu = ThongTinSBTG[i].ListSBTG[j].Ghchu;*/
-                        //sanbaytrunggians.InsertOnSubmit(k);
-                        #endregion
-                        string MaChuyenBay = ThongTinSBTG[i].MaChuyenBay;
-                        string MaSanBayTrungGian = ThongTinSBTG[i].ListSBTG[j].MaSB;
-                        int ThoiGianDung = ThongTinSBTG[i].ListSBTG[j].TgDung;
-                        string GhiChu = ThongTinSBTG[i].ListSBTG[j].Ghchu;
-                        bll.ThemSanBayTrungGian(MaChuyenBay, MaSanBayTrungGian, ThoiGianDung, GhiChu);
-                        //db.SubmitChanges();
-                    }
-                }
+                
                 //Table<CTGHE> chitietghes = db.GetTable<CTGHE>();
                 for (int i = 0; i < ThongTinHV.Count; i++)
                 {
@@ -810,7 +757,6 @@ namespace MainForm
                     }
                 }
                 dataGridViewChuyenBay.Rows.Clear();
-                dataGridViewSanBayTrungGian.Rows.Clear();
                 MessageBox.Show("Đã Lưu");
                 buttonXoa.Enabled = false;
                 buttonLuu.Enabled = false;
@@ -915,7 +861,7 @@ namespace MainForm
             buttonXoa.Enabled = false;
             //buttonPhucHoi.Enabled = false;
             buttonLuu.Enabled = false;
-            dataGridViewSanBayTrungGian.Enabled = false;
+            
 
         }
 
@@ -930,8 +876,7 @@ namespace MainForm
             //textBoxThoiGianBay.Text = "";
             textBoxDonGia.Enabled = true;
             //textBoxDonGia.Text = "";
-            dataGridViewSanBayTrungGian.Enabled = true;
-
+         
             //buttonThem.Text = "Hủy Thêm";
             //buttonCapNhat.Text = "Sửa";
             //buttonSua.Enabled = false;
@@ -954,8 +899,7 @@ namespace MainForm
             //dataGridViewChiTietGhe.Rows.Clear();
             textBoxThoiGianBay.Text = "120";
             //dataGridViewChiTietGhe.Rows.Clear();
-            dataGridViewSanBayTrungGian.Rows.Clear();
-            ColumnSanBayTrungGian.DataSource = null;
+            
             #endregion
 
 
@@ -978,16 +922,14 @@ namespace MainForm
             //buttonSua.Text = "Hủy Sửa";
             buttonXoa.Enabled = false;
             //buttonPhucHoi.Enabled = false;
-            buttonLuu.Enabled = true;
-            dataGridViewSanBayTrungGian.Enabled = true;
+            buttonLuu.Enabled = true;         
             #endregion
            
         }
         //them ham viewstate
         void viewState()
         {
-            #region Control State
-            dataGridViewSanBayTrungGian.Enabled = false;
+            #region Control State   
             dataGridViewChiTietGhe.Enabled = false;
             comboBoxMaTuyenBay.Enabled = false;
             textBoxThoiGianBay.Enabled = false;
@@ -1005,33 +947,16 @@ namespace MainForm
             buttonThoat.Enabled = false;
             #endregion
             #region Data state
-            dataGridViewSanBayTrungGian.Rows.Clear();
             dataGridViewChiTietGhe.Rows.Clear();
 
             textBoxMaChuyenBay.Text = dataGridViewChuyenBay.CurrentRow.Cells[0].Value.ToString();
             comboBoxMaTuyenBay.Text = dataGridViewChuyenBay.CurrentRow.Cells[1].Value.ToString();
             UpdateTextBoxSanBay();
-            UpdateComboboxSBTG();
             textBoxThoiGianBay.Text = dataGridViewChuyenBay.CurrentRow.Cells[2].Value.ToString();
             textBoxDonGia.Text = dataGridViewChuyenBay.CurrentRow.Cells[5].Value.ToString();
             dateTimePickerNgayKhoiHanh.Value = ToDateTime(dataGridViewChuyenBay.CurrentRow.Cells[3].Value.ToString());
             dateTimePickerGioKhoiHanh.Value = ToDateTime(dataGridViewChuyenBay.CurrentRow.Cells[4].Value.ToString());
-
-            //Load Sân bay trung gian lên
-            for (int i = 0; i < ThongTinSBTG.Count; i++)
-            {
-                if (ThongTinSBTG[i].MaChuyenBay == textBoxMaChuyenBay.Text)
-                {
-                    for (int j = 0; j < ThongTinSBTG[i].ListSBTG.Count; j++)
-                    {
-                        dataGridViewSanBayTrungGian.Rows.Add(
-                            ThongTinSBTG[i].ListSBTG[j].MaSB,
-                            ThongTinSBTG[i].ListSBTG[j].TgDung.ToString(),
-                            ThongTinSBTG[i].ListSBTG[j].Ghchu);
-                    }
-                    break;
-                }
-            }
+            
             //Load thông tin hạng vé
             for (int i = 0; i < ThongTinHV.Count; i++)
             {
@@ -1061,12 +986,11 @@ namespace MainForm
             }
             else
             {
-                dataGridViewSanBayTrungGian.Rows.Clear();
                 UpdateTextBoxSanBay();
-                UpdateComboboxSBTG();
             }
         }
-//         private void dataGridViewChuyenBay_CellClick(object sender, DataGridViewCellEventArgs e)
+        #region bỏ dey
+        //         private void dataGridViewChuyenBay_CellClick(object sender, DataGridViewCellEventArgs e)
 //         {
 //             if (this.dataGridViewChuyenBay.SelectedRows.Count == 1 && !dataGridViewChuyenBay.CurrentRow.IsNewRow)
 //             {
@@ -1134,8 +1058,8 @@ namespace MainForm
 //             }
 // //             buttonSua.Text = "Sửa";
 // //             buttonPhucHoi.Enabled = false;
-//         }
-
+        //         }
+        #endregion
 
         #endregion
         #region Xử lý Database
@@ -1203,66 +1127,6 @@ namespace MainForm
                 return;
             }
         }
-        private void UpdateComboboxSBTG()
-        {
-            // dataGridViewSanBayTrungGian.Rows.Clear();
-            try
-            {
-                /*
-                ColumnSanBayTrungGian.Items.Clear();
-                Table<SANBAY> sanbays = db.GetTable<SANBAY>();
-                Table<TUYENBAY> tuyenbays = db.GetTable<TUYENBAY>();
-                TUYENBAY tb = tuyenbays.Single(p => p.MaTuyenBay == comboBoxMaTuyenBay.Text);
-                var temp = from e in sanbays
-                           where (e.MaSanBay != tb.MaSanBayDen && e.MaSanBay != tb.MaSanBayDi)
-                           select e;
-                foreach (var item in temp)
-                {
-                    ColumnSanBayTrungGian.Items.Add(item.MaSanBay.ToString());
-                }
-                 */
-                ColumnSanBayTrungGian.DataSource = bll.LayDanhSachSanBayTrungGian(textBoxSanBayDen.Text, textBoxSanBayDi.Text);
-                ColumnSanBayTrungGian.ValueMember = "MaSanBay";
-                ColumnSanBayTrungGian.DisplayMember = "TenSanBay";
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Không thể Load bảng SANBAY! lỗi CSDL!");
-                return;
-            }
-        }
-        //private string AutoMaChuyenBay(string MaSanBayHienTai)
-        //{
-
-            /*Table<CHUYENBAY> chuyenbays = db.GetTable<CHUYENBAY>();
-            bool flag = true;
-            int k = 0;
-            while (flag)
-            {
-                int i = 0;
-                for (; i < dataGridViewChuyenBay.Rows.Count; i++)
-                    if (!dataGridViewChuyenBay.Rows[i].IsNewRow &&
-                        dataGridViewChuyenBay.Rows[i].Cells[0].Value.ToString() == HamTaoLao(k))
-                        break;
-
-                if (i >= dataGridViewChuyenBay.Rows.Count)
-                {
-                    var bang = from e in chuyenbays
-                               where (e.MaChuyenBay == HamTaoLao(k))
-                               select e;
-                    if (bang.Count() > 0)
-                        k++;
-                    else
-                        flag = false;
-                }
-                else
-                    k++;
-            }
-            return HamTaoLao(k);*/
-            
-          
-
-       // }
         //bỏ HamTaoLao, chuyển thành hàm LayMaChuyenBayTiepTheo() đặt trong layer BLL 
         /*private string HamTaoLao(int k)
         {
@@ -1280,13 +1144,9 @@ namespace MainForm
             if (textBoxDonGia.Text == "" || textBoxThoiGianBay.Text == "")
             {
                 MessageBox.Show("Khong the de trong thoi gian bay hoac don gia!");
-            }
-            //Kiểm tra bảng hạng vé
-            if (dataGridViewChiTietGhe.Rows.Count == 1)
-            {
-                MessageBox.Show("Phai Co Chi Tiet Ghe!");
                 return false;
             }
+
             //Chuyển về 3 lớp
             //Table<THAMSO> thamsos = db.GetTable<THAMSO>();
             //THAMSO k = thamsos.Single(p => p.STT == 1);
@@ -1294,27 +1154,7 @@ namespace MainForm
             int TGDToiThieu = bll.LayThamSo("ThoiGianDungToiThieu");
             int TGDToiDa = bll.LayThamSo("ThoiGianDungToiDa");
             #region Luật Hạng Vé
-            bool flag = true;
-            for (int i = 0; i < dataGridViewChiTietGhe.Rows.Count - 2; i++)
-            {
-                for (int j = i + 1; j < dataGridViewChiTietGhe.Rows.Count - 1; j++)
-                {
-                    if (dataGridViewChiTietGhe.Rows[i].Cells[0].Value.ToString()
-                        == dataGridViewChiTietGhe.Rows[j].Cells[0].Value.ToString())
-                    {
-                        flag = false;
-                        break;
-                    }
-                }
-                if (!flag)
-                    break;
-            }
-
-            if (!flag)
-            {
-                MessageBox.Show("Có 2 hạng vé trùng nhau!");
-                return false;
-            }
+            bool flag = true;        
             for (int i = 0; i < dataGridViewChiTietGhe.Rows.Count - 1; i++)
             {
                 if (dataGridViewChiTietGhe.Rows[i].Cells[1].Value == null || !_rule.IsNNumber(dataGridViewChiTietGhe.Rows[i].Cells[1].Value.ToString()))
@@ -1329,52 +1169,8 @@ namespace MainForm
                 return false;
             }
             #endregion
-            //Kiểm tra bảng sân bay trung gian
-            #region Luật Sân Bay Trung Gian
-            for (int i = 0; i < dataGridViewSanBayTrungGian.Rows.Count - 2; i++)
-            {
-                for (int j = i + 1; j < dataGridViewSanBayTrungGian.Rows.Count - 1; j++)
-                {
-                    if (dataGridViewSanBayTrungGian.Rows[i].Cells[0].Value.ToString() ==
-                        dataGridViewSanBayTrungGian.Rows[j].Cells[0].Value.ToString())
-                    {
-                        flag = false;
-                        break;
-                    }
-                }
-                if (!flag)
-                    break;
-            }
-            if (!flag)
-            {
-                MessageBox.Show("Trùng sân bay trung gian!");
-                return false;
-            }
-            //Luật số lượng sân bay trung gian
-            if (dataGridViewSanBayTrungGian.Rows.Count - 1 > SoSBTGToiDa && SoSBTGToiDa>0)
-            {
-                MessageBox.Show("Số sân bay trung gian tối đa không thể quá " + SoSBTGToiDa);
-                return false;
-            }
-            for (int i = 0; i < dataGridViewSanBayTrungGian.Rows.Count - 1; i++)
-            {
-                if (dataGridViewSanBayTrungGian.Rows[i].Cells[1].Value == null || !_rule.IsNNumber(dataGridViewSanBayTrungGian.Rows[i].Cells[1].Value.ToString()))
-                {
-                    MessageBox.Show("Thoi gian dung phai la so nguyen!");
-                    return false;
-                }
-                if (Int16.Parse(dataGridViewSanBayTrungGian.Rows[i].Cells[1].Value.ToString()) < TGDToiThieu ||
-                   Int16.Parse(dataGridViewSanBayTrungGian.Rows[i].Cells[1].Value.ToString()) > TGDToiDa && TGDToiThieu>0 && TGDToiDa>0)
-                {
-                    MessageBox.Show(TGDToiThieu + " >= thoi gian dung <= " + TGDToiDa);
-                    return false;
-                }
-            }
-            #endregion
             //Kiểm tra Datagridview các chuyến bay
-            #region Luật Chuyến Bay
 
-            #endregion
             return true;
         }
 
@@ -1403,19 +1199,6 @@ namespace MainForm
             #endregion
             #region Thêm Thông Tin Mới Vào
             //chưa kiểm tra tính đúng đắn dữ liệu. cần gọi hàm checkrules trước.
-            //lưu thông tin sân bay trung gian
-            thongtinCB temp = new thongtinCB(textBoxMaChuyenBay.Text);
-            for (int i = 0; i < dataGridViewSanBayTrungGian.Rows.Count; i++)
-            {
-                if (!dataGridViewSanBayTrungGian.Rows[i].IsNewRow)
-                {
-                    temp.AddSBTG(dataGridViewSanBayTrungGian.Rows[i].Cells[0].Value.ToString(),
-                        Convert.ToInt16(dataGridViewSanBayTrungGian.Rows[i].Cells[1].Value.ToString()),
-                        dataGridViewSanBayTrungGian.Rows[i].Cells[2].Value.ToString());
-                }
-            }
-            ThongTinSBTG.Add(temp);
-
             //lưu thông tin hạng vé
             thongtinHV hangvetemp = new thongtinHV(textBoxMaChuyenBay.Text);
             for (int i = 0; i < dataGridViewChiTietGhe.Rows.Count; i++)
@@ -1435,29 +1218,6 @@ namespace MainForm
         {
             return (Convert.ToDateTime(_a));
         }
-
-        private void UpdateListSBTG(string _machuyenbay)
-        {
-            for (int i = 0; i < ThongTinSBTG.Count; i++)
-            {
-                if (ThongTinSBTG[i].MaChuyenBay == _machuyenbay)
-                {
-                    ThongTinSBTG[i].ListSBTG.Clear();
-                    for (int j = 0; j < dataGridViewSanBayTrungGian.Rows.Count; j++)
-                    {
-                        if (!dataGridViewSanBayTrungGian.Rows[j].IsNewRow)
-                        {
-                            ThongTinSBTG[i].AddSBTG(
-                                dataGridViewSanBayTrungGian.Rows[j].Cells[0].Value.ToString(),
-                                Convert.ToInt16(dataGridViewSanBayTrungGian.Rows[j].Cells[1].Value.ToString()),
-                                dataGridViewSanBayTrungGian.Rows[j].Cells[1].Value.ToString());
-                        }
-                    }
-                    break;
-                }
-            }
-        }
-
 //         private void UpdateListHV(string _machuyenbay)
 //         {
 //             for (int i = 0; i < ThongTinHV.Count; i++)

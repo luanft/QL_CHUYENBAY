@@ -50,11 +50,6 @@
             this.labelSanBayDen = new System.Windows.Forms.Label();
             this.labelSanBayDi = new System.Windows.Forms.Label();
             this.labelMaChuyenBay = new System.Windows.Forms.Label();
-            this.groupBoxSanBayTG = new System.Windows.Forms.GroupBox();
-            this.dataGridViewSanBayTrungGian = new System.Windows.Forms.DataGridView();
-            this.ColumnSanBayTrungGian = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ColumnThoiGianDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxChucNang = new System.Windows.Forms.GroupBox();
             this.buttonLuu = new System.Windows.Forms.Button();
             this.buttonThoat = new System.Windows.Forms.Button();
@@ -72,8 +67,6 @@
             this.ButtonXuatFile = new System.Windows.Forms.Button();
             this.groupBoxThongTinChuyenBay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietGhe)).BeginInit();
-            this.groupBoxSanBayTG.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSanBayTrungGian)).BeginInit();
             this.groupBoxChucNang.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChuyenBay)).BeginInit();
@@ -338,57 +331,6 @@
             this.labelMaChuyenBay.TabIndex = 0;
             this.labelMaChuyenBay.Text = "Mã Chuyến bay";
             // 
-            // groupBoxSanBayTG
-            // 
-            this.groupBoxSanBayTG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxSanBayTG.Controls.Add(this.dataGridViewSanBayTrungGian);
-            this.groupBoxSanBayTG.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxSanBayTG.Location = new System.Drawing.Point(10, 271);
-            this.groupBoxSanBayTG.Name = "groupBoxSanBayTG";
-            this.groupBoxSanBayTG.Size = new System.Drawing.Size(777, 144);
-            this.groupBoxSanBayTG.TabIndex = 1;
-            this.groupBoxSanBayTG.TabStop = false;
-            this.groupBoxSanBayTG.Text = "Thông tin Sân bay Trung Gian";
-            // 
-            // dataGridViewSanBayTrungGian
-            // 
-            this.dataGridViewSanBayTrungGian.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewSanBayTrungGian.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSanBayTrungGian.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnSanBayTrungGian,
-            this.ColumnThoiGianDung,
-            this.ColumnGhiChu});
-            this.dataGridViewSanBayTrungGian.Location = new System.Drawing.Point(6, 25);
-            this.dataGridViewSanBayTrungGian.Name = "dataGridViewSanBayTrungGian";
-            this.dataGridViewSanBayTrungGian.Size = new System.Drawing.Size(760, 113);
-            this.dataGridViewSanBayTrungGian.TabIndex = 0;
-            this.dataGridViewSanBayTrungGian.TabStop = false;
-            // 
-            // ColumnSanBayTrungGian
-            // 
-            this.ColumnSanBayTrungGian.FillWeight = 50F;
-            this.ColumnSanBayTrungGian.HeaderText = "Sân bay Trung Gian";
-            this.ColumnSanBayTrungGian.Name = "ColumnSanBayTrungGian";
-            this.ColumnSanBayTrungGian.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnSanBayTrungGian.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnSanBayTrungGian.Width = 239;
-            // 
-            // ColumnThoiGianDung
-            // 
-            this.ColumnThoiGianDung.FillWeight = 50F;
-            this.ColumnThoiGianDung.HeaderText = "Thời Gian Dừng";
-            this.ColumnThoiGianDung.Name = "ColumnThoiGianDung";
-            this.ColumnThoiGianDung.Width = 159;
-            // 
-            // ColumnGhiChu
-            // 
-            this.ColumnGhiChu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnGhiChu.HeaderText = "Ghi Chú";
-            this.ColumnGhiChu.Name = "ColumnGhiChu";
-            // 
             // groupBoxChucNang
             // 
             this.groupBoxChucNang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -460,9 +402,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dataGridViewChuyenBay);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(11, 423);
+            this.groupBox3.Location = new System.Drawing.Point(12, 271);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(776, 184);
+            this.groupBox3.Size = new System.Drawing.Size(777, 346);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chuyến Bay Đã Thêm";
@@ -480,9 +422,9 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dataGridViewChuyenBay.Location = new System.Drawing.Point(6, 20);
+            this.dataGridViewChuyenBay.Location = new System.Drawing.Point(15, 25);
             this.dataGridViewChuyenBay.Name = "dataGridViewChuyenBay";
-            this.dataGridViewChuyenBay.Size = new System.Drawing.Size(760, 158);
+            this.dataGridViewChuyenBay.Size = new System.Drawing.Size(749, 309);
             this.dataGridViewChuyenBay.TabIndex = 0;
             // 
             // Column1
@@ -551,7 +493,6 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBoxChucNang);
-            this.Controls.Add(this.groupBoxSanBayTG);
             this.Controls.Add(this.groupBoxThongTinChuyenBay);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -566,8 +507,6 @@
             this.groupBoxThongTinChuyenBay.ResumeLayout(false);
             this.groupBoxThongTinChuyenBay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietGhe)).EndInit();
-            this.groupBoxSanBayTG.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSanBayTrungGian)).EndInit();
             this.groupBoxChucNang.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChuyenBay)).EndInit();
@@ -579,7 +518,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxThongTinChuyenBay;
-        private System.Windows.Forms.GroupBox groupBoxSanBayTG;
         private System.Windows.Forms.Label labelMaTuyenBay;
         private System.Windows.Forms.Label labelSanBayDen;
         private System.Windows.Forms.Label labelSanBayDi;
@@ -590,7 +528,6 @@
         private System.Windows.Forms.Button buttonXoa;
         private System.Windows.Forms.Label labelThoiGianBay;
         private System.Windows.Forms.Label labelNgayKhoiHanh;
-        private System.Windows.Forms.DataGridView dataGridViewSanBayTrungGian;
         private System.Windows.Forms.TextBox textBoxThoiGianBay;
         private System.Windows.Forms.DateTimePicker dateTimePickerGioKhoiHanh;
         private System.Windows.Forms.Label label3;
@@ -614,9 +551,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnSanBayTrungGian;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnThoiGianDung;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGhiChu;
         private System.Windows.Forms.Button buttonThem;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMaHangVe;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongSoGhe;
