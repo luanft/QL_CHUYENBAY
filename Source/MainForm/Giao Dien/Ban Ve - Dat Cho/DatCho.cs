@@ -612,7 +612,7 @@ namespace MainForm
 
     private void textBox_scmndhk_TextChanged(object sender, EventArgs e)
     {
-        if (textBox_cmndhk.Text.Length != 10)
+        if (textBox_cmndhk.Text.Length != 9)
         {
             label_socmndhk.Visible = true;
         }
@@ -674,7 +674,7 @@ namespace MainForm
 
     private void textBox_scmndngmua_TextChanged(object sender, EventArgs e)
     {
-        if (textBox_CMNDDatCho.Text.Length != 10)
+        if (textBox_CMNDDatCho.Text.Length != 9)
         {
             label_CMND_datve.Visible = true;
              

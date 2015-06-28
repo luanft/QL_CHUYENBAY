@@ -572,7 +572,7 @@ namespace MainForm.Giao_diện.Bán_Vé___Đặt_Chỗ
 
     private void textBox_scmnd_TextChanged(object sender, EventArgs e)
     {
-        if (textBox_scmnd.Text.Length != 10 )
+        if (textBox_scmnd.Text.Length != 9 )
         {
             label_cmnd.Visible = true;
             
