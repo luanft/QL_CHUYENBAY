@@ -51,14 +51,16 @@
             this.menu_Themnguoidung = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_Phanquyen = new System.Windows.Forms.ToolStripMenuItem();
             this.lb_gioithieu = new System.Windows.Forms.Label();
-            this.lb_notify = new System.Windows.Forms.Label();
-            this.txt_password = new System.Windows.Forms.TextBox();
-            this.txt_username = new System.Windows.Forms.TextBox();
-            this.lb_pass = new System.Windows.Forms.Label();
-            this.lb_ma = new System.Windows.Forms.Label();
             this.btn_Close = new System.Windows.Forms.Button();
             this.btn_Login = new System.Windows.Forms.Button();
+            this.lb_ma = new System.Windows.Forms.Label();
+            this.lb_pass = new System.Windows.Forms.Label();
+            this.txt_username = new System.Windows.Forms.TextBox();
+            this.txt_password = new System.Windows.Forms.TextBox();
+            this.lb_notify = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.main_menu.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_menu
@@ -74,7 +76,7 @@
             this.menu_Hethong});
             this.main_menu.Location = new System.Drawing.Point(0, 0);
             this.main_menu.Name = "main_menu";
-            this.main_menu.Size = new System.Drawing.Size(1348, 25);
+            this.main_menu.Size = new System.Drawing.Size(1020, 25);
             this.main_menu.TabIndex = 21;
             // 
             // menu_Them
@@ -266,64 +268,15 @@
             this.lb_gioithieu.AutoSize = true;
             this.lb_gioithieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_gioithieu.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lb_gioithieu.Location = new System.Drawing.Point(343, 60);
+            this.lb_gioithieu.Location = new System.Drawing.Point(153, 56);
             this.lb_gioithieu.Name = "lb_gioithieu";
             this.lb_gioithieu.Size = new System.Drawing.Size(693, 46);
             this.lb_gioithieu.TabIndex = 22;
             this.lb_gioithieu.Text = "PHẦN MỀM QUẢN LÝ CHUYẾN BAY";
             // 
-            // lb_notify
-            // 
-            this.lb_notify.AutoSize = true;
-            this.lb_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_notify.ForeColor = System.Drawing.Color.Red;
-            this.lb_notify.Location = new System.Drawing.Point(497, 366);
-            this.lb_notify.Name = "lb_notify";
-            this.lb_notify.Size = new System.Drawing.Size(0, 20);
-            this.lb_notify.TabIndex = 29;
-            // 
-            // txt_password
-            // 
-            this.txt_password.Location = new System.Drawing.Point(638, 231);
-            this.txt_password.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_password.Name = "txt_password";
-            this.txt_password.PasswordChar = '#';
-            this.txt_password.Size = new System.Drawing.Size(208, 26);
-            this.txt_password.TabIndex = 2;
-            this.txt_password.Text = "luanft";
-            // 
-            // txt_username
-            // 
-            this.txt_username.Location = new System.Drawing.Point(638, 186);
-            this.txt_username.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(208, 26);
-            this.txt_username.TabIndex = 1;
-            this.txt_username.Text = "NV0001";
-            // 
-            // lb_pass
-            // 
-            this.lb_pass.AutoSize = true;
-            this.lb_pass.Location = new System.Drawing.Point(497, 237);
-            this.lb_pass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lb_pass.Name = "lb_pass";
-            this.lb_pass.Size = new System.Drawing.Size(79, 20);
-            this.lb_pass.TabIndex = 25;
-            this.lb_pass.Text = "Mật khẩu:";
-            // 
-            // lb_ma
-            // 
-            this.lb_ma.AutoSize = true;
-            this.lb_ma.Location = new System.Drawing.Point(497, 186);
-            this.lb_ma.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lb_ma.Name = "lb_ma";
-            this.lb_ma.Size = new System.Drawing.Size(113, 20);
-            this.lb_ma.TabIndex = 26;
-            this.lb_ma.Text = "Mã Nhân Viên:";
-            // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(660, 304);
+            this.btn_Close.Location = new System.Drawing.Point(185, 152);
             this.btn_Close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(112, 35);
@@ -334,7 +287,7 @@
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(518, 304);
+            this.btn_Login.Location = new System.Drawing.Point(43, 152);
             this.btn_Login.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(112, 35);
@@ -343,20 +296,79 @@
             this.btn_Login.UseVisualStyleBackColor = true;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
+            // lb_ma
+            // 
+            this.lb_ma.AutoSize = true;
+            this.lb_ma.Location = new System.Drawing.Point(22, 34);
+            this.lb_ma.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_ma.Name = "lb_ma";
+            this.lb_ma.Size = new System.Drawing.Size(113, 20);
+            this.lb_ma.TabIndex = 26;
+            this.lb_ma.Text = "Mã Nhân Viên:";
+            // 
+            // lb_pass
+            // 
+            this.lb_pass.AutoSize = true;
+            this.lb_pass.Location = new System.Drawing.Point(22, 85);
+            this.lb_pass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_pass.Name = "lb_pass";
+            this.lb_pass.Size = new System.Drawing.Size(79, 20);
+            this.lb_pass.TabIndex = 25;
+            this.lb_pass.Text = "Mật khẩu:";
+            // 
+            // txt_username
+            // 
+            this.txt_username.Location = new System.Drawing.Point(163, 34);
+            this.txt_username.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_username.Name = "txt_username";
+            this.txt_username.Size = new System.Drawing.Size(208, 26);
+            this.txt_username.TabIndex = 1;
+            this.txt_username.Text = "NV0001";
+            // 
+            // txt_password
+            // 
+            this.txt_password.Location = new System.Drawing.Point(163, 79);
+            this.txt_password.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_password.Name = "txt_password";
+            this.txt_password.PasswordChar = '#';
+            this.txt_password.Size = new System.Drawing.Size(208, 26);
+            this.txt_password.TabIndex = 2;
+            this.txt_password.Text = "luanft";
+            // 
+            // lb_notify
+            // 
+            this.lb_notify.AutoSize = true;
+            this.lb_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_notify.ForeColor = System.Drawing.Color.Red;
+            this.lb_notify.Location = new System.Drawing.Point(254, 343);
+            this.lb_notify.Name = "lb_notify";
+            this.lb_notify.Size = new System.Drawing.Size(0, 20);
+            this.lb_notify.TabIndex = 29;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btn_Close);
+            this.groupBox1.Controls.Add(this.btn_Login);
+            this.groupBox1.Controls.Add(this.txt_password);
+            this.groupBox1.Controls.Add(this.lb_ma);
+            this.groupBox1.Controls.Add(this.txt_username);
+            this.groupBox1.Controls.Add(this.lb_pass);
+            this.groupBox1.Location = new System.Drawing.Point(258, 130);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(397, 207);
+            this.groupBox1.TabIndex = 30;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Đăng nhập";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1348, 727);
+            this.ClientSize = new System.Drawing.Size(1020, 727);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lb_notify);
-            this.Controls.Add(this.txt_password);
-            this.Controls.Add(this.txt_username);
-            this.Controls.Add(this.lb_pass);
-            this.Controls.Add(this.lb_ma);
-            this.Controls.Add(this.btn_Login);
-            this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.lb_gioithieu);
             this.Controls.Add(this.main_menu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -371,6 +383,8 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.main_menu.ResumeLayout(false);
             this.main_menu.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,13 +415,14 @@
         private System.Windows.Forms.ToolStripMenuItem menu_Phanquyen;
         private System.Windows.Forms.ToolStripMenuItem kinhDoanh_traVe;
         private System.Windows.Forms.Label lb_gioithieu;
-        private System.Windows.Forms.Label lb_notify;
-        private System.Windows.Forms.TextBox txt_password;
-        private System.Windows.Forms.TextBox txt_username;
-        private System.Windows.Forms.Label lb_pass;
-        private System.Windows.Forms.Label lb_ma;
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.Button btn_Login;
+        private System.Windows.Forms.Label lb_ma;
+        private System.Windows.Forms.Label lb_pass;
+        private System.Windows.Forms.TextBox txt_username;
+        private System.Windows.Forms.TextBox txt_password;
+        private System.Windows.Forms.Label lb_notify;
+        private System.Windows.Forms.GroupBox groupBox1;
 
 
 
