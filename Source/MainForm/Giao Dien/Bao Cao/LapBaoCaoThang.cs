@@ -115,7 +115,7 @@ namespace MainForm
             int nam = Convert.ToInt16(combox_Nam.SelectedValue.ToString());
 
 
-            cry.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\Bảo trì phần mềm\QuanLyChuyenBay\trunk\source\MainForm\Giao Dien\Bao Cao\BaoCaoThang.rpt");
+            cry.Load(@"C:\Users\norules\Desktop\Mantenance v2\trunk\Source\MainForm\Giao Dien\Bao Cao\BaoCaoThang.rpt");
             DataSet ds = new DataSet();
             DataTable dt_baocao = bll.LapBaoCaoThang(thang, nam);
             if (dt_baocao == null)

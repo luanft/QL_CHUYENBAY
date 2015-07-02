@@ -51,7 +51,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(1008, 535);
+            this.groupBox1.Size = new System.Drawing.Size(989, 558);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi Tiết Doanh Thu";
@@ -64,7 +64,7 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(4, 24);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1000, 506);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(981, 529);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.TabStop = false;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
@@ -141,7 +141,7 @@
             // 
             this.buttonQuayVe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonQuayVe.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonQuayVe.Location = new System.Drawing.Point(898, 44);
+            this.buttonQuayVe.Location = new System.Drawing.Point(884, 44);
             this.buttonQuayVe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonQuayVe.Name = "buttonQuayVe";
             this.buttonQuayVe.Size = new System.Drawing.Size(123, 37);

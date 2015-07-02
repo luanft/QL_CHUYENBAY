@@ -116,7 +116,7 @@ namespace MainForm.BusinessLogicLayer
                             tongSoChuyenBay = tongSoChuyenBay + soChuyenBay;
                             DataTable dt_loaiGhe = dal.LayLoaiGhe(dr["MaChuyenBay"].ToString());
                             int soGheDat = Int32.Parse(dt_loaiGhe.Rows[0]["SoGheDat"].ToString());
-                            int donGia = Int32.Parse(dr["DonGian"].ToString());
+                            int donGia = Int32.Parse(dr["DonGia"].ToString());
                             foreach (DataRow hv in dt_hangVe.Rows)
                             {
                                 if (dt_loaiGhe.Rows[0]["MaChuyenBay"].ToString() == hv["MaHangVe"].ToString())

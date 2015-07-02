@@ -34,7 +34,7 @@ namespace MainForm.DataAccessLayer
 
         public DataTable LayLoaiGhe(string macb)//, string mahv)
         {
-            string sql = "select * from LOAIGHE where MaChuyenBay = '" + macb ;//+ "'and MaHangVe = '" + mahv + "'";
+            string sql = "select * from LOAIGHE where MaChuyenBay = '" + macb +"'";//+ "'and MaHangVe = '" + mahv + "'";
             DataTable tmp = conn.Read(sql);
             return tmp;
         }
