@@ -58,9 +58,9 @@
             this.txt_username = new System.Windows.Forms.TextBox();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.lb_notify = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbDangNhap = new System.Windows.Forms.GroupBox();
             this.main_menu.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbDangNhap.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_menu
@@ -345,20 +345,20 @@
             this.lb_notify.Size = new System.Drawing.Size(0, 20);
             this.lb_notify.TabIndex = 29;
             // 
-            // groupBox1
+            // gBDangNhap
             // 
-            this.groupBox1.Controls.Add(this.btn_Close);
-            this.groupBox1.Controls.Add(this.btn_Login);
-            this.groupBox1.Controls.Add(this.txt_password);
-            this.groupBox1.Controls.Add(this.lb_ma);
-            this.groupBox1.Controls.Add(this.txt_username);
-            this.groupBox1.Controls.Add(this.lb_pass);
-            this.groupBox1.Location = new System.Drawing.Point(258, 130);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(397, 207);
-            this.groupBox1.TabIndex = 30;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Đăng nhập";
+            this.gbDangNhap.Controls.Add(this.btn_Close);
+            this.gbDangNhap.Controls.Add(this.btn_Login);
+            this.gbDangNhap.Controls.Add(this.txt_password);
+            this.gbDangNhap.Controls.Add(this.lb_ma);
+            this.gbDangNhap.Controls.Add(this.txt_username);
+            this.gbDangNhap.Controls.Add(this.lb_pass);
+            this.gbDangNhap.Location = new System.Drawing.Point(258, 130);
+            this.gbDangNhap.Name = "gBDangNhap";
+            this.gbDangNhap.Size = new System.Drawing.Size(397, 207);
+            this.gbDangNhap.TabIndex = 30;
+            this.gbDangNhap.TabStop = false;
+            this.gbDangNhap.Text = "Đăng nhập";
             // 
             // MainForm
             // 
@@ -367,7 +367,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1020, 727);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbDangNhap);
             this.Controls.Add(this.lb_notify);
             this.Controls.Add(this.lb_gioithieu);
             this.Controls.Add(this.main_menu);
@@ -383,8 +383,8 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.main_menu.ResumeLayout(false);
             this.main_menu.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbDangNhap.ResumeLayout(false);
+            this.gbDangNhap.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,7 +422,7 @@
         private System.Windows.Forms.TextBox txt_username;
         private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.Label lb_notify;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbDangNhap;
 
 
 

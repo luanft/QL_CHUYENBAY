@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MainForm
+namespace MainForm.Giao_Dien.Tra_Cuu
 {
     public partial class TraCuuLichBay : Form
     {

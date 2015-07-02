@@ -1,4 +1,4 @@
-﻿namespace MainForm
+﻿namespace MainForm.Giao_Dien.Tra_Cuu
 {
     partial class TraCuuLichBay
     {

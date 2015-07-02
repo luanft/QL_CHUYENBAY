@@ -87,6 +87,7 @@
     <Compile Include="BusinessLogicLayer\TraVeBLL.cs" />
     <Compile Include="DataAccessLayer\DataConnection.cs" />
     <Compile Include="DataAccessLayer\DatchoDAL.cs" />
+    <Compile Include="DataAccessLayer\DuLieuDAL.cs" />
     <Compile Include="DataAccessLayer\GiaoDienHoTroDAL.cs" />
     <Compile Include="DataAccessLayer\HeThongDAL.cs" />
     <Compile Include="DataAccessLayer\LayveDAL.cs" />
@@ -191,6 +192,12 @@
     <Compile Include="Giao Dien\Giao Dien Ho Tro\TuyenBay.Designer.cs">
       <DependentUpon>TuyenBay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Giao Dien\Tra Cuu\DuLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Giao Dien\Tra Cuu\DuLieu.Designer.cs">
+      <DependentUpon>DuLieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,10 +207,10 @@
     <Compile Include="Giao Dien\Thay Doi Quy Dinh\ThayDoiQuyDinh.Designer.cs">
       <DependentUpon>ThayDoiQuyDinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="Giao Dien\Tra Cuu Lich Chuyen Bay\TraCuuLichBay.cs">
+    <Compile Include="Giao Dien\Tra Cuu\TraCuuLichBay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Giao Dien\Tra Cuu Lich Chuyen Bay\TraCuuLichBay.Designer.cs">
+    <Compile Include="Giao Dien\Tra Cuu\TraCuuLichBay.Designer.cs">
       <DependentUpon>TraCuuLichBay.cs</DependentUpon>
     </Compile>
     <Compile Include="QLCBRules.cs" />
@@ -254,6 +261,9 @@
     <EmbeddedResource Include="Giao Dien\Giao Dien Ho Tro\TuyenBay.resx">
       <DependentUpon>TuyenBay.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Giao Dien\Tra Cuu\DuLieu.resx">
+      <DependentUpon>DuLieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -267,7 +277,7 @@
     <EmbeddedResource Include="Giao Dien\Thay Doi Quy Dinh\ThayDoiQuyDinh.resx">
       <DependentUpon>ThayDoiQuyDinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Giao Dien\Tra Cuu Lich Chuyen Bay\TraCuuLichBay.resx">
+    <EmbeddedResource Include="Giao Dien\Tra Cuu\TraCuuLichBay.resx">
       <DependentUpon>TraCuuLichBay.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Giao Dien\Bao Cao\DS_BaoCao.xsc">

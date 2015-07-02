@@ -46,6 +46,8 @@ namespace MainForm
             textBoxMaSanBay.Text = AutoMaSanBay();
             textBoxDiaChiSanBay.Text = "";
             textBoxTenSanBay.Text = "";
+            btnLuu.Enabled = true;
+            
         }              
         private void buttonLuu_Click_1(object sender, EventArgs e)
         {
@@ -103,6 +105,7 @@ namespace MainForm
             this.textBoxMaSanBay.Text = this.dataGridViewSanBayDaThem.CurrentRow.Cells[0].Value.ToString();
             this.textBoxTenSanBay.Text = this.dataGridViewSanBayDaThem.CurrentRow.Cells[1].Value.ToString();
             this.textBoxDiaChiSanBay.Text = this.dataGridViewSanBayDaThem.CurrentRow.Cells[2].Value.ToString();
+            btnLuu.Enabled = false;
         }       
     }
 }

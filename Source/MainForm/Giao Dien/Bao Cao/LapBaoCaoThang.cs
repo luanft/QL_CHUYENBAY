@@ -238,11 +238,21 @@ namespace MainForm
 
         private void combox_Nam_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //comboBox_Thang.Enabled = true;
+            //buttonBaoCaoThang.Enabled = true;
+            //comboBox_Thang.DataSource = bll.LayThang(combox_Nam.SelectedValue.ToString());
+            //comboBox_Thang.DisplayMember = "Thang";
+            //comboBox_Thang.SelectedValue = "Thang";
+        }
+
+        private void combox_Nam_SelectionChangeCommitted(object sender, EventArgs e)
+        {
             comboBox_Thang.Enabled = true;
             buttonBaoCaoThang.Enabled = true;
             comboBox_Thang.DataSource = bll.LayThang(combox_Nam.SelectedValue.ToString());
-            comboBox_Thang.DisplayMember = "Thang";
-            comboBox_Thang.SelectedValue = "Thang";
+            comboBox_Thang.DisplayMember = "Month";
+            comboBox_Thang.ValueMember = "Month";
+            //comboBox_Thang.SelectedValue = "Month";
         }
 
       

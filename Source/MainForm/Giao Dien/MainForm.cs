@@ -13,6 +13,7 @@ using MainForm.Giao_diện;
 using MainForm.Giao_diện.Bán_Vé___Đặt_Chỗ;
 using MainForm.Giao_diện.Giao_Diện_Hỗ_Trợ;
 using MainForm.Giao_Dien.Giao_Dien_Ho_Tro;
+using MainForm.Giao_Dien.Tra_Cuu;
 
 namespace MainForm
 {
@@ -231,6 +232,9 @@ namespace MainForm
 
         private void dữLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DuLieu dl = new DuLieu();
+            dl.ShowDialog();
+
             //FormManager.CurrentDataView.MdiParent = this;
             //FormManager.CurrentDataView.Show();
             //FormManager.CurrentDataView.BeCalledByForm = NAME;
@@ -323,7 +327,8 @@ namespace MainForm
                 txt_password.Visible = false;
                 txt_username.Visible = false;
                 btn_Close.Visible = false;
-                btn_Login.Visible = false;                
+                btn_Login.Visible = false;
+                gbDangNhap.Visible = false;
             }
             else
             {

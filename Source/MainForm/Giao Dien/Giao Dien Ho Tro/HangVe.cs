@@ -54,6 +54,7 @@ namespace MainForm.Giao_diện
             this.textBoxMaHangVe.Text = AutoMaHangVe();
             this.textBoxTenHangVe.Text = "";
             this.textBoxTiLeDonGia.Text = "1.0";
+            buttonLuu.Enabled = true;
         }                         
         private bool CheckRules()
         {
@@ -102,6 +103,7 @@ namespace MainForm.Giao_diện
             this.textBoxMaHangVe.Text = this.dataGridViewHangVe.CurrentRow.Cells[0].Value.ToString();
             this.textBoxTenHangVe.Text = this.dataGridViewHangVe.CurrentRow.Cells[1].Value.ToString();
             this.textBoxTiLeDonGia.Text = this.dataGridViewHangVe.CurrentRow.Cells[2].Value.ToString();
+            buttonLuu.Enabled = false;
         }
         public void updateDataGrid()
         {

@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace MainForm.DataAccessLayer
 {
@@ -77,8 +78,15 @@ namespace MainForm.DataAccessLayer
         {
             SqlConnection sql_con = OpenConnnection();
             SqlCommand sql_cmd = new SqlCommand(sql_query, sql_con);
-            sql_cmd.ExecuteNonQuery();
+            int num= sql_cmd.ExecuteNonQuery();
             sql_cmd.Dispose();
+            //if(num>0)
+            //{
+            //    StreamWriter file = new StreamWriter(@"E:\SOLUTION\C#\Advance\QL_CHUYENBAY\trunk\Database\data.txt", true);
+            //    file.WriteLine(sql_query);
+            //    file.Close();
+            //}
+            
         }
     }
 }

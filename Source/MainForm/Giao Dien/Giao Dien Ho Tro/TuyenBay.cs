@@ -98,6 +98,7 @@ namespace MainForm
             this.textBoxMaTuyenBay.Text = this.datagrvTuyenBay.CurrentRow.Cells[0].Value.ToString();
             this.comboBoxSanBayDi.Text = this.datagrvTuyenBay.CurrentRow.Cells[1].Value.ToString();
             this.comboBoxSanBayDen.Text = this.datagrvTuyenBay.CurrentRow.Cells[2].Value.ToString();
+            buttonLuu.Enabled = false;
         }        
         private void comboBoxSanBayDi_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -132,7 +133,7 @@ namespace MainForm
             }
             catch (Exception ex) { }
             textBoxMaTuyenBay.Text = AutoMaTuyenBay();
-
+            buttonLuu.Enabled = true;
         }       
     }
 }

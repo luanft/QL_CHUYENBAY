@@ -106,6 +106,7 @@
             this.combox_Nam.Size = new System.Drawing.Size(66, 28);
             this.combox_Nam.TabIndex = 1;
             this.combox_Nam.SelectedIndexChanged += new System.EventHandler(this.combox_Nam_SelectedIndexChanged);
+            this.combox_Nam.SelectionChangeCommitted += new System.EventHandler(this.combox_Nam_SelectionChangeCommitted);
             // 
             // comboBox_Thang
             // 
@@ -153,14 +154,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 663);
+            this.ClientSize = new System.Drawing.Size(1020, 663);
             this.Controls.Add(this.buttonQuayVe);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(1055, 691);
+            this.MinimumSize = new System.Drawing.Size(1022, 691);
             this.Name = "BaoCaoThang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo Cáo Theo Tháng";

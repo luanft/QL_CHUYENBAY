@@ -42,8 +42,8 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxChucNang = new System.Windows.Forms.GroupBox();
-            this.buttonLuu = new System.Windows.Forms.Button();
-            this.buttonSua = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
             this._btThoat = new System.Windows.Forms.Button();
             this.toolTipThem = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipMaSanBay = new System.Windows.Forms.ToolTip(this.components);
@@ -165,7 +165,7 @@
             this.dataGridViewSanBayDaThem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewSanBayDaThem.Name = "dataGridViewSanBayDaThem";
             this.dataGridViewSanBayDaThem.Size = new System.Drawing.Size(569, 259);
-            this.dataGridViewSanBayDaThem.TabIndex = 0;            
+            this.dataGridViewSanBayDaThem.TabIndex = 0;
             this.dataGridViewSanBayDaThem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSanBayDaThem_CellContentClick);
             // 
             // C
@@ -194,8 +194,8 @@
             // 
             // groupBoxChucNang
             // 
-            this.groupBoxChucNang.Controls.Add(this.buttonLuu);
-            this.groupBoxChucNang.Controls.Add(this.buttonSua);
+            this.groupBoxChucNang.Controls.Add(this.btnLuu);
+            this.groupBoxChucNang.Controls.Add(this.btnSua);
             this.groupBoxChucNang.Location = new System.Drawing.Point(640, 14);
             this.groupBoxChucNang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBoxChucNang.Name = "groupBoxChucNang";
@@ -205,27 +205,27 @@
             this.groupBoxChucNang.TabStop = false;
             this.groupBoxChucNang.Text = "Chức năng";
             // 
-            // buttonLuu
+            // btnLuu
             // 
-            this.buttonLuu.Location = new System.Drawing.Point(10, 92);
-            this.buttonLuu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonLuu.Name = "buttonLuu";
-            this.buttonLuu.Size = new System.Drawing.Size(123, 37);
-            this.buttonLuu.TabIndex = 4;
-            this.buttonLuu.Text = "Lưu";
-            this.buttonLuu.UseVisualStyleBackColor = true;
-            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click_1);
+            this.btnLuu.Location = new System.Drawing.Point(10, 92);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(123, 37);
+            this.btnLuu.TabIndex = 4;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.buttonLuu_Click_1);
             // 
-            // buttonSua
+            // btnSua
             // 
-            this.buttonSua.Location = new System.Drawing.Point(10, 38);
-            this.buttonSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonSua.Name = "buttonSua";
-            this.buttonSua.Size = new System.Drawing.Size(123, 37);
-            this.buttonSua.TabIndex = 1;
-            this.buttonSua.Text = "Sửa";
-            this.buttonSua.UseVisualStyleBackColor = true;
-            this.buttonSua.Click += new System.EventHandler(this.buttonSua_Click);
+            this.btnSua.Location = new System.Drawing.Point(10, 38);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(123, 37);
+            this.btnSua.TabIndex = 1;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.buttonSua_Click);
             // 
             // _btThoat
             // 
@@ -308,14 +308,14 @@
         private System.Windows.Forms.TextBox textBoxDiaChiSanBay;
         private System.Windows.Forms.TextBox textBoxTenSanBay;
         private System.Windows.Forms.GroupBox groupBoxChucNang;
-        private System.Windows.Forms.Button buttonSua;
+        private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button _btThoat;
         private System.Windows.Forms.DataGridView dataGridViewSanBayDaThem;
         private System.Windows.Forms.ToolTip toolTipThem;
         private System.Windows.Forms.ToolTip toolTipMaSanBay;
         private System.Windows.Forms.ToolTip toolTipDiaChiSanBay;
         private System.Windows.Forms.ToolTip toolTipTenSanBay;
-        private System.Windows.Forms.Button buttonLuu;
+        private System.Windows.Forms.Button btnLuu;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn C;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
