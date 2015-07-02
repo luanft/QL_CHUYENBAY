@@ -45,13 +45,14 @@ namespace MainForm
             DataTable dt_check = bll.LayNamThang();
             if (dt_check.Rows.Count != 0)
             {
-                combox_Nam.DataSource = dt_check;
-                combox_Nam.DisplayMember = "Year";
-                combox_Nam.ValueMember = "Year";
+                comboBox_Nam.DataSource = dt_check;
+                comboBox_Nam.DisplayMember = "Year";
+                comboBox_Nam.ValueMember = "Year";
+
             }
             else
             {
-                combox_Nam.Enabled = false;
+                comboBox_Nam.Enabled = false;
                 buttonBaoCaoThang.Enabled = false;  
             }
         }
@@ -112,10 +113,10 @@ namespace MainForm
             //dataGridViewKQ.Rows.Clear();
 
             int thang = Convert.ToInt16(comboBox_Thang.SelectedValue.ToString());
-            int nam = Convert.ToInt16(combox_Nam.SelectedValue.ToString());
+            int nam = Convert.ToInt16(comboBox_Nam.SelectedValue.ToString());
 
 
-            cry.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\Bảo trì phần mềm\QL_CHUYENBAY\trunk\Source\MainForm\Giao Dien\Bao Cao\BaoCaoThang.rpt");
+            cry.Load(@"C:\Users\norules\Desktop\Mantenance v2\trunk\Source\MainForm\Giao Dien\Bao Cao\BaoCaoThang.rpt");
             DataSet ds = new DataSet();
             DataTable dt_baocao = bll.LapBaoCaoThang(thang, nam);
             if (dt_baocao == null)
@@ -182,7 +183,7 @@ namespace MainForm
         }
         private bool CheckRules()
         {
-            if (combox_Nam.SelectedValue.ToString() == "" || comboBox_Thang.SelectedValue.ToString() == "")
+            if (comboBox_Nam.SelectedValue.ToString() == "" || comboBox_Thang.SelectedValue.ToString() == "")
             {
                 MessageBox.Show("không thể bỏ trống năm hoặc tháng!");
                 return false;
@@ -197,7 +198,7 @@ namespace MainForm
      #endregion
 
             int thang = Convert.ToInt16(comboBox_Thang.SelectedValue.ToString());
-            int nam = Convert.ToInt16(combox_Nam.SelectedValue.ToString());
+            int nam = Convert.ToInt16(comboBox_Nam.SelectedValue.ToString());
             if (thang < 1 || thang > 12)
             {
                 MessageBox.Show("Tháng không hợp lệ!");
@@ -249,7 +250,7 @@ namespace MainForm
         {
             comboBox_Thang.Enabled = true;
             buttonBaoCaoThang.Enabled = true;
-            comboBox_Thang.DataSource = bll.LayThang(combox_Nam.SelectedValue.ToString());
+            comboBox_Thang.DataSource = bll.LayThang(comboBox_Nam.SelectedValue.ToString());
             comboBox_Thang.DisplayMember = "Month";
             comboBox_Thang.ValueMember = "Month";
             //comboBox_Thang.SelectedValue = "Month";

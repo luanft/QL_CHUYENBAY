@@ -32,7 +32,7 @@
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.buttonBaoCaoThang = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.combox_Nam = new System.Windows.Forms.ComboBox();
+            this.comboBox_Nam = new System.Windows.Forms.ComboBox();
             this.comboBox_Thang = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -83,7 +83,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.combox_Nam);
+            this.groupBox2.Controls.Add(this.comboBox_Nam);
             this.groupBox2.Controls.Add(this.comboBox_Thang);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
@@ -99,14 +99,14 @@
             // 
             // combox_Nam
             // 
-            this.combox_Nam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combox_Nam.FormattingEnabled = true;
-            this.combox_Nam.Location = new System.Drawing.Point(57, 28);
-            this.combox_Nam.Name = "combox_Nam";
-            this.combox_Nam.Size = new System.Drawing.Size(66, 28);
-            this.combox_Nam.TabIndex = 1;
-            this.combox_Nam.SelectedIndexChanged += new System.EventHandler(this.combox_Nam_SelectedIndexChanged);
-            this.combox_Nam.SelectionChangeCommitted += new System.EventHandler(this.combox_Nam_SelectionChangeCommitted);
+            this.comboBox_Nam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Nam.FormattingEnabled = true;
+            this.comboBox_Nam.Location = new System.Drawing.Point(57, 28);
+            this.comboBox_Nam.Name = "combox_Nam";
+            this.comboBox_Nam.Size = new System.Drawing.Size(66, 28);
+            this.comboBox_Nam.TabIndex = 1;
+            this.comboBox_Nam.SelectedIndexChanged += new System.EventHandler(this.combox_Nam_SelectedIndexChanged);
+            this.comboBox_Nam.SelectionChangeCommitted += new System.EventHandler(this.combox_Nam_SelectionChangeCommitted);
             // 
             // comboBox_Thang
             // 
@@ -184,6 +184,6 @@
         private System.Windows.Forms.Button buttonQuayVe;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private System.Windows.Forms.ComboBox comboBox_Thang;
-        private System.Windows.Forms.ComboBox combox_Nam;
+        private System.Windows.Forms.ComboBox comboBox_Nam;
     }
 }
