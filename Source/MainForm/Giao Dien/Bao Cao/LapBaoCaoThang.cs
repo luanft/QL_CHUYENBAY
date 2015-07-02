@@ -48,7 +48,8 @@ namespace MainForm
                 comboBox_Nam.DataSource = dt_check;
                 comboBox_Nam.DisplayMember = "Year";
                 comboBox_Nam.ValueMember = "Year";
-
+                comboBox_Nam.SelectedItem = null;
+                
             }
             else
             {
@@ -110,11 +111,21 @@ namespace MainForm
 
         private void buttonBaoCaoThang_Click(object sender, EventArgs e)
         {
+            
             //dataGridViewKQ.Rows.Clear();
+            if (string.IsNullOrEmpty(comboBox_Nam.Text))
+            {
+                MessageBox.Show("Please select a value");
+                return;    
+            }
 
-            int thang = Convert.ToInt16(comboBox_Thang.SelectedValue.ToString());
+            if (string.IsNullOrEmpty(comboBox_Thang.Text))
+            {
+                MessageBox.Show("Please select a value");
+                return;
+            }
+            int thang = Convert.ToInt16(comboBox_Thang.SelectedValue.ToString());            
             int nam = Convert.ToInt16(comboBox_Nam.SelectedValue.ToString());
-
 
             cry.Load(@"C:\Users\norules\Desktop\Mantenance v2\trunk\Source\MainForm\Giao Dien\Bao Cao\BaoCaoThang.rpt");
             DataSet ds = new DataSet();
@@ -253,7 +264,8 @@ namespace MainForm
             comboBox_Thang.DataSource = bll.LayThang(comboBox_Nam.SelectedValue.ToString());
             comboBox_Thang.DisplayMember = "Month";
             comboBox_Thang.ValueMember = "Month";
-            //comboBox_Thang.SelectedValue = "Month";
+            comboBox_Thang.SelectedIndex = 0;
+            
         }
 
       
