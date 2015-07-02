@@ -50,7 +50,7 @@ namespace MainForm
         private void buttonBaoCaoNam_Click(object sender, EventArgs e)
         {
             int nam = Convert.ToInt16(comboBox_Nam.SelectedValue.ToString());
-            cry.Load(@"C:\Users\norules\Desktop\Mantenance v2\trunk\Source\MainForm\Giao Dien\Bao Cao\BaoCaoNam.rpt");
+            cry.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\Bảo trì phần mềm\QL_CHUYENBAY\trunk\Source\MainForm\Giao Dien\Bao Cao\BaoCaoNam.rpt");
             
             DataSet ds = new DataSet();
             DataTable dt_baocao = bll.LapBaoCaoNam(nam);

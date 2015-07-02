@@ -55,7 +55,7 @@ namespace MainForm.DataAccessLayer
 
         public void LuuDoanhThuThang(string thang, string nam, string sochuyenbay, string doanhthu)
         {
-            string sql = "insert into DOANHTHUTHANG values('" + thang + "','" + nam + "','" + sochuyenbay + "','" + doanhthu + "',null";
+            string sql = "insert into DOANHTHUTHANG values('" + thang + "','" + nam + "','" + sochuyenbay + "','" + doanhthu + "',null)";
             conn.Write(sql);
         }
 

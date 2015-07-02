@@ -384,7 +384,7 @@ namespace MainForm
                         textBoxMaChuyenBay.Text,
                         comboBoxMaTuyenBay.Text,
                         textBoxThoiGianBay.Text,
-                        dateTimePickerNgayKhoiHanh.Value.ToShortDateString(),
+                        dateTimePickerNgayKhoiHanh.Value.ToString(),
                         dateTimePickerGioKhoiHanh.Value.ToString("HH:mm:ss"),
                         textBoxDonGia.Text);
             #endregion

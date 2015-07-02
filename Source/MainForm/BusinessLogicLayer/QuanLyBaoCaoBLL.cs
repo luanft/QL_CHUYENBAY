@@ -133,9 +133,10 @@ namespace MainForm.BusinessLogicLayer
                             }
                             
                         }
-                        tongSoChuyenBay += soChuyenBay;
-                        tongDoanhThu += doanhThu;
+                        
                     }
+                    tongSoChuyenBay += soChuyenBay;
+                    tongDoanhThu += doanhThu;
                     if (soChuyenBay > 0)
                     {
                         dt_save.Rows.Add(i.ToString(),
@@ -146,6 +147,7 @@ namespace MainForm.BusinessLogicLayer
                                         tongSoChuyenBay.ToString(),
                                         tongDoanhThu.ToString());
                     }
+
                 }
                 try
                 {
