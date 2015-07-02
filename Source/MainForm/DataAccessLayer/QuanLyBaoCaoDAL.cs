@@ -86,7 +86,7 @@ namespace MainForm.DataAccessLayer
 
         public DataTable LayThang(string nam)
         {
-            string sql = "select MONTH(NgayKhoiHanh) as Month from CHUYENBAY where YEAR(NgayKhoiHanh)=" + nam + "";
+            string sql = "select distinct MONTH(NgayKhoiHanh) as Month from CHUYENBAY where YEAR(NgayKhoiHanh)=" + nam + "";
             DataTable tmp = conn.Read(sql);
             return tmp;
         }

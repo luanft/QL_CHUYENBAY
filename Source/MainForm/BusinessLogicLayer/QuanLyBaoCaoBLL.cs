@@ -113,20 +113,28 @@ namespace MainForm.BusinessLogicLayer
                         {
 
                             soChuyenBay++;
-                            tongSoChuyenBay = tongSoChuyenBay + soChuyenBay;
+                           
                             DataTable dt_loaiGhe = dal.LayLoaiGhe(dr["MaChuyenBay"].ToString());
-                            int soGheDat = Int32.Parse(dt_loaiGhe.Rows[0]["SoGheDat"].ToString());
+                            
                             int donGia = Int32.Parse(dr["DonGia"].ToString());
-                            foreach (DataRow hv in dt_hangVe.Rows)
+                            foreach (DataRow lg in dt_loaiGhe.Rows)
                             {
-                                if (dt_loaiGhe.Rows[0]["MaChuyenBay"].ToString() == hv["MaHangVe"].ToString())
+                                int soGheDat = Int32.Parse(lg["SoGheDat"].ToString());
+                                foreach (DataRow hv in dt_hangVe.Rows)
                                 {
-                                    float tiLeDonGia = float.Parse(hv["TiLeDonGia"].ToString());
-                                    doanhThu += Convert.ToDouble(soGheDat * (donGia + donGia * tiLeDonGia));
-                                    tongDoanhThu += doanhThu;
+                                    if (lg["MaHangVe"].ToString() == hv["MaHangVe"].ToString())
+                                    {
+                                        float tiLeDonGia = float.Parse(hv["TiLeDonGia"].ToString());
+                                        doanhThu += Convert.ToDouble(soGheDat * (donGia + donGia * tiLeDonGia));
+                                        
+                                    }
                                 }
+                                
                             }
+                            
                         }
+                        tongSoChuyenBay += soChuyenBay;
+                        tongDoanhThu += doanhThu;
                     }
                     if (soChuyenBay > 0)
                     {
