@@ -14,15 +14,15 @@ namespace MainForm
         private string parentForm;                
         private bool isSelectOneRows = false;
 
-        public string BeCalledByForm
-        {
-            get { return parentForm; }
-            set { parentForm = value; }
-        }
-        public string NAME
-        {
-            get { return SANBAY; }
-        }
+        //public string BeCalledByForm
+        //{
+        //    get { return parentForm; }
+        //    set { parentForm = value; }
+        //}
+        //public string NAME
+        //{
+        //    get { return SANBAY; }
+        //}
 
         public SanBay()
         {
@@ -92,9 +92,6 @@ namespace MainForm
             return "99999";
 
         }        
-        private void InitDefaultState()
-        {            
-        }
         private void updateDataGrid()
         {
             this.dataGridViewSanBayDaThem.DataSource = _connect.LaySanBay();

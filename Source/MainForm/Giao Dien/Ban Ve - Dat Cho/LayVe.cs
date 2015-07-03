@@ -496,9 +496,9 @@ namespace MainForm.Giao_diện.Bán_Vé___Đặt_Chỗ
         // gio xuat phat
         textBox_giobay.Text = _layvebll.lay_gio_khoi_hanh(comboBox_maCB.Text);
         // san bay trung gian
-        dataGridView_thongtincb.DataSource = _layvebll.lay_danh_sach_SBTG(comboBox_maCB.Text);
+        //dataGridView_thongtincb.DataSource = _layvebll.lay_danh_sach_SBTG(comboBox_maCB.Text);
         // not select trong datagrid view SB trung gian
-        dataGridView_thongtincb.ClearSelection();
+        //dataGridView_thongtincb.ClearSelection();
     }
     public void xoa_du_lieu_thong_tin_CB()
     {
@@ -513,7 +513,7 @@ namespace MainForm.Giao_diện.Bán_Vé___Đặt_Chỗ
         // gio xuat phat
         textBox_giobay.Text = "";
         // san bay trung gian
-        dataGridView_thongtincb.DataSource = null;
+       // dataGridView_thongtincb.DataSource = null;
     }
     //thong tin hang ve_ sau khi chon combo
     public void gan_thong_tin_han_ve()

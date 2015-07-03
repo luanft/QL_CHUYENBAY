@@ -61,11 +61,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox_SB_di = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView_thongtincb = new System.Windows.Forms.DataGridView();
-            this.TenSanBay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThoiGianDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView_thongtinve = new System.Windows.Forms.DataGridView();
             this.Column_maphieudat = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,15 +73,12 @@
             this.Column_tenhangve = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1_giatien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label_thongbao = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtincb)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtinve)).BeginInit();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -422,60 +414,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "SB đi";
             // 
-            // dataGridView_thongtincb
-            // 
-            this.dataGridView_thongtincb.AllowUserToAddRows = false;
-            this.dataGridView_thongtincb.AllowUserToDeleteRows = false;
-            this.dataGridView_thongtincb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_thongtincb.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TenSanBay,
-            this.DiaChi,
-            this.ThoiGianDung,
-            this.GhiChu});
-            this.dataGridView_thongtincb.Location = new System.Drawing.Point(7, 25);
-            this.dataGridView_thongtincb.MultiSelect = false;
-            this.dataGridView_thongtincb.Name = "dataGridView_thongtincb";
-            this.dataGridView_thongtincb.ReadOnly = true;
-            this.dataGridView_thongtincb.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_thongtincb.Size = new System.Drawing.Size(402, 128);
-            this.dataGridView_thongtincb.TabIndex = 2;
-            // 
-            // TenSanBay
-            // 
-            this.TenSanBay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.TenSanBay.DataPropertyName = "TenSanBay";
-            this.TenSanBay.HeaderText = "Sân bay trung gian";
-            this.TenSanBay.Name = "TenSanBay";
-            this.TenSanBay.ReadOnly = true;
-            this.TenSanBay.Width = 125;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            this.DiaChi.Width = 58;
-            // 
-            // ThoiGianDung
-            // 
-            this.ThoiGianDung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.ThoiGianDung.DataPropertyName = "ThoiGianDung";
-            this.ThoiGianDung.HeaderText = "Thời gian dừng";
-            this.ThoiGianDung.Name = "ThoiGianDung";
-            this.ThoiGianDung.ReadOnly = true;
-            this.ThoiGianDung.Width = 126;
-            // 
-            // GhiChu
-            // 
-            this.GhiChu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.GhiChu.DataPropertyName = "GhiChu";
-            this.GhiChu.HeaderText = "Ghi chú";
-            this.GhiChu.Name = "GhiChu";
-            this.GhiChu.ReadOnly = true;
-            this.GhiChu.Width = 82;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView_thongtinve);
@@ -593,16 +531,6 @@
             this.Column1_giatien.ReadOnly = true;
             this.Column1_giatien.Width = 82;
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.dataGridView_thongtincb);
-            this.groupBox5.Location = new System.Drawing.Point(363, 261);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(409, 165);
-            this.groupBox5.TabIndex = 34;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Sân bay trung gian";
-            // 
             // label_thongbao
             // 
             this.label_thongbao.AutoSize = true;
@@ -618,7 +546,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 712);
             this.Controls.Add(this.label_thongbao);
-            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -634,10 +561,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtincb)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_thongtinve)).EndInit();
-            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -662,7 +587,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView_thongtincb;
         private System.Windows.Forms.TextBox textBox_giobay;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox_ngay_bay;
@@ -678,10 +602,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView_thongtinve;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenSanBay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ThoiGianDung;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_maphieudat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_mave;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Macb;
@@ -695,7 +615,6 @@
         private System.Windows.Forms.ComboBox comboBox_mave;
         private System.Windows.Forms.TextBox textBox_mahv;
         private System.Windows.Forms.TextBox textBox_macb;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label_thongbao;
     }
 }
